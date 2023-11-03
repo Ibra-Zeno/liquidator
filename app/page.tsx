@@ -4,7 +4,7 @@ import { ChevronRight, Users2, CheckSquare, LockKeyhole } from "lucide-react";
 import Button from "@/components/ui/index/button";
 import { NavigationMenuDemo } from "@/components/ui/Navbar";
 
-export const logoCloud = [
+const logoCloud = [
   {
     name: "Malaysia Department of Insolvency (MDI)",
     href: "http://www.insolvensi.gov.my/",
