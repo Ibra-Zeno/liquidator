@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LuChevronRight } from "react-icons/lu";
+import { ChevronRight, Users2, CheckSquare, LockKeyhole } from "lucide-react";
+import Button from "@/components/ui/index/button";
+import { NavigationMenuDemo } from "@/components/ui/Navbar";
 
 export const logoCloud = [
   {
@@ -54,60 +56,52 @@ export const logoCloud = [
     imageSrc: "",
   },
 ];
-export default function Home() {
-  return (
-    <main>
-      {/* className="flex min-h-screen flex-col items-center justify-between p-24" */}
-      <section className="overflow-hidden bg-white pb-24 pt-8 sm:pb-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-0">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-            <div className="relative lg:pr-8 lg:pt-4">
-              <div className="flex h-full flex-col justify-start pt-24 xl:max-w-lg">
-                <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight ">
-                  Radiant Consulting
-                </h1>
-                <p className="mt-3 text-lg text-gray-800 dark:text-gray-400">
-                  Driving Business Innovations and Creating Financial
-                  Empowerment
-                </p>
 
-                {/* <!-- Buttons --> */}
-                <div className="mt-7 grid w-full gap-3 sm:inline-flex">
-                  <Link
-                    className="inline-flex items-center justify-center gap-x-3 rounded-md border border-transparent bg-blue-600 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 lg:text-base"
-                    href="/"
-                  >
-                    Get started
-                    <LuChevronRight />
-                  </Link>
-                  <Link
-                    className="inline-flex items-center justify-center gap-x-3.5 rounded-md border px-4 py-3 text-center text-sm font-medium shadow-sm transition hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-800 dark:shadow-slate-700/[.7] dark:hover:border-gray-600 dark:focus:ring-gray-700  dark:focus:ring-offset-gray-800 lg:text-base"
-                    href="/"
-                  >
-                    Contact sales team
-                  </Link>
-                </div>
+const Index: React.FC = () => {
+  return (
+    <main className="relative bg-[#e4d4c8]">
+      <NavigationMenuDemo />
+      <section className="relative pb-10 pt-24 sm:pb-16 sm:pt-12 lg:min-h-[1000px] lg:pb-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl text-center">
+            <h1 className="text-4xl font-bold sm:text-6xl">
+              <span className="bg-gradient-to-r from-green-700 to-gray-800 bg-clip-text text-transparent">
+                {" "}
+                Radiant Consulting Asia Sdn Bhd{" "}
+              </span>
+            </h1>
+            <p className="mt-5 text-base  sm:text-xl">
+              Propelling Business Innovations Forward and Cultivating Financial
+              Empowerment for Sustainable Growth
+            </p>
+
+            <Link href="" title="" role="button">
+              <Button className="!py-6">
+                Get Started
+                <ChevronRight className="ml-2" />
+              </Button>
+            </Link>
+
+            <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-8 px-20 text-left sm:grid-cols-3 sm:px-0">
+              <div className="flex items-center">
+                <Users2 className="" size={50} />
+                <p className="ml-3 text-sm ">Over 12,000 students joined</p>
+              </div>
+
+              <div className="flex items-center">
+                <CheckSquare size={50} />
+                <p className="ml-3 text-sm ">
+                  No yearly charges, maximum limits
+                </p>
+              </div>
+
+              <div className="flex items-center">
+                <LockKeyhole size={50} />
+                <p className="ml-3 text-sm ">Secured & safe online payment</p>
               </div>
             </div>
-            <Image
-              src="/images/index/main-bg.jpg"
-              alt="Product screenshot"
-              className="aspect-square max-h-[37rem] w-[48rem] max-w-none rounded-xl object-cover object-top shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-              width={2432}
-              height={1442}
-            />
           </div>
-        </div>
-      </section>
-      <section id="logo-cloud">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-xl font-medium text-gray-900">
-              Trusted by world class creators
-            </h2>
-          </div>
-
-          <div className="my-8 grid grid-cols-2 gap-10 sm:gap-y-16 md:grid-cols-4 xl:grid-cols-5">
+          <div className="my-20 grid grid-cols-2 gap-4 sm:gap-y-8 md:grid-cols-4 xl:grid-cols-5">
             {logoCloud.map((logo) => (
               <div
                 key={logo.name}
@@ -131,7 +125,9 @@ export default function Home() {
       </section>
     </main>
   );
-}
+};
+
+export default Index;
 
 /* <div class="bg-gradient-to-b from-[#101212] relative to-[#08201D]">
     <header class="absolute inset-x-0 top-0 z-10 w-full">
@@ -144,7 +140,7 @@ export default function Home() {
                 </div>
 
                 <div class="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
-                    <a href="#" title="" class="text-base text-white transition-all duration-200 hover:text-opacity-80"> Features </a>
+                    <a href="#" title="" class="text-base  transition-all duration-200 hover:text-opacity-80"> Features </a>
 
                     <a href="#" title="" class="text-base text-white transition-all duration-200 hover:text-opacity-80"> Solutions </a>
 
