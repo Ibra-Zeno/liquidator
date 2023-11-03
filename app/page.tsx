@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Users2, CheckSquare, LockKeyhole } from "lucide-react";
 import Button from "@/components/ui/index/button";
-import { NavigationMenuDemo } from "@/components/ui/Navbar";
 
 const logoCloud = [
   {
@@ -60,7 +59,6 @@ const logoCloud = [
 const Index: React.FC = () => {
   return (
     <main className="relative bg-[#e4d4c8]">
-      <NavigationMenuDemo />
       <section className="relative pb-10 pt-24 sm:pb-16 sm:pt-12 lg:min-h-[1000px] lg:pb-24">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
