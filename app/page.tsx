@@ -10,12 +10,18 @@ const Index: React.FC = () => {
       <section className="relative pb-10 pt-24 sm:pt-12 lg:min-h-[1000px] lg:pb-12">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <h1 className="text-4xl font-bold sm:text-6xl">
-              <span className="bg-gradient-to-r from-green-700 to-gray-800 bg-clip-text text-transparent">
-                {" "}
-                Radiant Consulting Asia Sdn Bhd{" "}
-              </span>
-            </h1>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/images/index/liquidatorLogo.png"
+                className=""
+                alt="theliquidator.net logo"
+                width={75}
+                height={75}
+              />
+              <h1 className="font-logo -mb-8 ml-5 text-4xl font-thin sm:text-4xl">
+                theliquidator.net
+              </h1>
+            </div>
             <p className="mt-5 text-base  sm:text-xl">
               Propelling Business Innovations Forward and Cultivating Financial
               Empowerment for Sustainable Growth
