@@ -22,7 +22,7 @@ const aboutLinks: { title: string; href: string; description: string }[] = [
     description: "Learn more about our mission and values.",
   },
   {
-    title: "Sercvices",
+    title: "Services",
     href: "/",
     description: "Explore our areas of expertise and how we can help you.",
   },
