@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "SatisfactionPro";
+  src:
+    url("/fonts/SatisfactionPro/5189aa5c6e19bfcf76498932b467a10e.eot?#iefix")
+      format("embedded-opentype"),
+    url("/fonts/SatisfactionPro/5189aa5c6e19bfcf76498932b467a10e.woff")
+      format("woff"),
+    url("/fonts/SatisfactionPro/5189aa5c6e19bfcf76498932b467a10e.woff2")
+      format("woff2"),
+    url("/fonts/SatisfactionPro/5189aa5c6e19bfcf76498932b467a10e.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
