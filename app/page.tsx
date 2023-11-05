@@ -18,11 +18,11 @@ const Index: React.FC = () => {
                 width={75}
                 height={75}
               />
-              <h1 className="font-logo -mb-8 ml-5 text-4xl font-thin sm:text-4xl">
+              <h1 className="-mb-8 ml-5 font-logo text-4xl tracking-wider sm:text-5xl">
                 theliquidator.net
               </h1>
             </div>
-            <p className="mt-5 text-base  sm:text-xl">
+            <p className="mb-4 mt-8 text-base  sm:text-xl">
               Propelling Business Innovations Forward and Cultivating Financial
               Empowerment for Sustainable Growth
             </p>
