@@ -2,6 +2,7 @@
 // import { usepathname } from 'next/router';
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Home, ChevronRight } from "lucide-react";
 
 const Breadcrumbs = () => {
   const pathname = usePathname();
@@ -23,18 +24,27 @@ const Breadcrumbs = () => {
   });
 
   return (
-    <nav aria-label="breadcrumbs">
-      <ol>
+    <section
+      aria-label="breadcrumbs"
+      className="mx-auto max-w-7xl py-2.5 text-sm opacity-90"
+    >
+      <ol className="flex">
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" className="flex items-center text-opacity-40">
+            <Home size={17} className="mr-2" />
+            Home
+          </Link>
         </li>
         {breadcrumbs.map((crumb, index) => (
-          <li key={index}>
-            <Link href={crumb.href}>{crumb.name}</Link>
+          <li key={index} className="flex items-center  ">
+            <ChevronRight size={17} className="mx-2.5" />
+            <Link href={crumb.href} className="items-center">
+              {crumb.name}
+            </Link>
           </li>
         ))}
       </ol>
-    </nav>
+    </section>
   );
 };
 
