@@ -38,7 +38,10 @@ const Breadcrumbs = () => {
         {breadcrumbs.map((crumb, index) => (
           <li key={index} className="flex items-center  ">
             <ChevronRight size={17} className="mx-2.5" />
-            <Link href={crumb.href} className="items-center">
+            <Link
+              href={crumb.href}
+              className="items-center hover:text-opacity-60"
+            >
               {crumb.name}
             </Link>
           </li>
