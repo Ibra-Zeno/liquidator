@@ -67,8 +67,8 @@ const contactInfo = [
 const Footer: FC<FooterProps> = ({}) => {
   return (
     <div>
-      <footer className="bg-[#DDF2FD]">
-        <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:pt-20">
+      <footer className="my-10 border-t border-gray-700/40 lg:mt-20">
+        <div className="mx-auto max-w-[85rem] px-4 py-6  sm:px-6 lg:px-8 ">
           <div className="flex justify-between">
             <div className="col-span-full mb-8 lg:col-span-1">
               <Logo />
