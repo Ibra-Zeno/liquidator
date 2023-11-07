@@ -10,7 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/components/shadcn/ui/navigation-menu";
 import Logo from "./ui/Logo";
 import { FC } from "react";
 import { cn } from "@/lib/utils";
@@ -18,12 +18,12 @@ import { cn } from "@/lib/utils";
 const aboutLinks: { title: string; href: string; description: string }[] = [
   {
     title: "About",
-    href: "/",
+    href: "/about",
     description: "Learn more about our mission and values.",
   },
   {
     title: "Services",
-    href: "/",
+    href: "/services",
     description: "Explore our areas of expertise and how we can help you.",
   },
   {
@@ -99,7 +99,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
                     {aboutLinks.map((link) => (
                       <li key={link.title}>
                         <NavigationMenuLink
-                          asChild
+                          // asChild
                           href={link.href}
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
