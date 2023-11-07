@@ -114,6 +114,24 @@ const Services: React.FC = () => {
         </div>
         <Breadcrumbs />
       </section>
+      <p className="mx-auto mb-6 mt-12 max-w-prose text-center">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolore
+        officia ex sint cupiditate maiores, quisquam numquam commodi iure, rem
+        rerum quod omnis qui perferendis velit neque placeat, voluptatibus et?
+      </p>
+      {services.map((service) => (
+        <section
+          key={service.title}
+          className="shadown-lg mx-auto max-w-6xl rounded border-y-2 py-12"
+        >
+          <div className="grid grid-cols-6 justify-between gap-y-8">
+            <h2 className="col-span-2 text-4xl font-bold">{service.title}</h2>
+            <ul className="col-span-4 list-inside list-disc leading-8">
+              {service.content()}
+            </ul>
+          </div>
+        </section>
+      ))}
     </main>
   );
 };
