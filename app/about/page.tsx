@@ -48,6 +48,32 @@ const About: FC<pageProps> = ({}) => {
         </div>
         <Breadcrumbs />
       </section>
+      {/* Value cards */}
+      <section>
+        <div className="relative mx-auto w-full max-w-7xl items-center px-5 py-12 md:px-8">
+          <h3 className="text-center text-4xl font-semibold">Our Values</h3>
+          <div className="mx-auto mt-12 grid w-full grid-cols-1 gap-x-3 lg:grid-cols-3">
+            {values.map((value, index) => (
+              <div
+                key={index}
+                className="mx-auto max-w-md rounded bg-stone-100 p-6 shadow-lg"
+              >
+                <div className="gap-3 lg:inline-flex lg:items-center">
+                  <div className="flex h-10 w-10 items-center justify-center rounded bg-gray-300 text-black">
+                    {value.icon}
+                  </div>
+                  <p className="mt-4 text-lg font-medium leading-6 text-black lg:mt-0">
+                    {value.title}
+                  </p>
+                </div>
+                <p className="mt-3 text-base leading-7 text-gray-500">
+                  {value.content}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Content (sticky) */}
       <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
         {/* <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -238,32 +264,6 @@ const About: FC<pageProps> = ({}) => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      {/* Value cards */}
-      <section>
-        <div className="relative mx-auto w-full max-w-7xl items-center px-5 py-12 md:px-8">
-          <h3 className="text-center text-4xl font-semibold">Our Values</h3>
-          <div className="mx-auto mt-12 grid w-full grid-cols-1 gap-x-3 lg:grid-cols-3">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="mx-auto max-w-md rounded bg-stone-50 p-6 shadow-lg"
-              >
-                <div className="gap-3 lg:inline-flex lg:items-center">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-gray-300 text-black">
-                    {value.icon}
-                  </div>
-                  <p className="mt-4 text-lg font-medium leading-6 text-black lg:mt-0">
-                    {value.title}
-                  </p>
-                </div>
-                <p className="mt-3 text-base leading-7 text-gray-500">
-                  {value.content}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
