@@ -18,7 +18,6 @@ const FAQAccordion = () => {
   // Function to toggle the language
   const toggleLanguage = () => {
     setIsEnglish(!isEnglish);
-    console.log(isEnglish);
   };
 
   // Selecting the data based on the language
