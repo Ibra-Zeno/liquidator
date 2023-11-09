@@ -36,43 +36,43 @@ const aboutLinks: { title: string; href: string; description: string }[] = [
 const teamLinks: { title: string; href: string; description: string }[] = [
   {
     title: "Liquidators",
-    href: "/",
+    href: "/team/liquidators",
     description:
       "lorem dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
   },
   {
     title: "Senior Management",
-    href: "/",
+    href: "/team/senior-management",
     description:
       "lorem dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
   },
   {
     title: "Liquidation",
-    href: "/",
+    href: "/team/liquidation",
     description:
       "lorem dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
   },
   {
     title: "Conveyancing & Subsale",
-    href: "/",
+    href: "/team/conveyancing-subsale",
     description:
       "lorem dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
   },
   {
     title: "Accounts",
-    href: "/",
+    href: "/team/accounts",
     description:
       "lorem dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
   },
   {
     title: "Admin",
-    href: "/",
+    href: "/team/admin",
     description:
       "lorem dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit.",
   },
   {
     title: "Consultants",
-    href: "/",
+    href: "/team/consultants",
     description: "lorem dol",
   },
 ];
@@ -122,7 +122,6 @@ const Navbar: FC<NavbarProps> = ({}) => {
                     {teamLinks.map((link) => (
                       <li key={link.title}>
                         <NavigationMenuLink
-                          asChild
                           href={link.href}
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
