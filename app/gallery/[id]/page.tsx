@@ -58,7 +58,6 @@ const AlbumPage = () => {
   }, [albumId]);
 
   // Log for debugging purposes
-  console.log("Album Data:", album);
 
   if (!album) return <div>Loading...</div>;
 
