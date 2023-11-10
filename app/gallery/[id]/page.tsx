@@ -1,12 +1,10 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import { urlForImage } from "@/sanity/lib/image";
 import { client } from "../../../sanity/lib/client";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import "lightgallery.js/dist/css/lightgallery.css";
-import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
+import Lightbox from "react-spring-lightbox";
 
 // Define the Album and ImageWithDescription types
 type ImageWithDescription = {
@@ -46,6 +44,8 @@ const fetchAlbum = async (albumId: string) => {
 const AlbumPage = () => {
   const [album, setAlbum] = useState<Album | null>(null);
   const params = useParams();
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const albumId = params.id as string;
 
   useEffect(() => {
@@ -61,38 +61,66 @@ const AlbumPage = () => {
 
   if (!album) return <div>Loading...</div>;
 
+  const images = album.images
+    .filter((image) => image.asset && image.asset.url)
+    .map((image) => ({
+      src: image.asset.url,
+      alt: image.description,
+    }));
+
+  const openLightboxOnIndex = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const gotoPrevious = () =>
+    currentImageIndex > 0 && setCurrentImageIndex(currentImageIndex - 1);
+
+  const gotoNext = () =>
+    currentImageIndex + 1 < images.length &&
+    setCurrentImageIndex(currentImageIndex + 1);
+
   return (
-    <LightgalleryProvider>
-      <div>
-        <h1>{album.title}</h1>
-        <p>Album date: {album.date}</p>
-        <div>
-          {album.images.length !== 0 &&
-            album.images.map((image) => {
-              // Check if the asset and url exists before rendering the LightgalleryItem component
-              if (image.asset && image.asset.url) {
-                return (
-                  <LightgalleryItem
-                    key={image._key}
-                    group="group-1"
-                    src={image.asset.url}
-                  >
-                    <Image
-                      src={image.asset.url}
-                      width={400}
-                      height={400}
-                      alt={image.description}
-                      style={{ cursor: "pointer" }} // Make the image act as a clickable item
-                    />
-                  </LightgalleryItem>
-                );
-              } else {
-                return <div key={image._key}>Image not available</div>;
-              }
-            })}
-        </div>
+    <div>
+      <h1>{album.title}</h1>
+      <p>Album date: {album.date}</p>
+      <div className="image-grid">
+        {images.map((image, index) => (
+          <Image
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            height={100}
+            width={100}
+            onClick={() => openLightboxOnIndex(index)}
+            style={{ cursor: "pointer", width: "100px", margin: "5px" }} // Adjust styles as needed
+          />
+        ))}
       </div>
-    </LightgalleryProvider>
+      {lightboxOpen && (
+        <Lightbox
+          onPrev={gotoPrevious}
+          onNext={gotoNext}
+          images={images}
+          currentIndex={currentImageIndex}
+          onClose={() => setLightboxOpen(false)}
+          /* Add custom UI components and styling here */
+          renderHeader={() => <div className="lightbox-header">header</div>}
+          renderFooter={() => <div className="lightbox-footer">footer</div>}
+          renderPrevButton={() => (
+            <button onClick={gotoPrevious} className="z-20 bg-sky-950 p-12">
+              Back
+            </button>
+          )}
+          renderNextButton={() => (
+            <button onClick={gotoNext} className="z-20 bg-sky-950 p-12">
+              Next
+            </button>
+          )}
+          isOpen={lightboxOpen} // This should reflect the state of lightboxOpen
+        />
+      )}
+    </div>
   );
 };
 
