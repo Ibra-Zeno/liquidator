@@ -81,19 +81,21 @@ const AlbumPage = () => {
     setCurrentImageIndex(currentImageIndex + 1);
 
   return (
-    <div>
-      <h1>{album.title}</h1>
-      <p>Album date: {album.date}</p>
-      <div className="image-grid">
+    <div className="mx-auto max-w-7xl">
+      <h2 className="pt-6 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+        {album.title}
+      </h2>
+      <p className="mb-6 mt-3 text-sm italic text-gray-700">{album.date}</p>
+      <div className="flex flex-wrap gap-x-6 rounded-sm">
         {images.map((image, index) => (
           <Image
             key={index}
             src={image.src}
             alt={image.alt}
-            height={100}
-            width={100}
+            height={220}
+            width={220}
+            className="my-3 cursor-pointer rounded border border-gray-500/20 shadow-lg transition-all duration-300 ease-in-out hover:scale-105"
             onClick={() => openLightboxOnIndex(index)}
-            style={{ cursor: "pointer", width: "100px", margin: "5px" }} // Adjust styles as needed
           />
         ))}
       </div>
