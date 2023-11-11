@@ -2,6 +2,7 @@
 import React from "react";
 import { client } from "../../../sanity/lib/client";
 import Image from "next/image";
+import { ScrollShadow } from "@nextui-org/react";
 import { Sparkles } from "lucide-react";
 
 export interface PersonProps {
@@ -50,13 +51,13 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
 
   return (
     <main className="mx-auto flex max-w-7xl justify-between gap-x-6 px-6 pt-12">
-      <div className="w-fit max-w-md">
+      {/* <div className="w-fit max-w-md">
         <h1 className="mb-12 mt-2 w-fit text-center text-4xl font-bold">
           Team Members in {teamMembers[0].category.title}
         </h1>
         <p>{teamMembers[0].category.description}</p>
-      </div>
-      <ul className="grid grid-cols-2 justify-between gap-x-4">
+      </div> */}
+      <ul className="grid justify-between gap-x-4">
         {teamMembers.map((member) => (
           <li key={member._id} className="mb-6 w-fit">
             {member.image ? (
@@ -66,7 +67,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                   alt={member.name}
                   width={400}
                   height={100}
-                  className="mx-auto mb-2 aspect-auto h-[20rem] w-[20rem] rounded-sm object-cover object-top shadow-xl"
+                  className="mx-auto mb-2 aspect-auto h-[24rem] w-[24rem] rounded-sm object-cover object-top shadow-xl"
                 />
                 <figcaption className="mb-1.5 text-center text-xl font-semibold">
                   {member.name}
@@ -94,9 +95,11 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 </p>
               ))}
             </div>
-            <p className="mx-auto max-w-md px-4 text-center leading-7">
-              {member.biography}
-            </p>
+            <ScrollShadow className="mb-6">
+              <p className="mx-auto max-w-6xl px-4 text-center leading-7">
+                {member.biography}
+              </p>
+            </ScrollShadow>
           </li>
         ))}
       </ul>
