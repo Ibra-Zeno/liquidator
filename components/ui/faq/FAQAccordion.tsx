@@ -9,11 +9,10 @@ import {
 
 import { English } from "@/lib/faqEnglish";
 import { Malay } from "@/lib/faqMalay";
-import { Switch } from "@/components/shadcn/ui/switch";
-import { Label } from "@/components/shadcn/ui/label";
+import { Switch } from "@nextui-org/react";
 
 const FAQAccordion = () => {
-  const [isEnglish, setIsEnglish] = useState(false);
+  const [isEnglish, setIsEnglish] = useState(true);
 
   // Function to toggle the language
   const toggleLanguage = () => {
@@ -25,18 +24,19 @@ const FAQAccordion = () => {
   return (
     <>
       <section className="mx-auto my-12 max-w-7xl">
-        <div className="my-4 flex items-center justify-end space-x-2">
-          <Label htmlFor="language-switch">
-            Switch to {isEnglish ? "Bahasar Malaysia" : "English"}
-          </Label>
-          <Switch id="language-switch" onCheckedChange={toggleLanguage} />
-        </div>
+        <Switch
+          onValueChange={toggleLanguage}
+          size={"md"}
+          className="flex justify-self-end"
+        >
+          Switch to {isEnglish ? "Bahasar Malaysia" : "English"}
+        </Switch>
         <Accordion type="single" collapsible className="">
           {data.map((section, index) => (
             <div key={index}>
               {Object.entries(section).map(([title, items], sectionIndex) => (
-                <div key={sectionIndex}>
-                  <h2 className="text-3xl font-semibold">{title}</h2>
+                <div key={sectionIndex} className="py-8">
+                  <h2 className="pb-2 text-3xl font-semibold">{title}</h2>
                   {items.map((item, itemIndex) => (
                     <AccordionItem
                       key={itemIndex}
