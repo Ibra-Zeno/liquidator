@@ -28,7 +28,7 @@ const aboutLinks: { title: string; href: string; description: string }[] = [
   },
   {
     title: "FAQs",
-    href: "/",
+    href: "/FAQ",
     description: "Find answers to your most common questions.",
   },
 ];
@@ -139,7 +139,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  href="/"
+                  href="/gallery"
                   className={navigationMenuTriggerStyle()}
                 >
                   Gallery
