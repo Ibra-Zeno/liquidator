@@ -7,7 +7,9 @@ const GalleryPage = () => {
   return (
     <main className="">
       <section className="mx-auto max-w-7xl py-16">
-        <h1>Gallery</h1>
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Gallery
+        </h2>
         <Suspense fallback={<Skeleton className="h-44 w-44" />}>
           <Albums />
         </Suspense>
