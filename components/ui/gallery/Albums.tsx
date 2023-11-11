@@ -44,17 +44,23 @@ const Albums = async () => {
 
   return (
     <div>
-      <ul>
+      <ul className="mt-12">
         {albums.map((album) => (
-          <li key={album._id} className="w-fit">
+          <li
+            key={album._id}
+            className="w-fit rounded-md bg-primary p-2 shadow-xl"
+          >
             <Link href={`/gallery/${album._id}`}>
               <Image
                 src={album.coverImage.asset.url}
                 alt={`Cover for ${album.title}`}
                 width={300} // Set your desired styles
                 height={300} // Set your desired styles
+                className="rounded-md object-cover"
               />
-              {album.title}
+              <p className="py-3 text-base font-semibold leading-7 tracking-tight text-gray-200">
+                {album.title}
+              </p>
             </Link>
           </li>
         ))}
