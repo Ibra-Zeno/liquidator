@@ -92,9 +92,9 @@ const AlbumPage = () => {
             key={index}
             src={image.src}
             alt={image.alt}
-            height={220}
-            width={220}
-            className="my-3 cursor-pointer rounded border border-gray-500/20 shadow-lg transition-all duration-300 ease-in-out hover:scale-105"
+            height={200}
+            width={200}
+            className="my-3 cursor-pointer rounded border border-gray-500/20 object-cover shadow-lg transition-all duration-300 ease-in-out hover:scale-105"
             onClick={() => openLightboxOnIndex(index)}
           />
         ))}
