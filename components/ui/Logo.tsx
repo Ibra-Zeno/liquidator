@@ -1,9 +1,8 @@
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-interface LogoProps {}
 
-const Logo: FC<LogoProps> = ({}) => {
+const Logo: FC = ({}) => {
   return (
     <Link href="/" className="text-3xl font-bold">
       <div className="flex items-center">
@@ -14,9 +13,9 @@ const Logo: FC<LogoProps> = ({}) => {
           width={30}
           height={30}
         />
-        <h1 className="-mb-3 ml-3 font-logo text-lg tracking-wider">
+        <h2 className="-mb-3 ml-3 font-logo text-lg tracking-wider">
           theliquidator.net
-        </h1>
+        </h2>
       </div>
     </Link>
   );
