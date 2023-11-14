@@ -2,20 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Users2, CheckSquare, LockKeyhole } from "lucide-react";
 // import Button from "@/components/ui/index/button";
+import { Separator } from "@/components/shadcn/ui/separator";
 import { Button } from "@nextui-org/react";
 import LogoCloud from "@/components/ui/index/LogoCloud";
 
 const Index: React.FC = () => {
   return (
-    <main className="relative h-[40rem]">
+    <main className="relative ">
       <div
         className="absolute inset-0 bg-cover bg-center bg-blend-hard-light"
         style={{ backgroundImage: `url('/images/index/index-bg.jpg')` }}
       >
         <div className="absolute inset-0 bg-slate-800 bg-opacity-75"></div>
       </div>
-      <div className="relative isolate mx-auto flex h-full max-w-xl flex-col justify-center text-center text-white">
-        <h1 className="-mt-24 mb-6 text-6xl font-bold tracking-tight">
+      <div className="relative isolate mx-auto flex h-[40rem] min-h-[80vh] max-w-xl flex-col justify-center text-center text-white">
+        <h1 className="-mt-24 mb-6 text-4xl font-bold tracking-tight sm:text-6xl">
           This Can Be A New Revolution
         </h1>
         <p className=" mb-10 text-base leading-8 tracking-wide sm:text-lg">
@@ -24,13 +25,16 @@ const Index: React.FC = () => {
         </p>
 
         <div className="mx-auto mb-12 flex items-center justify-center gap-x-6">
-          <Button className=" w-fit bg-sky-950 py-6 text-gray-100">
+          <Button
+            radius="sm"
+            className=" w-fit border-2 bg-sky-950 py-6  text-gray-100"
+          >
             <Link href="#" className="flex items-center justify-center">
               Learn More
               <ChevronRight className="ml-2" />
             </Link>
           </Button>
-          <Button variant="ghost" className=" w-fit  py-6">
+          <Button variant="ghost" radius="sm" className=" w-fit  py-6">
             <Link
               href="#"
               className="flex items-center justify-center text-white"
@@ -41,17 +45,31 @@ const Index: React.FC = () => {
           </Button>
         </div>
 
-        <div className="-mb-20 mt-12 grid grid-cols-1 gap-x-12 gap-y-8 px-20 text-left sm:grid-cols-3 sm:px-0">
-          <div className="flex items-center">
-            <Users2 className="" size={50} />
-            <p className="ml-3 text-sm ">Over 12,000 students joined</p>
+        <div className="-mb-20 mt-10 grid grid-cols-3 gap-x-12 gap-y-8 px-20 text-left sm:grid-cols-3 sm:px-0">
+          <div className="flex w-full">
+            <div className="flex w-full items-center">
+              <Users2 className="" size={50} />
+              <p className="ml-3 w-full min-w-[4rem] text-sm">
+                Over 12,000 students
+              </p>
+            </div>
+            <Separator
+              orientation="vertical"
+              className="my-auto ml-12 h-[75%]"
+            />
           </div>
-
-          <div className="flex items-center">
-            <CheckSquare size={50} />
-            <p className="ml-3 text-sm ">No yearly charges</p>
+          <div className="flex w-full">
+            <div className="flex w-full items-center">
+              <CheckSquare className="" size={50} />
+              <p className="ml-3 w-full min-w-[4rem] text-sm">
+                No yearly charges
+              </p>
+            </div>
+            <Separator
+              orientation="vertical"
+              className="my-auto ml-12 h-[75%]"
+            />
           </div>
-
           <div className="flex items-center">
             <LockKeyhole size={50} />
             <p className="ml-3 text-sm ">Secured & safe online payment</p>
