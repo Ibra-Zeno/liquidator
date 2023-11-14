@@ -7,22 +7,13 @@ import LogoCloud from "@/components/ui/index/LogoCloud";
 const Index: React.FC = () => {
   return (
     <main className="relative bg-[#e4d4c8]">
-      <section className="relative pb-10 pt-24 sm:pt-12 lg:min-h-[1000px] lg:pb-12">
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-xl text-center">
-            <div className="flex items-center justify-center">
-              <Image
-                src="/images/index/liquidatorLogo.png"
-                className=""
-                alt="theliquidator.net logo"
-                width={75}
-                height={75}
-              />
-              <h1 className="-mb-8 ml-5 font-logo text-4xl tracking-wider sm:text-5xl">
-                theliquidator.net
-              </h1>
-            </div>
-            <p className="mb-4 mt-8 text-base  sm:text-xl">
+      <section className="relative pb-10 pt-24 sm:pt-12 lg:pb-12">
+        <div className="relative mx-auto min-h-[60vh] max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:px-8">
+          <div className="mx-auto flex max-w-xl flex-col justify-center text-center">
+            <h1 className="text-6xl font-bold tracking-tight">
+              This Can Be A New Revolution
+            </h1>
+            <p className="my-6 text-base leading-8 tracking-wide sm:text-lg">
               Propelling Business Innovations Forward and Cultivating Financial
               Empowerment for Sustainable Growth
             </p>
@@ -42,9 +33,7 @@ const Index: React.FC = () => {
 
               <div className="flex items-center">
                 <CheckSquare size={50} />
-                <p className="ml-3 text-sm ">
-                  No yearly charges, maximum limits
-                </p>
+                <p className="ml-3 text-sm ">No yearly charges</p>
               </div>
 
               <div className="flex items-center">
@@ -53,7 +42,19 @@ const Index: React.FC = () => {
               </div>
             </div>
           </div>
-          <LogoCloud />
+          <div
+            className="flex items-center justify-center"
+            id="image-container"
+          >
+            <Image
+              src="/images/index/index-bg.jpg"
+              alt="hero"
+              width={500}
+              height={500}
+              className="aspect-square rounded-md object-cover object-center shadow-sm"
+            />
+          </div>
+          {/* <LogoCloud /> */}
         </div>
       </section>
     </main>
