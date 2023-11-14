@@ -1,62 +1,63 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Users2, CheckSquare, LockKeyhole } from "lucide-react";
-import Button from "@/components/ui/index/button";
+// import Button from "@/components/ui/index/button";
+import { Button } from "@nextui-org/react";
 import LogoCloud from "@/components/ui/index/LogoCloud";
 
 const Index: React.FC = () => {
   return (
-    <main className="relative bg-[#e4d4c8]">
-      <section className="relative pb-10 pt-24 sm:pt-12 lg:pb-12">
-        <div className="relative mx-auto min-h-[60vh] max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:px-8">
-          <div className="mx-auto flex max-w-xl flex-col justify-center text-center">
-            <h1 className="text-6xl font-bold tracking-tight">
-              This Can Be A New Revolution
-            </h1>
-            <p className="my-6 text-base leading-8 tracking-wide sm:text-lg">
-              Propelling Business Innovations Forward and Cultivating Financial
-              Empowerment for Sustainable Growth
-            </p>
+    <main className="relative h-[40rem]">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-blend-hard-light"
+        style={{ backgroundImage: `url('/images/index/index-bg.jpg')` }}
+      >
+        <div className="absolute inset-0 bg-slate-800 bg-opacity-75"></div>
+      </div>
+      <div className="relative isolate mx-auto flex h-full max-w-xl flex-col justify-center text-center text-white">
+        <h1 className="-mt-24 mb-6 text-6xl font-bold tracking-tight">
+          This Can Be A New Revolution
+        </h1>
+        <p className=" mb-10 text-base leading-8 tracking-wide sm:text-lg">
+          Propelling Business Innovations Forward and Cultivating Financial
+          Empowerment for Sustainable Growth
+        </p>
 
-            <Link href="" title="" role="button">
-              <Button className="!py-6">
-                Get Started
-                <ChevronRight className="ml-2" />
-              </Button>
+        <div className="mx-auto mb-12 flex items-center justify-center gap-x-6">
+          <Button className=" w-fit bg-sky-950 py-6 text-gray-100">
+            <Link href="#" className="flex items-center justify-center">
+              Learn More
+              <ChevronRight className="ml-2" />
             </Link>
-
-            <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-8 px-20 text-left sm:grid-cols-3 sm:px-0">
-              <div className="flex items-center">
-                <Users2 className="" size={50} />
-                <p className="ml-3 text-sm ">Over 12,000 students joined</p>
-              </div>
-
-              <div className="flex items-center">
-                <CheckSquare size={50} />
-                <p className="ml-3 text-sm ">No yearly charges</p>
-              </div>
-
-              <div className="flex items-center">
-                <LockKeyhole size={50} />
-                <p className="ml-3 text-sm ">Secured & safe online payment</p>
-              </div>
-            </div>
-          </div>
-          <div
-            className="flex items-center justify-center"
-            id="image-container"
-          >
-            <Image
-              src="/images/index/index-bg.jpg"
-              alt="hero"
-              width={500}
-              height={500}
-              className="aspect-square rounded-md object-cover object-center shadow-sm"
-            />
-          </div>
-          {/* <LogoCloud /> */}
+          </Button>
+          <Button variant="ghost" className=" w-fit  py-6">
+            <Link
+              href="#"
+              className="flex items-center justify-center text-white"
+            >
+              Contact Us
+              <ChevronRight className="ml-2" />
+            </Link>
+          </Button>
         </div>
-      </section>
+
+        <div className="-mb-20 mt-12 grid grid-cols-1 gap-x-12 gap-y-8 px-20 text-left sm:grid-cols-3 sm:px-0">
+          <div className="flex items-center">
+            <Users2 className="" size={50} />
+            <p className="ml-3 text-sm ">Over 12,000 students joined</p>
+          </div>
+
+          <div className="flex items-center">
+            <CheckSquare size={50} />
+            <p className="ml-3 text-sm ">No yearly charges</p>
+          </div>
+
+          <div className="flex items-center">
+            <LockKeyhole size={50} />
+            <p className="ml-3 text-sm ">Secured & safe online payment</p>
+          </div>
+        </div>
+      </div>
     </main>
   );
 };
