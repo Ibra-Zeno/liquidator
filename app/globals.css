@@ -73,3 +73,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-top: 10px solid #082f49; /* You can change the color by adjusting the border-bottom property */
+}
