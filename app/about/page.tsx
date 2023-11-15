@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import { Gauge, Link, Crown } from "lucide-react";
+import { Gauge, Link, Crown, Sparkles } from "lucide-react";
 import Features from "@/components/ui/about/Features";
 import Strategies from "@/components/ui/about/Strategies";
 interface pageProps {}
@@ -21,38 +21,7 @@ const About: FC<pageProps> = ({}) => {
         <Breadcrumbs />
       </section>
       {/* Content (sticky) */}
-      <section className="relative isolate overflow-hidden bg-white px-6 py-12  lg:overflow-visible lg:px-0">
-        {/* <div className="absolute inset-0 -z-10 overflow-hidden">
-          <svg
-            className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
-            aria-hidden="true"
-          >
-            <defs>
-              <pattern
-                id="e813992c-7d03-4cc4-a2bd-151760b470a0"
-                width={200}
-                height={200}
-                x="50%"
-                y={-1}
-                patternUnits="userSpaceOnUse"
-              >
-                <path d="M100 200V.5M.5 .5H200" fill="none" />
-              </pattern>
-            </defs>
-            <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
-              <path
-                d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-                strokeWidth={0}
-              />
-            </svg>
-            <rect
-              width="100%"
-              height="100%"
-              strokeWidth={0}
-              fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
-            />
-          </svg>
-        </div> */}
+      <section className="relative isolate overflow-hidden bg-white px-6 pt-12 lg:overflow-visible lg:px-0">
         <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
@@ -71,9 +40,26 @@ const About: FC<pageProps> = ({}) => {
               </div>
             </div>
           </div>
-          <div className="-mt-12 py-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:-ml-12 lg:overflow-hidden">
+          <div className="block w-full justify-center py-12 lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1  xl:-ml-24">
             <section>
-              <div className="mx-auto h-[28rem] w-[90%] rounded-md bg-slate-200 shadow-lg lg:ml-40 lg:mr-auto lg:w-full lg:max-w-[25rem]"></div>
+              <div className="relative mx-auto h-[28rem] w-[90%] max-w-[25rem] rounded-md bg-slate-200 shadow-lg  lg:w-full">
+                {/* Bookmark thingy */}
+                <div className="flex">
+                  <div className="absolute -left-2 top-6 h-16 w-20 rounded-r-md bg-sky-950">
+                    <div className="absolute inset-0 flex items-center justify-items-center">
+                      <Sparkles
+                        className="mx-auto my-auto flex justify-center rounded-full border p-1 text-white"
+                        strokeWidth={1.35}
+                        size={30}
+                      />
+                    </div>
+                  </div>
+                  <h2 className="ml-24 mt-10 text-xl font-bold tracking-tight">
+                    Excellence in Recovery
+                  </h2>
+                </div>
+                <div className="triangle absolute -left-2 top-[88px]"></div>
+              </div>
             </section>
             {/* // <img
           //   className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
@@ -83,7 +69,7 @@ const About: FC<pageProps> = ({}) => {
           </div>
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
-              <div className="max-w-3xl text-base leading-7 text-gray-700 lg:max-w-[34rem]">
+              <div className="max-w-3xl text-base leading-8 text-gray-700 lg:max-w-[34rem]">
                 <p>
                   Liquidator.net stands as a paramount provider in the domain of
                   corporate advisory services, meticulously formed to address
@@ -115,55 +101,6 @@ const About: FC<pageProps> = ({}) => {
       <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
         <div className="lg:pr-4">
           <div className="max-w-3xl text-base leading-7 text-gray-700 lg:max-w-[34rem]">
-            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-              Navigating Financial Distress: Strategies and Solutions
-            </h2>
-            <ul role="list" className="mt-8 space-y-8 text-gray-600">
-              <li className="flex gap-x-3">
-                <Gauge
-                  className="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  aria-hidden="true"
-                />
-                <span>
-                  <strong className="font-semibold text-gray-900">
-                    Pre-emptive Measures:
-                  </strong>{" "}
-                  Our insight into financial distress is not limited to
-                  recessions; we understand that financial difficulties can be
-                  an early indicator of business failure.
-                </span>
-              </li>
-              <li className="flex gap-x-3">
-                <Link
-                  className="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  aria-hidden="true"
-                />
-                <span>
-                  <strong className="font-semibold text-gray-900">
-                    Strategic Alliances:
-                  </strong>{" "}
-                  We maintain a collaborative approach, working closely with
-                  lenders and legal advisers to provide strategic and technical
-                  counsel well-versed in the intricacies of the lead-up to
-                  liquidation or receivership.
-                </span>
-              </li>
-              <li className="flex gap-x-3">
-                <Crown
-                  className="mt-1 h-5 w-5 flex-none text-indigo-600"
-                  aria-hidden="true"
-                />
-                <span>
-                  <strong className="font-semibold text-gray-900">
-                    Experienced Leadership:
-                  </strong>{" "}
-                  Our Management Team&apos;s extensive expertise in formal
-                  insolvency assignments is leveraged to offer actionable
-                  solutions and advice to a wide array of stakeholders,
-                  including creditors, shareholders, directors, and companies.
-                </span>
-              </li>
-            </ul>
             <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
               Specialised Insolvency Services
             </h2>
