@@ -1,15 +1,6 @@
 import { FC } from "react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import {
-  Atom,
-  Shield,
-  Key,
-  AreaChart,
-  Gauge,
-  Link,
-  ShipWheel,
-  Crown,
-} from "lucide-react";
+import { Gauge, Link, Crown } from "lucide-react";
 import Features from "@/components/ui/about/Features";
 import Strategies from "@/components/ui/about/Strategies";
 interface pageProps {}
