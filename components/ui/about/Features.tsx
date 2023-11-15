@@ -71,7 +71,7 @@ const Features: FC = ({}) => {
                     {value.title}
                   </h5>
 
-                  <p className="mt-3 text-gray-500 dark:text-gray-300">
+                  <p className="mt-3 leading-7 text-gray-500">
                     {value.content()}
                   </p>
                 </div>
