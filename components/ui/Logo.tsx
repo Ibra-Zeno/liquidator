@@ -13,7 +13,7 @@ const Logo: FC = ({}) => {
           width={30}
           height={30}
         />
-        <h2 className="-mb-3 ml-3 font-logo text-lg tracking-wider">
+        <h2 className="-mb-3 ml-3 font-logo text-lg font-extralight leading-7 tracking-wider">
           theliquidator.net
         </h2>
       </div>
