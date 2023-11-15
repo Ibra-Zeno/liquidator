@@ -1,4 +1,5 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import Image from "next/image";
 
 const services = [
   {
@@ -132,6 +133,82 @@ const Services: React.FC = () => {
           </div>
         </section>
       ))}
+      <section className="p-4 lg:p-8">
+        <div className="container mx-auto space-y-12">
+          <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+            <Image
+              src="/images/index/index-bg.jpg"
+              width={544}
+              height={544}
+              alt=""
+              className="aspect-video h-80 "
+            />
+            <div className="flex flex-1 flex-col justify-center p-6 ">
+              <span className="mb-2.5 text-xs uppercase">
+                Join, it&apos;s free
+              </span>
+              <h3 className="text-3xl font-bold">
+                We&apos;re not reinventing the wheel
+              </h3>
+              <p className="my-6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                aliquam possimus quas, error esse quos.
+              </p>
+              <button type="button" className="self-start">
+                Action
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
+            <Image
+              src="/images/index/index-bg.jpg"
+              width={544}
+              height={544}
+              alt=""
+              className="aspect-video h-80 "
+            />
+            <div className="flex flex-1 flex-col justify-center p-6">
+              <span className="mb-2.5 text-xs uppercase">
+                Join, it&apos;s free
+              </span>
+              <h3 className="text-3xl font-bold">
+                We&apos;re not reinventing the wheel
+              </h3>
+              <p className="my-6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                aliquam possimus quas, error esse quos.
+              </p>
+              <button type="button" className="self-start">
+                Action
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+            <Image
+              src="/images/index/index-bg.jpg"
+              width={544}
+              height={544}
+              alt=""
+              className="aspect-video h-80"
+            />
+            <div className="flex flex-1 flex-col justify-center p-6">
+              <span className="mb-2.5  text-xs uppercase">
+                Join, it&apos;s free
+              </span>
+              <h3 className="text-3xl font-bold">
+                We&apos;re not reinventing the wheel
+              </h3>
+              <p className="my-6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                aliquam possimus quas, error esse quos.
+              </p>
+              <button type="button" className="self-start">
+                Action
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
