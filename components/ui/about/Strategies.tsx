@@ -42,12 +42,12 @@ const Strategies: FC<StrategiesProps> = ({}) => {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6 py-10">
-        <h3 className="text-center text-2xl font-semibold capitalize lg:text-3xl">
+        <h5 className="mb-1.5 text-center text-base font-semibold leading-7 tracking-wide text-emerald-700 ">
+          Managing Financial Distress
+        </h5>
+        <h3 className="mb-3 text-center text-2xl font-semibold capitalize lg:text-3xl">
           Strategies and Solutions
         </h3>
-        <h5 className="mt-3 text-center text-base font-semibold leading-7 tracking-wide ">
-          Navigating Financial Distress
-        </h5>
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-16">
           {strategies.map((strategy) => (
