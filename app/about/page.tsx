@@ -32,7 +32,7 @@ const About: FC<pageProps> = ({}) => {
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                   Navigating Business Challenges
                 </h2>
-                <p className="mt-6 text-xl leading-8 text-gray-700">
+                <p className="mt-6 text-xl font-medium leading-8 text-gray-700">
                   Liquidator.net specialises in expert corporate recovery and
                   insolvency services, adeptly steering businesses through
                   financial challenges.
