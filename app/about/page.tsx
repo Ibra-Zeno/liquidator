@@ -11,28 +11,8 @@ import {
   Crown,
 } from "lucide-react";
 import Features from "@/components/ui/about/Features";
+import Strategies from "@/components/ui/about/Strategies";
 interface pageProps {}
-
-const values = [
-  {
-    icon: <Shield />,
-    title: "Integrity",
-    content:
-      "I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.",
-  },
-  {
-    icon: <Key />,
-    title: "Responsibility",
-    content:
-      "I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.",
-  },
-  {
-    icon: <AreaChart />,
-    title: "Technical Excellence",
-    content:
-      "I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.",
-  },
-];
 
 const About: FC<pageProps> = ({}) => {
   return (
@@ -49,33 +29,6 @@ const About: FC<pageProps> = ({}) => {
         </div>
         {/* <Breadcrumbs /> */}
       </section>
-      {/* Value cards */}
-      {/* <section>
-        <div className="relative mx-auto w-full max-w-7xl items-center px-5 py-12 md:px-8">
-          <h3 className="text-center text-4xl font-semibold">Our Values</h3>
-          <div className="mx-auto mt-12 grid w-full grid-cols-1 gap-x-3 lg:grid-cols-3">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="mx-auto max-w-md rounded bg-stone-100 p-6 shadow-lg"
-              >
-                <div className="gap-3 lg:inline-flex lg:items-center">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-gray-300 text-black">
-                    {value.icon}
-                  </div>
-                  <p className="mt-4 text-lg font-medium leading-6 text-black lg:mt-0">
-                    {value.title}
-                  </p>
-                </div>
-                <p className="mt-3 text-base leading-7 text-gray-500">
-                  {value.content}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-      <Features />
       {/* Content (sticky) */}
       <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
         {/* <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -109,7 +62,7 @@ const About: FC<pageProps> = ({}) => {
             />
           </svg>
         </div> */}
-        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-8 gap-y-16 py-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
               <div className="lg:max-w-[34rem]">
@@ -162,113 +115,120 @@ const About: FC<pageProps> = ({}) => {
                   singular focus remains steadfast—to guide our clients in
                   achieving their business goals.
                 </p>
-                <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-                  Navigating Financial Distress: Strategies and Solutions
-                </h2>
-                <ul role="list" className="mt-8 space-y-8 text-gray-600">
-                  <li className="flex gap-x-3">
-                    <Gauge
-                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
-                      aria-hidden="true"
-                    />
-                    <span>
-                      <strong className="font-semibold text-gray-900">
-                        Pre-emptive Measures:
-                      </strong>{" "}
-                      Our insight into financial distress is not limited to
-                      recessions; we understand that financial difficulties can
-                      be an early indicator of business failure.
-                    </span>
-                  </li>
-                  <li className="flex gap-x-3">
-                    <Link
-                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
-                      aria-hidden="true"
-                    />
-                    <span>
-                      <strong className="font-semibold text-gray-900">
-                        Strategic Alliances:
-                      </strong>{" "}
-                      We maintain a collaborative approach, working closely with
-                      lenders and legal advisers to provide strategic and
-                      technical counsel well-versed in the intricacies of the
-                      lead-up to liquidation or receivership.
-                    </span>
-                  </li>
-                  <li className="flex gap-x-3">
-                    <Crown
-                      className="mt-1 h-5 w-5 flex-none text-indigo-600"
-                      aria-hidden="true"
-                    />
-                    <span>
-                      <strong className="font-semibold text-gray-900">
-                        Experienced Leadership:
-                      </strong>{" "}
-                      Our Management Team&apos;s extensive expertise in formal
-                      insolvency assignments is leveraged to offer actionable
-                      solutions and advice to a wide array of stakeholders,
-                      including creditors, shareholders, directors, and
-                      companies.
-                    </span>
-                  </li>
-                </ul>
-                <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
-                  Specialised Insolvency Services
-                </h2>
-                <p className="mt-8">
-                  Our Insolvency division is adept at guiding companies through
-                  the intricacies of the liquidation process. We offer a
-                  comprehensive suite of services tailored to the needs of
-                  distressed entities, which includes:
-                </p>
-                <ol className="grid gap-y-1 py-5 font-bold leading-8 tracking-wide">
-                  <li>Court Liquidation</li>
-                  <li>Provisional Liquidation</li>
-                  <li>Pre-liquidation advice</li>
-                </ol>
-                <p className="">
-                  For entities facing receivership, we provide indispensable
-                  support to financial institutions, aiding in the exercise of
-                  their rights under debenture arrangements for the appointment
-                  of Receivers and/or Receiver and Manager. Our goal is to
-                  ensure the optimal realisation of assets and business
-                  components to maximise returns for financial institutions.
-                </p>
-                <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
-                  Our Distinguished Team
-                </h2>
-                <p className="mt-6">
-                  Pride in our organisation is deeply rooted in the collective
-                  expertise of our senior management team. This team, comprised
-                  of numerous seasoned licensed liquidators, is the driving
-                  force behind our distinguished insolvency engagements. Our
-                  expertise is channelled through our affiliate companies:{" "}
-                  <strong className="tracking-wide">
-                    Radiant Consulting Asia Sdn Bhd
-                  </strong>
-                  ,{" "}
-                  <strong className="tracking-wide">
-                    Chilterns Insolvency Sdn Bhd
-                  </strong>
-                  , and{" "}
-                  <strong className="tracking-wide">
-                    Radiant Corporate Solutions Sdn Bhd
-                  </strong>
-                  , ensuring comprehensive and professional management across
-                  all facets of our services.
-                </p>
-                <p className="mt-8">
-                  Liquidator.net is your trusted ally, equipped with the
-                  necessary expertise and personalised approach to navigate the
-                  complexities of corporate recovery and insolvency. Our
-                  relentless pursuit of excellence is reflected in our client
-                  satisfaction and the successful outcomes of our engagements.
-                </p>
               </div>
             </div>
           </div>
         </div>
+        <Features />
       </section>
+      <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <div className="lg:pr-4">
+          <div className="max-w-3xl text-base leading-7 text-gray-700 lg:max-w-[34rem]">
+            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+              Navigating Financial Distress: Strategies and Solutions
+            </h2>
+            <ul role="list" className="mt-8 space-y-8 text-gray-600">
+              <li className="flex gap-x-3">
+                <Gauge
+                  className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                  aria-hidden="true"
+                />
+                <span>
+                  <strong className="font-semibold text-gray-900">
+                    Pre-emptive Measures:
+                  </strong>{" "}
+                  Our insight into financial distress is not limited to
+                  recessions; we understand that financial difficulties can be
+                  an early indicator of business failure.
+                </span>
+              </li>
+              <li className="flex gap-x-3">
+                <Link
+                  className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                  aria-hidden="true"
+                />
+                <span>
+                  <strong className="font-semibold text-gray-900">
+                    Strategic Alliances:
+                  </strong>{" "}
+                  We maintain a collaborative approach, working closely with
+                  lenders and legal advisers to provide strategic and technical
+                  counsel well-versed in the intricacies of the lead-up to
+                  liquidation or receivership.
+                </span>
+              </li>
+              <li className="flex gap-x-3">
+                <Crown
+                  className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                  aria-hidden="true"
+                />
+                <span>
+                  <strong className="font-semibold text-gray-900">
+                    Experienced Leadership:
+                  </strong>{" "}
+                  Our Management Team&apos;s extensive expertise in formal
+                  insolvency assignments is leveraged to offer actionable
+                  solutions and advice to a wide array of stakeholders,
+                  including creditors, shareholders, directors, and companies.
+                </span>
+              </li>
+            </ul>
+            <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
+              Specialised Insolvency Services
+            </h2>
+            <p className="mt-8">
+              Our Insolvency division is adept at guiding companies through the
+              intricacies of the liquidation process. We offer a comprehensive
+              suite of services tailored to the needs of distressed entities,
+              which includes:
+            </p>
+            <ol className="grid gap-y-1 py-5 font-bold leading-8 tracking-wide">
+              <li>Court Liquidation</li>
+              <li>Provisional Liquidation</li>
+              <li>Pre-liquidation advice</li>
+            </ol>
+            <p className="">
+              For entities facing receivership, we provide indispensable support
+              to financial institutions, aiding in the exercise of their rights
+              under debenture arrangements for the appointment of Receivers
+              and/or Receiver and Manager. Our goal is to ensure the optimal
+              realisation of assets and business components to maximise returns
+              for financial institutions.
+            </p>
+            <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
+              Our Distinguished Team
+            </h2>
+            <p className="mt-6">
+              Pride in our organisation is deeply rooted in the collective
+              expertise of our senior management team. This team, comprised of
+              numerous seasoned licensed liquidators, is the driving force
+              behind our distinguished insolvency engagements. Our expertise is
+              channelled through our affiliate companies:{" "}
+              <strong className="tracking-wide">
+                Radiant Consulting Asia Sdn Bhd
+              </strong>
+              ,{" "}
+              <strong className="tracking-wide">
+                Chilterns Insolvency Sdn Bhd
+              </strong>
+              , and{" "}
+              <strong className="tracking-wide">
+                Radiant Corporate Solutions Sdn Bhd
+              </strong>
+              , ensuring comprehensive and professional management across all
+              facets of our services.
+            </p>
+            <p className="mt-8">
+              Liquidator.net is your trusted ally, equipped with the necessary
+              expertise and personalised approach to navigate the complexities
+              of corporate recovery and insolvency. Our relentless pursuit of
+              excellence is reflected in our client satisfaction and the
+              successful outcomes of our engagements.
+            </p>
+          </div>
+        </div>
+      </div>
+      <Strategies />
     </main>
   );
 };
