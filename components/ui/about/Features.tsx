@@ -43,7 +43,7 @@ const values = [
 const Features: FC = ({}) => {
   return (
     <section className="mx-auto max-w-7xl">
-      <div className="container mx-auto px-6 py-10">
+      <div className="container mx-auto px-6 pt-20">
         <div className="lg:flex lg:items-center">
           <div className="w-full space-y-12 lg:w-1/2">
             <div>
