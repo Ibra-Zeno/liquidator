@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import { Gauge, Link, Crown, Sparkles } from "lucide-react";
+import { Sparkles, CheckSquare, PackageCheck } from "lucide-react";
 import Features from "@/components/ui/about/Features";
 import Strategies from "@/components/ui/about/Strategies";
 interface pageProps {}
@@ -21,8 +21,8 @@ const About: FC<pageProps> = ({}) => {
         <Breadcrumbs />
       </section>
       {/* Content (sticky) */}
-      <section className="relative isolate overflow-hidden bg-white px-6 pt-12 lg:overflow-visible lg:px-0">
-        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+      <section className="relative isolate overflow-hidden bg-white px-6 pt-12 lg:px-0">
+        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-40 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
               <div className="lg:max-w-[34rem]">
@@ -40,9 +40,10 @@ const About: FC<pageProps> = ({}) => {
               </div>
             </div>
           </div>
-          <div className="block w-full justify-center py-12 lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1  xl:-ml-24">
-            <section>
-              <div className="relative mx-auto h-[28rem] w-[90%] max-w-[25rem] rounded-md bg-slate-200 shadow-lg  lg:w-full">
+          {/* Aside */}
+          <div className="mx-auto block w-full max-w-7xl justify-center py-12 lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 xl:-ml-[15%]">
+            <section className="">
+              <div className="relative mx-auto h-[28rem] w-[90%] max-w-[25rem] rounded-md bg-slate-200 shadow-lg lg:w-full">
                 {/* Bookmark thingy */}
                 <div className="flex">
                   <div className="absolute -left-2 top-6 h-16 w-20 rounded-r-md bg-sky-950">
@@ -59,13 +60,31 @@ const About: FC<pageProps> = ({}) => {
                   </h2>
                 </div>
                 <div className="triangle absolute -left-2 top-[88px]"></div>
+                <ul className="mt-12">
+                  <li className="ml-8 mt-6 flex items-start justify-start pr-4">
+                    <PackageCheck size={50} strokeWidth={1.2} />
+                    <p className="ml-3 max-w-sm text-sm font-medium leading-6 text-gray-600">
+                      Expertise in navigating complex financial challenges with
+                      a focus on corporate recovery and insolvency.
+                    </p>
+                  </li>
+                  <li className="ml-8 mt-6 flex items-start justify-start pr-4">
+                    <PackageCheck size={50} strokeWidth={1.2} />
+                    <p className="ml-3 max-w-sm text-sm font-medium leading-6 text-gray-600">
+                      A team committed to the highest ethical standards and
+                      technical proficiency in every engagement.
+                    </p>
+                  </li>
+                  <li className="ml-8 mt-6 flex items-start justify-start pr-4">
+                    <PackageCheck size={50} strokeWidth={1.2} />
+                    <p className="ml-3 max-w-sm text-sm font-medium leading-6 text-gray-600">
+                      Collaborating with financial and legal experts to deliver
+                      strategic solutions and successful outcomes.
+                    </p>
+                  </li>
+                </ul>
               </div>
             </section>
-            {/* // <img
-          //   className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-          //   src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-          //   alt=""
-          // /> */}
           </div>
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
@@ -123,40 +142,42 @@ const About: FC<pageProps> = ({}) => {
               realisation of assets and business components to maximise returns
               for financial institutions.
             </p>
-            <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
-              Our Distinguished Team
-            </h2>
-            <p className="mt-6">
-              Pride in our organisation is deeply rooted in the collective
-              expertise of our senior management team. This team, comprised of
-              numerous seasoned licensed liquidators, is the driving force
-              behind our distinguished insolvency engagements. Our expertise is
-              channelled through our affiliate companies:{" "}
-              <strong className="tracking-wide">
-                Radiant Consulting Asia Sdn Bhd
-              </strong>
-              ,{" "}
-              <strong className="tracking-wide">
-                Chilterns Insolvency Sdn Bhd
-              </strong>
-              , and{" "}
-              <strong className="tracking-wide">
-                Radiant Corporate Solutions Sdn Bhd
-              </strong>
-              , ensuring comprehensive and professional management across all
-              facets of our services.
-            </p>
-            <p className="mt-8">
-              Liquidator.net is your trusted ally, equipped with the necessary
-              expertise and personalised approach to navigate the complexities
-              of corporate recovery and insolvency. Our relentless pursuit of
-              excellence is reflected in our client satisfaction and the
-              successful outcomes of our engagements.
-            </p>
           </div>
         </div>
       </div>
       <Strategies />
+      <div className="max-w-3xl text-base leading-7 text-gray-700 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:w-full lg:max-w-7xl lg:gap-x-8 lg:px-8">
+        <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
+          Our Distinguished Team
+        </h2>
+        <p className="mt-6">
+          Pride in our organisation is deeply rooted in the collective expertise
+          of our senior management team. This team, comprised of numerous
+          seasoned licensed liquidators, is the driving force behind our
+          distinguished insolvency engagements. Our expertise is channelled
+          through our affiliate companies:{" "}
+          <strong className="tracking-wide">
+            Radiant Consulting Asia Sdn Bhd
+          </strong>
+          ,{" "}
+          <strong className="tracking-wide">
+            Chilterns Insolvency Sdn Bhd
+          </strong>
+          , and{" "}
+          <strong className="tracking-wide">
+            Radiant Corporate Solutions Sdn Bhd
+          </strong>
+          , ensuring comprehensive and professional management across all facets
+          of our services.
+        </p>
+        <p className="mt-8">
+          Liquidator.net is your trusted ally, equipped with the necessary
+          expertise and personalised approach to navigate the complexities of
+          corporate recovery and insolvency. Our relentless pursuit of
+          excellence is reflected in our client satisfaction and the successful
+          outcomes of our engagements.
+        </p>
+      </div>
     </main>
   );
 };
