@@ -1,9 +1,11 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Image from "next/image";
+import { PackageCheck } from "lucide-react";
 
 const services = [
   {
     title: "Distressed Assets Management",
+    icon: <PackageCheck />,
     content: () => (
       <>
         <li>
@@ -28,6 +30,7 @@ const services = [
   },
   {
     title: "Property (Asset) Management",
+    icon: <PackageCheck />,
     content: () => (
       <>
         <li>
@@ -46,6 +49,7 @@ const services = [
   },
   {
     title: "Focused Objectives",
+    icon: <PackageCheck />,
     content: () => (
       <>
         <li>
@@ -65,6 +69,7 @@ const services = [
   },
   {
     title: "Joint Venture Arrangements and Listing Exercises",
+    icon: <PackageCheck />,
     content: () => (
       <>
         <li>
@@ -82,6 +87,7 @@ const services = [
   },
   {
     title: "Investor Relations",
+    icon: <PackageCheck />,
     content: () => (
       <>
         <li>
@@ -115,24 +121,47 @@ const Services: React.FC = () => {
         </div>
         <Breadcrumbs />
       </section>
+      <div className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto lg:text-center">
+            <h2 className="text-base font-semibold leading-7 text-indigo-600">
+              Deploy faster
+            </h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Everything you need to deploy your app
+            </p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 lg:max-w-4xl">
+              Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
+              Suspendisse eget egestas a elementum pulvinar et feugiat blandit
+              at. In mi viverra elit nunc.
+            </p>
+          </div>
+          <div className="mx-auto mt-16 sm:mt-20 lg:mt-24">
+            <dl className="grid grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+              {services.map((feature) => (
+                <div key={feature.title} className="relative pl-16">
+                  <dt className="text-base font-semibold leading-7">
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600 text-white">
+                      {feature.icon}
+                    </div>
+                    {feature.title}
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                    <ul className="list-inside list-disc leading-8">
+                      {feature.content()}
+                    </ul>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </div>
       <p className="mx-auto mb-6 mt-12 max-w-prose text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolore
         officia ex sint cupiditate maiores, quisquam numquam commodi iure, rem
         rerum quod omnis qui perferendis velit neque placeat, voluptatibus et?
       </p>
-      {services.map((service) => (
-        <section
-          key={service.title}
-          className="shadown-lg mx-auto max-w-6xl rounded border-y-2 py-12"
-        >
-          <div className="grid grid-cols-6 justify-between gap-y-8">
-            <h2 className="col-span-2 text-4xl font-bold">{service.title}</h2>
-            <ul className="col-span-4 list-inside list-disc leading-8">
-              {service.content()}
-            </ul>
-          </div>
-        </section>
-      ))}
       <section className="p-4 lg:p-8">
         <div className="container mx-auto space-y-12">
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
