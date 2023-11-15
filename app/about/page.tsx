@@ -10,6 +10,7 @@ import {
   ShipWheel,
   Crown,
 } from "lucide-react";
+import Features from "@/components/ui/about/Features";
 interface pageProps {}
 
 const values = [
@@ -46,10 +47,10 @@ const About: FC<pageProps> = ({}) => {
             transparent manner.
           </p>
         </div>
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
       </section>
       {/* Value cards */}
-      <section>
+      {/* <section>
         <div className="relative mx-auto w-full max-w-7xl items-center px-5 py-12 md:px-8">
           <h3 className="text-center text-4xl font-semibold">Our Values</h3>
           <div className="mx-auto mt-12 grid w-full grid-cols-1 gap-x-3 lg:grid-cols-3">
@@ -73,7 +74,8 @@ const About: FC<pageProps> = ({}) => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <Features />
       {/* Content (sticky) */}
       <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
         {/* <div className="absolute inset-0 -z-10 overflow-hidden">
