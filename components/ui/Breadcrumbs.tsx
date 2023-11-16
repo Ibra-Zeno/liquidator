@@ -32,7 +32,7 @@ const Breadcrumbs = () => {
         <li>
           <Link href="/" className="flex items-center text-opacity-40">
             <Home size={17} className="mr-2" />
-            <p>Home</p>
+            Home
           </Link>
         </li>
         {breadcrumbs.map((crumb, index) => (
@@ -42,7 +42,7 @@ const Breadcrumbs = () => {
               href={crumb.href}
               className="items-center hover:text-opacity-60"
             >
-              <p>{crumb.name}</p>
+              {crumb.name}
             </Link>
           </li>
         ))}
