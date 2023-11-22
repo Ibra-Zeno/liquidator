@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
+import Loading from "../../../components/Loading";
 import { client } from "../../../sanity/lib/client";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import Lightbox from "react-spring-lightbox";
+import { ArrowLeftCircle, ArrowRightCircle, RefreshCw } from "lucide-react";
 
 // Define the Album and ImageWithDescription types
 type ImageWithDescription = {
@@ -50,8 +52,11 @@ const AlbumPage = () => {
 
   useEffect(() => {
     const fetchAlbums = async () => {
-      const result = await fetchAlbum(albumId);
-      setAlbum(result);
+      // Add a delay of 1000 milliseconds (1 second)
+      setTimeout(async () => {
+        const result = await fetchAlbum(albumId);
+        setAlbum(result);
+      }, 10000);
     };
 
     fetchAlbums();
@@ -59,7 +64,9 @@ const AlbumPage = () => {
 
   // Log for debugging purposes
 
-  if (!album) return <div>Loading...</div>;
+  if (!album) {
+    return <Loading />;
+  }
 
   const images = album.images
     .filter((image) => image.asset && image.asset.url)
@@ -111,12 +118,12 @@ const AlbumPage = () => {
           renderFooter={() => <div className="lightbox-footer">footer</div>}
           renderPrevButton={() => (
             <button onClick={gotoPrevious} className="z-20 bg-sky-950 p-12">
-              Back
+              <ArrowLeftCircle />
             </button>
           )}
           renderNextButton={() => (
             <button onClick={gotoNext} className="z-20 bg-sky-950 p-12">
-              Next
+              <ArrowRightCircle />
             </button>
           )}
           isOpen={lightboxOpen} // This should reflect the state of lightboxOpen
