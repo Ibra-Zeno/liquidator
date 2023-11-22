@@ -44,14 +44,14 @@ const Albums = async () => {
 
   return (
     <div>
-      <ul className="mt-12">
+      <ul className="mt-12 flex flex-wrap gap-x-4 gap-y-4 md:grid md:grid-cols-2 xl:grid-cols-3">
         {albums.map((album) => (
           <li
             key={album._id}
-            className="w-fit rounded-md bg-primary p-2 shadow-xl"
+            className="w-full transition-all duration-300 ease-in-out hover:scale-105"
           >
             <Link href={`/gallery/${album._id}`}>
-              <Image
+              {/* <Image
                 src={album.coverImage.asset.url}
                 alt={`Cover for ${album.title}`}
                 width={300} // Set your desired styles
@@ -60,7 +60,30 @@ const Albums = async () => {
               />
               <p className="py-3 text-base font-semibold leading-7 tracking-tight text-gray-200">
                 {album.title}
-              </p>
+              </p> */}
+              <div className="mx-auto flex w-full max-w-sm flex-col items-center justify-center">
+                <div
+                  className="h-64 w-full rounded bg-gray-300 bg-cover bg-center shadow-md"
+                  style={{
+                    backgroundImage: `url(${album.coverImage.asset.url})`,
+                  }}
+                ></div>
+
+                <div className="-mt-10 w-56 overflow-hidden rounded bg-white shadow-lg dark:bg-gray-800 md:w-64">
+                  <h3 className="py-2 text-center font-bold uppercase tracking-wide text-gray-800 dark:text-white">
+                    {album.title}
+                  </h3>
+
+                  <div className="flex items-center justify-between bg-gray-200 px-3 py-2 dark:bg-gray-700">
+                    <span className="font-bold text-gray-800 dark:text-gray-200">
+                      $129
+                    </span>
+                    <button className="transform rounded bg-gray-800 px-2 py-1 text-xs font-semibold uppercase text-white transition-colors duration-300 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
             </Link>
           </li>
         ))}
@@ -70,3 +93,5 @@ const Albums = async () => {
 };
 
 export default Albums;
+
+/*  */
