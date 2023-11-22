@@ -1,8 +1,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { client } from "../../../sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
 import { Skeleton } from "@/components/shadcn/ui/skeleton";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,7 +33,9 @@ const fetchAlbums = async () => {
     }
   `;
 
-  const results = await client.fetch<Album[]>(query);
+  const results = await client.fetch<Album[]>(query, {
+    next: { revalidate: 3600 },
+  });
   return results;
 };
 
@@ -73,15 +73,16 @@ const Albums = async () => {
                   <h3 className="px-2 py-2 text-center text-sm font-bold tracking-wide text-gray-800">
                     {album.title}
                   </h3>
-
-                  <div className="flex items-center justify-center bg-gray-200 px-3 py-2">
-                    <span className="font-bold text-gray-800">
+                  {/*                   <div className="flex items-center justify-center bg-gray-200 px-3 py-2">
+                   */}{" "}
+                  {/* <span className="text-xs font-bold text-gray-800">
                       {album.date}
-                    </span>
-                    {/* <button className="transform rounded bg-gray-800 px-2 py-1 text-xs font-semibold uppercase text-white transition-colors duration-300 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
+                    </span> */}
+                  {/* <button className="transform rounded bg-gray-800 px-2 py-1 text-xs font-semibold uppercase text-white transition-colors duration-300 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
                       Add to cart
                     </button>  */}
-                  </div>
+                  {/*                   </div>
+                   */}{" "}
                 </div>
               </div>
             </Link>
