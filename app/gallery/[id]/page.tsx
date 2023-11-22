@@ -53,10 +53,8 @@ const AlbumPage = () => {
   useEffect(() => {
     const fetchAlbums = async () => {
       // Add a delay of 1000 milliseconds (1 second)
-      setTimeout(async () => {
-        const result = await fetchAlbum(albumId);
-        setAlbum(result);
-      }, 10000);
+      const result = await fetchAlbum(albumId);
+      setAlbum(result);
     };
 
     fetchAlbums();
