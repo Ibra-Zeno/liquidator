@@ -50,7 +50,6 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   params: { slug: string };
 }) => {
   const teamMembers: PersonProps[] = await fetchMembers(params.slug as string);
-  const slug = params.slug;
 
   return (
     <main className="mx-auto flex max-w-7xl justify-between gap-x-6 px-6 pt-12">
