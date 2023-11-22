@@ -6,7 +6,7 @@ import { client } from "../../../sanity/lib/client";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import Lightbox from "react-spring-lightbox";
-import { ArrowLeftCircle, ArrowRightCircle, RefreshCw } from "lucide-react";
+import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 
 // Define the Album and ImageWithDescription types
 type ImageWithDescription = {
@@ -86,12 +86,12 @@ const AlbumPage = () => {
     setCurrentImageIndex(currentImageIndex + 1);
 
   return (
-    <div className="mx-auto max-w-7xl">
+    <main className="mx-auto max-w-7xl px-4 lg:px-8">
       <h2 className="pt-6 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
         {album.title}
       </h2>
       <p className="mb-6 mt-3 text-sm italic text-gray-700">{album.date}</p>
-      <div className="mx-auto flex flex-wrap gap-x-6 rounded-sm">
+      <div className="mx-auto flex flex-wrap justify-center gap-x-6 rounded-sm lg:justify-start">
         {images.map((image, index) => (
           <Image
             key={index}
@@ -106,28 +106,29 @@ const AlbumPage = () => {
       </div>
       {lightboxOpen && (
         <Lightbox
+          className="absolute z-10 h-full w-full bg-slate-900/75"
           onPrev={gotoPrevious}
           onNext={gotoNext}
           images={images}
           currentIndex={currentImageIndex}
           onClose={() => setLightboxOpen(false)}
           /* Add custom UI components and styling here */
-          renderHeader={() => <div className="lightbox-header">header</div>}
-          renderFooter={() => <div className="lightbox-footer">footer</div>}
+          // renderHeader={() => <div className="lightbox-header">header</div>}
+          // renderFooter={() => <div className="lightbox-footer">footer</div>}
           renderPrevButton={() => (
-            <button onClick={gotoPrevious} className="z-20 bg-sky-950 p-12">
-              <ArrowLeftCircle />
+            <button onClick={gotoPrevious} className="z-20 p-12">
+              <ArrowLeftCircle size={45} className="text-slate-800" />
             </button>
           )}
           renderNextButton={() => (
-            <button onClick={gotoNext} className="z-20 bg-sky-950 p-12">
-              <ArrowRightCircle />
+            <button onClick={gotoNext} className="z-20 p-12">
+              <ArrowRightCircle size={45} className="text-slate-800" />
             </button>
           )}
           isOpen={lightboxOpen} // This should reflect the state of lightboxOpen
         />
       )}
-    </div>
+    </main>
   );
 };
 
