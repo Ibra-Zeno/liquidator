@@ -36,7 +36,10 @@ const fetchMembers = async (slug: string) => {
         }
     `;
 
-  const teamMembers = await client.fetch(query, { slug });
+  const teamMembers = await client.fetch(query, {
+    slug,
+    next: { revalidate: 3600 },
+  });
 
   return teamMembers;
 };
