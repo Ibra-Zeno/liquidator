@@ -14,7 +14,7 @@ const album: SchemaTypeDefinition = {
     },
     {
       name: "date",
-      type: "datetime",
+      type: "string",
       title: "Date of Album",
       description: "When was this album created or the event occurred?",
     },
