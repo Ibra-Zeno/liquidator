@@ -3,6 +3,7 @@ import { client } from "../../../sanity/lib/client";
 import { Skeleton } from "@/components/shadcn/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
+import Loading from "@/components/Loading";
 
 // Define the Album type
 type Album = {
@@ -41,6 +42,10 @@ const fetchAlbums = async () => {
 
 const Albums = async () => {
   const albums = await fetchAlbums();
+
+  if (!albums) {
+    return <Loading />;
+  }
 
   return (
     <div>
