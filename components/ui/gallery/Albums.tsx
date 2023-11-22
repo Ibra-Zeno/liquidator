@@ -69,18 +69,18 @@ const Albums = async () => {
                   }}
                 ></div>
 
-                <div className="-mt-10 w-56 overflow-hidden rounded bg-white shadow-lg dark:bg-gray-800 md:w-64">
-                  <h3 className="py-2 text-center font-bold uppercase tracking-wide text-gray-800 dark:text-white">
+                <div className="-mt-5 w-56 overflow-hidden rounded border-b-4 border-green-600/30 bg-white shadow-lg md:w-64">
+                  <h3 className="px-2 py-2 text-center text-sm font-bold tracking-wide text-gray-800">
                     {album.title}
                   </h3>
 
-                  <div className="flex items-center justify-between bg-gray-200 px-3 py-2 dark:bg-gray-700">
-                    <span className="font-bold text-gray-800 dark:text-gray-200">
-                      $129
+                  <div className="flex items-center justify-center bg-gray-200 px-3 py-2">
+                    <span className="font-bold text-gray-800">
+                      {album.date}
                     </span>
-                    <button className="transform rounded bg-gray-800 px-2 py-1 text-xs font-semibold uppercase text-white transition-colors duration-300 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
+                    {/* <button className="transform rounded bg-gray-800 px-2 py-1 text-xs font-semibold uppercase text-white transition-colors duration-300 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
                       Add to cart
-                    </button>
+                    </button>  */}
                   </div>
                 </div>
               </div>
