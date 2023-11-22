@@ -86,15 +86,15 @@ const AlbumPage = () => {
         {album.title}
       </h2>
       <p className="mb-6 mt-3 text-sm italic text-gray-700">{album.date}</p>
-      <div className="flex flex-wrap gap-x-6 rounded-sm">
+      <div className="mx-auto flex flex-wrap gap-x-6 rounded-sm">
         {images.map((image, index) => (
           <Image
             key={index}
             src={image.src}
             alt={image.alt}
-            height={200}
-            width={200}
-            className="my-3 cursor-pointer rounded border border-gray-500/20 object-cover shadow-lg transition-all duration-300 ease-in-out hover:scale-105"
+            height={150}
+            width={275}
+            className="my-3 border-spacing-10 cursor-pointer rounded border-2 border-gray-800/60 object-cover p-1.5 shadow-lg transition-all duration-300 ease-in-out hover:scale-105"
             onClick={() => openLightboxOnIndex(index)}
           />
         ))}
