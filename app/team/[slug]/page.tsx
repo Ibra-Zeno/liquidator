@@ -1,5 +1,6 @@
 // pages/categories/[slug].tsx
 import React from "react";
+import Link from "next/link";
 import { client } from "../../../sanity/lib/client";
 import Image from "next/image";
 import { ScrollShadow } from "@nextui-org/react";
@@ -51,13 +52,40 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
 }) => {
   const teamMembers: PersonProps[] = await fetchMembers(params.slug as string);
   return (
-    <main className="mx-auto flex max-w-7xl justify-between gap-x-6 px-6 pt-12">
-      {/* <div className="w-fit max-w-md">
-        <h1 className="mb-12 mt-2 w-fit text-center text-4xl font-bold">
-          Team Members in {teamMembers[0].category.title}
-        </h1>
-        <p>{teamMembers[0].category.description}</p>
-      </div> */}
+    <main className="mx-auto flex max-w-7xl flex-col justify-between gap-x-6 px-6 pt-12">
+      <div className="relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute -top-96 start-1/2 flex -translate-x-1/2 transform"
+        >
+          <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
+          <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
+        </div>
+
+        <div className="relative z-10">
+          <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="inline-block bg-gradient-to-l from-blue-600 to-violet-500 bg-clip-text text-sm font-medium text-transparent">
+                Who dunnit?
+              </p>
+
+              <div className="mt-5 max-w-2xl">
+                <h1 className="block text-4xl font-semibold text-gray-800 md:text-5xl lg:text-6xl">
+                  {teamMembers[0].category.title}
+                </h1>
+              </div>
+
+              <div className="mt-5 max-w-3xl">
+                <p className="text-lg text-gray-600 ">
+                  Preline UI is an open-source set of prebuilt UI components,
+                  ready-to-use examples and Figma design system based on the
+                  utility-first Tailwind CSS framework.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <ul className="grid justify-between gap-x-4">
         {teamMembers.map((member) => (
           <li key={member._id} className="mb-6">
