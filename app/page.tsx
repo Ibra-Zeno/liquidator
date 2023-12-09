@@ -9,78 +9,155 @@ import LogoCloud from "@/components/ui/index/LogoCloud";
 const Index: React.FC = () => {
   return (
     <main className="relative ">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-blend-hard-light"
-        style={{ backgroundImage: `url('/images/index/index-bg.jpg')` }}
-      >
-        <div className="absolute inset-0 bg-slate-800 bg-opacity-75"></div>
+      <div className="overflow-hidden py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            <div className="lg:pr-8 lg:pt-4">
+              <div className="relative isolate mx-auto flex h-[40rem] flex-col justify-start ">
+                <h1 className="line text-4xl font-bold leading-10 tracking-tight sm:text-7xl">
+                  Our Consulting is Truly Radiant
+                </h1>
+                <p className="my-6 text-base leading-8 text-gray-900/75 sm:text-lg">
+                  Propelling Business Innovations Forward and Cultivating
+                  Financial Empowerment for Sustainable Growth in a Dynamic and
+                  Ever-Evolving Global Landscape, Driving Positive Change and
+                  Fostering Prosperity for All Stakeholders.
+                </p>
+
+                <div className="my-12 flex justify-start gap-x-6">
+                  <Button radius="sm" className=" bg-sky-950 text-white ">
+                    <Link href="#" className="flex items-center justify-center">
+                      Learn More
+                      <ChevronRight className="ml-2" />
+                    </Link>
+                  </Button>
+                  <Button variant="ghost" radius="sm" className="">
+                    <Link
+                      href="#"
+                      className="flex items-center justify-center "
+                    >
+                      Contact Us
+                      <ChevronRight className="ml-2" />
+                    </Link>
+                  </Button>
+                </div>
+
+                <div className="mx-auto -mb-20 mt-10 grid max-w-xl grid-cols-3 gap-x-12 gap-y-8 px-20 text-left sm:grid-cols-3 sm:px-0">
+                  <div className="flex w-full">
+                    <div className="flex w-full items-center">
+                      <Users2 className="" size={50} />
+                      <p className="ml-3 w-full min-w-[4rem] text-sm">
+                        Over 12,000 students
+                      </p>
+                    </div>
+                    <Separator
+                      orientation="vertical"
+                      className="my-auto ml-12 h-[75%]"
+                    />
+                  </div>
+                  <div className="flex w-full">
+                    <div className="flex w-full items-center">
+                      <CheckSquare className="" size={50} />
+                      <p className="ml-3 w-full min-w-[4rem] text-sm">
+                        No yearly charges
+                      </p>
+                    </div>
+                    <Separator
+                      orientation="vertical"
+                      className="my-auto ml-12 h-[75%]"
+                    />
+                  </div>
+                  <div className="flex items-center">
+                    <LockKeyhole size={50} />
+                    <p className="ml-3 text-sm ">
+                      Secured & safe online payment
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Image
+              src="/images/index/index-bg.jpg"
+              alt="Product screenshot"
+              className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+              width={2432}
+              height={1442}
+            />
+          </div>
+        </div>
       </div>
-      <div className="relative isolate mx-auto flex h-[40rem] min-h-[80vh] max-w-xl flex-col justify-center text-center text-white">
-        <h1 className="-mt-24 mb-6 text-4xl font-bold tracking-tight sm:text-6xl">
-          This Can Be A New Revolution
-        </h1>
-        <p className=" mb-10 text-base leading-8 tracking-wide sm:text-lg">
-          Propelling Business Innovations Forward and Cultivating Financial
-          Empowerment for Sustainable Growth
-        </p>
-
-        <div className="mx-auto mb-12 flex items-center justify-center gap-x-6">
-          <Button
-            radius="sm"
-            className=" w-fit border-2 bg-sky-950 py-6  text-gray-100"
-          >
-            <Link href="#" className="flex items-center justify-center">
-              Learn More
-              <ChevronRight className="ml-2" />
-            </Link>
-          </Button>
-          <Button variant="ghost" radius="sm" className=" w-fit  py-6">
-            <Link
-              href="#"
-              className="flex items-center justify-center text-white"
-            >
-              Contact Us
-              <ChevronRight className="ml-2" />
-            </Link>
-          </Button>
-        </div>
-
-        <div className="-mb-20 mt-10 grid grid-cols-3 gap-x-12 gap-y-8 px-20 text-left sm:grid-cols-3 sm:px-0">
-          <div className="flex w-full">
-            <div className="flex w-full items-center">
-              <Users2 className="" size={50} />
-              <p className="ml-3 w-full min-w-[4rem] text-sm">
-                Over 12,000 students
-              </p>
-            </div>
-            <Separator
-              orientation="vertical"
-              className="my-auto ml-12 h-[75%]"
-            />
-          </div>
-          <div className="flex w-full">
-            <div className="flex w-full items-center">
-              <CheckSquare className="" size={50} />
-              <p className="ml-3 w-full min-w-[4rem] text-sm">
-                No yearly charges
-              </p>
-            </div>
-            <Separator
-              orientation="vertical"
-              className="my-auto ml-12 h-[75%]"
-            />
-          </div>
-          <div className="flex items-center">
-            <LockKeyhole size={50} />
-            <p className="ml-3 text-sm ">Secured & safe online payment</p>
-          </div>
-        </div>
+      <div
+      /* className="absolute inset-0 bg-cover bg-center bg-blend-hard-light"
+        style={{ backgroundImage: `url('/images/index/index-bg.jpg')` }} */
+      >
+        {/* <div className="absolute inset-0 bg-slate-800 bg-opacity-75"></div> */}
       </div>
     </main>
   );
 };
 
 export default Index;
+
+/* import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+
+const features = [
+  {
+    name: 'Push to deploy.',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    icon: CloudArrowUpIcon,
+  },
+  {
+    name: 'SSL certificates.',
+    description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+    icon: LockClosedIcon,
+  },
+  {
+    name: 'Database backups.',
+    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
+    icon: ServerIcon,
+  },
+]
+
+export default function Example() {
+  return (
+    <div className="overflow-hidden bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div className="lg:pr-8 lg:pt-4">
+            <div className="lg:max-w-lg">
+              <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better workflow</p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
+                iste dolor cupiditate blanditiis ratione.
+              </p>
+              <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                {features.map((feature) => (
+                  <div key={feature.name} className="relative pl-9">
+                    <dt className="inline font-semibold text-gray-900">
+                      <feature.icon className="absolute left-1 top-1 h-5 w-5 text-indigo-600" aria-hidden="true" />
+                      {feature.name}
+                    </dt>{' '}
+                    <dd className="inline">{feature.description}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+          <img
+            src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+            alt="Product screenshot"
+            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+            width={2432}
+            height={1442}
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+ */
 
 /* <div class="bg-gradient-to-b from-[#101212] relative to-[#08201D]">
     <header class="absolute inset-x-0 top-0 z-10 w-full">
