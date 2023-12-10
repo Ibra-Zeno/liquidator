@@ -15,7 +15,7 @@ export const Malay = [
         a: () => (
           <>
             <p>Menurut Seksyen 218 Akta Syarikat 1965:</p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 Syarikat membuat keputusan melalui resolusi khas untuk digulung
                 oleh mahkamah.
@@ -55,7 +55,7 @@ export const Malay = [
         q: "Siapa Yang Boleh Dilantik Sebagai Pelikuidasi?",
         a: () => (
           <>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>Pegawai Penerima Insolvensi (DGI) atau</li>
               <li>Pelikuidasi persendirian yang berlesen.</li>
             </ul>
@@ -65,7 +65,7 @@ export const Malay = [
       {
         q: "Apakah Tugas Utama Pelikuidasi?",
         a: () => (
-          <ul>
+          <ul className="list-inside list-disc gap-y-1 py-2">
             <li>
               Melikuidasi syarikat dengan mengagihkan aset kepada pemiutang dan,
               jika ada baki, diagihkan kepada pemegang saham.
@@ -109,7 +109,7 @@ export const Malay = [
         a: () => (
           <>
             <p>Proses ini penting untuk:</p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 Memastikan syarikat menyimpan rekod lengkap pemilik dan dokumen
                 pendukung.
@@ -136,7 +136,7 @@ export const Malay = [
         a: () => (
           <>
             <p>Mengemukakan dokumen bukti penting untuk:</p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>Mencegah penipuan oleh pihak ketiga.</li>
               <li>Membuat rekod kepemilikan yang terperinci dan lengkap.</li>
             </ul>
@@ -160,7 +160,7 @@ export const Malay = [
         a: () => (
           <>
             <p>Berikut ini adalah dokumen yang diperlukan:</p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>Salinan Perjanjian Jual Beli.</li>
               <li>
                 Salinan bukti pembayaran lengkap atau surat penyerahan hak.
@@ -192,7 +192,7 @@ export const Malay = [
               Menyempurnakan pindah milik atau gadaian (perfection of
               transfer/charge) adalah penting karena:
             </p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 Itu menunjukkan bukti sah kepemilikan untuk berbagai transaksi
                 seperti penjualan, gadai, atau pinjaman.
@@ -216,7 +216,7 @@ export const Malay = [
         a: () => (
           <>
             <p>Setelah menerima notis, pemilik/pembeli harus:</p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 Menunjuk seorang peguam untuk mengirim surat instruksi kepada
                 pelikuidasi.
@@ -238,7 +238,7 @@ export const Malay = [
               Biaya administratif untuk menyempurnakan pindah milik/gadaian
               diperlukan karena:
             </p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 Seksyen 287 (1) Akta Syarikat 1965 menetapkan bahwa pelikuidasi
                 tidak bertanggung jawab atas biaya yang terkait dengan syarikat

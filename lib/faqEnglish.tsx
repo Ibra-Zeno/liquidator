@@ -16,9 +16,9 @@ export const English = [
           <>
             <p>
               Section 218 of the Company Act, 1965 sets out the circumstances in
-              which a company may be wound-up by the Court
+              which a company may be wound-up by the Court:
             </p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 The company has resolved by special resolution that it should be
                 wound up by the court.
@@ -69,7 +69,7 @@ export const English = [
         q: "What Is the Primary Function of a Liquidator?",
         a: () => (
           <>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 The principal role of a liquidator is to wind up the company by
                 collecting and liquidating assets at the best possible price and
@@ -127,7 +127,7 @@ export const English = [
         a: () => (
           <>
             <p>Verification of ownership is imperative for several reasons:</p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 {" "}
                 The company has previously failed to maintain an accurate
@@ -178,7 +178,7 @@ export const English = [
         a: () => (
           <>
             <p>The following documents are required</p>
-            <ul>
+            <ul className="list-inside list-disc gap-y-1 py-2">
               <li>
                 Certified true copies of the principal Sale & Purchase Agreement
                 and the Deed of Assignment (if applicable), including any
