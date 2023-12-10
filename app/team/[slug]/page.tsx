@@ -90,7 +90,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
       </div>
       <ul className="grid justify-between gap-x-4">
         {teamMembers.map((member) => (
-          <li key={member._id} className="mb-6">
+          <li key={member._id} className="mb-6 inline-flex w-full flex-wrap">
             {member.image ? (
               <div className="grid grid-cols-5 gap-x-12">
                 <figure className="col-span-2">
@@ -125,9 +125,28 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 </div>
               </div>
             ) : (
-              <h3 className="mb-3 text-center text-2xl font-semibold">
-                {member.name}
-              </h3>
+              <li className="inline-block max-w-[45%]">
+                <div className="h-fit">
+                  <figcaption className="mb-2.5 text-3xl font-semibold">
+                    {member.name}
+                  </figcaption>
+                  <p className="mb-3 text-sm font-bold">{member.nickname}</p>
+                  {member.qualifications && (
+                    <div className="mb-6 flex items-center justify-start gap-x-3">
+                      <Sparkles
+                        strokeWidth={1.4}
+                        className="mr-2 rounded-full border border-gray-700/75 p-0.5"
+                      />
+                      <p className="inline-block text-center text-sm font-medium">
+                        {member.qualifications?.join(",\u00a0  ")}
+                      </p>
+                    </div>
+                  )}
+                  <p className="mx-auto max-w-6xl  leading-7">
+                    {member.biography}
+                  </p>
+                </div>
+              </li>
             )}
             {/* <div>
               <p className="mb-3 text-center text-sm font-bold">
