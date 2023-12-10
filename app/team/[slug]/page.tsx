@@ -84,7 +84,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 </p>
               </div>
             </div>
-            <TeamLinks />
+            <TeamLinks currentLink={params.slug} />
           </div>
         </div>
       </div>
