@@ -53,7 +53,9 @@ const FAQAccordion = () => {
                         key={itemIndex}
                         value={`item-${index}-${sectionIndex}-${itemIndex}`}
                       >
-                        <AccordionTrigger>{item.q}</AccordionTrigger>
+                        <AccordionTrigger className="text-left font-medium text-slate-800/95">
+                          {item.q}
+                        </AccordionTrigger>
                         <AccordionContent className="text-[15px] leading-7">
                           {item.a()}
                         </AccordionContent>
