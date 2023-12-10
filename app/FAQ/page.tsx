@@ -5,20 +5,40 @@ const FAQ: React.FC = () => {
   return (
     <>
       <section id="banner">
-        <div className="mx-auto grid max-w-2xl py-12 text-center text-lg tracking-wide">
-          <span className="text-base font-semibold leading-7 text-indigo-600">
-            Improve you asset management
-          </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Frequently Asked Questions
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Our mission is to provide a platform for all stakeholders in the
-            property industry to collaborate and share information in a
-            transparent manner.
-          </p>
+        <div
+          aria-hidden="true"
+          className="absolute -top-96 start-1/2 flex -translate-x-1/2 transform"
+        >
+          <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
+          <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
         </div>
-        <Breadcrumbs />
+        <div className="relative overflow-hidden">
+          <div className="relative">
+            <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="inline-block bg-gradient-to-l from-blue-600 to-violet-500 bg-clip-text text-sm font-medium text-transparent">
+                  Find Your Answers
+                </p>
+
+                <div className="mt-5 max-w-2xl">
+                  <h1 className="block text-4xl font-semibold tracking-tight text-gray-800 md:text-5xl lg:text-6xl">
+                    Frequently Asked Questions
+                  </h1>
+                </div>
+
+                <div className="mt-5 max-w-3xl">
+                  <p className="text-lg text-gray-600 ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ipsa dolores ipsum aspernatur officia ex, soluta est laborum
+                    ducimus iusto dolorum aut reprehenderit veniam repellendus
+                    possimus vero adipisci ut.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <Breadcrumbs /> */}
       </section>
       <FAQAccordion />
     </>
