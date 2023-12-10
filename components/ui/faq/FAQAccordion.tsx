@@ -44,7 +44,9 @@ const FAQAccordion = () => {
                     className="col-span-6 mb-7"
                     orientation="horizontal"
                   />
-                  <h2 className="col-span-2 pt-4 font-bold">{title}</h2>
+                  <h2 className="col-span-2 max-w-sm pt-4 text-lg font-bold leading-7">
+                    {title}
+                  </h2>
                   <div className="col-span-4">
                     {items.map((item, itemIndex) => (
                       <AccordionItem
@@ -52,7 +54,7 @@ const FAQAccordion = () => {
                         value={`item-${index}-${sectionIndex}-${itemIndex}`}
                       >
                         <AccordionTrigger>{item.q}</AccordionTrigger>
-                        <AccordionContent className="text-base leading-7">
+                        <AccordionContent className="text-[15px] leading-7">
                           {item.a()}
                         </AccordionContent>
                       </AccordionItem>
