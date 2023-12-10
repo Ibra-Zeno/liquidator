@@ -28,7 +28,7 @@ const FAQAccordion = () => {
         <Switch
           onValueChange={toggleLanguage}
           size={"md"}
-          className="flex justify-self-end"
+          className="flex justify-self-end px-4"
         >
           Switch to {isEnglish ? "Bahasar Malaysia" : "English"}
         </Switch>
@@ -44,7 +44,7 @@ const FAQAccordion = () => {
                     className="col-span-6 mb-7"
                     orientation="horizontal"
                   />
-                  <h2 className="col-span-2 max-w-sm pt-4 text-lg font-bold leading-7">
+                  <h2 className="col-span-2 max-w-sm pt-4 text-lg font-bold leading-7 text-gray-800/90">
                     {title}
                   </h2>
                   <div className="col-span-4">
