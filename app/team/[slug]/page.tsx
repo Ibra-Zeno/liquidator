@@ -1,10 +1,11 @@
 // pages/categories/[slug].tsx
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import { client } from "../../../sanity/lib/client";
 import Image from "next/image";
 import { ScrollShadow } from "@nextui-org/react";
 import { Sparkles } from "lucide-react";
+import TeamLinks from "@/components/ui/team/TeamLinks";
 
 export interface PersonProps {
   _id: string;
@@ -62,7 +63,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
           <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
         </div>
 
-        <div className="relative z-10">
+        <div className="relative">
           <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
             <div className="mx-auto max-w-2xl text-center">
               <p className="inline-block bg-gradient-to-l from-blue-600 to-violet-500 bg-clip-text text-sm font-medium text-transparent">
@@ -70,7 +71,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
               </p>
 
               <div className="mt-5 max-w-2xl">
-                <h1 className="block text-4xl font-semibold text-gray-800 md:text-5xl lg:text-6xl">
+                <h1 className="block text-4xl font-semibold tracking-tight text-gray-800 md:text-5xl lg:text-6xl">
                   {teamMembers[0].category.title}
                 </h1>
               </div>
@@ -83,6 +84,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 </p>
               </div>
             </div>
+            <TeamLinks />
           </div>
         </div>
       </div>
