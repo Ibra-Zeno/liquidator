@@ -86,7 +86,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
         className="mx-auto flex max-w-7xl items-center justify-between p-3"
         id="container"
       >
-        <div>
+        <div className="z-30">
           <Logo />
         </div>
         <div>
