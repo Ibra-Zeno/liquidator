@@ -21,7 +21,7 @@ const FAQ: React.FC = () => {
                 </p>
 
                 <div className="mt-5 max-w-2xl">
-                  <h1 className="block text-4xl font-semibold tracking-tight text-gray-800 md:text-5xl lg:text-6xl">
+                  <h1 className="block text-xl font-semibold tracking-tight text-gray-800 md:text-3xl lg:text-4xl">
                     Frequently Asked Questions
                   </h1>
                 </div>
