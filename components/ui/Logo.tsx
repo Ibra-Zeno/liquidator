@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Logo: FC = ({}) => {
   return (
-    <Link href="/" className="text-3xl font-bold">
+    <Link href="/" className="z-30 text-3xl font-bold">
       <div className="flex items-center">
         <Image
           src="/images/index/liquidatorLogo.png"
