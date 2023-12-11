@@ -108,39 +108,49 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <main>
-      <section id="banner">
-        <div className="mx-auto grid max-w-2xl gap-y-8 py-12 text-center text-lg tracking-wide">
-          <span className=" font-semibold">Improve you asset management</span>
-          <h2 className="-mt-2 text-6xl font-bold">Services</h2>
-          <p>
-            Our mission is to provide a platform for all stakeholders in the
-            property industry to collaborate and share information in a
-            transparent manner.
-          </p>
+    <main className="mx-auto max-w-7xl">
+      <section id="banner" className="border-b border-gray-700/25 pb-3">
+        <div
+          aria-hidden="true"
+          className="absolute -top-96 start-1/2 flex -translate-x-1/2 transform"
+        >
+          <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
+          <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
         </div>
-        <Breadcrumbs />
-      </section>
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-indigo-600">
-              Deploy faster
-            </h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Everything you need to deploy your app
-            </p>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 lg:max-w-4xl">
-              Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-              Suspendisse eget egestas a elementum pulvinar et feugiat blandit
-              at. In mi viverra elit nunc.
-            </p>
+        <div className="relative overflow-hidden">
+          <div className="relative">
+            <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="inline-block bg-gradient-to-l from-blue-600 to-violet-500 bg-clip-text text-sm font-medium text-transparent">
+                  Explore What We Offer
+                </p>
+
+                <div className="mt-5 max-w-2xl">
+                  <h1 className="block text-xl font-semibold tracking-tight text-gray-800 md:text-3xl lg:text-4xl">
+                    Services
+                  </h1>
+                </div>
+
+                <div className="mt-5 max-w-3xl">
+                  <p className="text-lg text-gray-600 ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ipsa dolores ipsum aspernatur officia ex, soluta est laborum
+                    ducimus iusto dolorum aut reprehenderit veniam repellendus
+                    possimus vero adipisci ut.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mx-auto mt-16 sm:mt-20 lg:mt-24">
+        </div>
+      </section>
+      <div className="bg-white sm:py-12">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto mt-12">
             <dl className="grid grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {services.map((feature) => (
                 <div key={feature.title} className="relative pl-16">
-                  <dt className="text-base font-semibold leading-7">
+                  <dt className="mb-4 pt-1.5 text-xl font-bold leading-7">
                     <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600 text-white">
                       {feature.icon}
                     </div>
