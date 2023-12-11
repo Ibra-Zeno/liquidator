@@ -71,6 +71,7 @@ const AlbumPage = () => {
     .map((image) => ({
       src: image.asset.url,
       alt: image.description,
+      style: { borderRadius: "4px", shadow: "0 0 10px #000" },
     }));
 
   const openLightboxOnIndex = (index: number) => {
@@ -106,23 +107,27 @@ const AlbumPage = () => {
       </div>
       {lightboxOpen && (
         <Lightbox
-          className="absolute z-10 h-full w-full bg-slate-900/75"
+          className="absolute z-10 h-full w-full bg-gradient-to-br from-blue-900/95 to-slate-800/95"
           onPrev={gotoPrevious}
           onNext={gotoNext}
           images={images}
           currentIndex={currentImageIndex}
-          onClose={() => setLightboxOpen(false)}
+          onClose={() => (
+            <button onClick={() => setLightboxOpen(false)}>
+              <ArrowLeftCircle size={45} className="text-slate-100" />
+            </button>
+          )}
           /* Add custom UI components and styling here */
           // renderHeader={() => <div className="lightbox-header">header</div>}
           // renderFooter={() => <div className="lightbox-footer">footer</div>}
           renderPrevButton={() => (
             <button onClick={gotoPrevious} className="z-20 p-12">
-              <ArrowLeftCircle size={45} className="text-slate-800" />
+              <ArrowLeftCircle size={45} className="text-slate-100" />
             </button>
           )}
           renderNextButton={() => (
             <button onClick={gotoNext} className="z-20 p-12">
-              <ArrowRightCircle size={45} className="text-slate-800" />
+              <ArrowRightCircle size={45} className="text-slate-100" />
             </button>
           )}
           isOpen={lightboxOpen} // This should reflect the state of lightboxOpen
