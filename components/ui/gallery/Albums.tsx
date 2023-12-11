@@ -74,7 +74,7 @@ const Albums = async () => {
                   }}
                 ></div>
 
-                <div className="-mt-5 w-56 overflow-hidden rounded border-b-4 border-green-600/30 bg-white shadow-lg md:w-64">
+                <div className="-mt-5 w-56 overflow-hidden rounded border-b-4 border-[#f2bae8] bg-white shadow-lg md:w-64">
                   <h3 className="px-2 py-2 text-center text-sm font-bold tracking-wide text-gray-800">
                     {album.title}
                   </h3>
