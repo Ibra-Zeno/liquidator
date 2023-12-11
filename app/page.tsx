@@ -9,8 +9,15 @@ import LogoCloud from "@/components/ui/index/LogoCloud";
 const Index: React.FC = () => {
   return (
     <main className="relative ">
-      <div className="overflow-hidden py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <div
+        aria-hidden="true"
+        className="absolute -top-96 start-1/2 flex -translate-x-1/2 transform"
+      >
+        <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
+        <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
+      </div>
+      <div className="overflow-hidden py-20">
+        <div className="mx-auto max-w-[90rem] px-6">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:pr-8 lg:pt-4">
               <div className="relative isolate mx-auto flex h-[40rem] flex-col justify-start ">
@@ -79,7 +86,7 @@ const Index: React.FC = () => {
             <Image
               src="/images/index/index-bg.jpg"
               alt="Product screenshot"
-              className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+              className="isolate w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
               width={2432}
               height={1442}
             />
