@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/shadcn/ui/skeleton";
 const GalleryPage = () => {
   return (
     <main className="">
-      <section className="mx-auto max-w-7xl py-16">
+      <section className="mx-auto max-w-7xl py-4">
         <section id="banner" className="border-b border-gray-700/25 pb-3">
           <div
             aria-hidden="true"
@@ -24,7 +24,7 @@ const GalleryPage = () => {
                   </p>
 
                   <div className="mt-5 max-w-2xl">
-                    <h1 className="block text-xl font-semibold tracking-tight text-gray-800 md:text-3xl lg:text-4xl">
+                    <h1 className="block text-3xl font-semibold tracking-tight text-gray-800 md:text-5xl lg:text-6xl">
                       Gallery
                     </h1>
                   </div>
