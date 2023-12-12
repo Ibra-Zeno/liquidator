@@ -147,7 +147,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  href="/"
+                  href="/contact"
                   className={navigationMenuTriggerStyle()}
                 >
                   Contact Us
