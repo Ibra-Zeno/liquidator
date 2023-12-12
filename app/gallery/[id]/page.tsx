@@ -107,16 +107,19 @@ const AlbumPage = () => {
       </div>
       {lightboxOpen && (
         <Lightbox
-          className="absolute z-10 h-full w-full bg-gradient-to-br from-blue-900/95 to-slate-800/95"
+          className="absolute z-10 h-full w-full bg-gradient-to-br from-stone-950/95 to-slate-900/95"
           onPrev={gotoPrevious}
           onNext={gotoNext}
           images={images}
           currentIndex={currentImageIndex}
-          onClose={() => (
-            <button onClick={() => setLightboxOpen(false)}>
-              <ArrowLeftCircle size={45} className="text-slate-100" />
-            </button>
-          )}
+          onClose={() => setLightboxOpen(false)}
+          // <button
+
+          // className="right-0 top-0 z-20"
+          // >
+          // {/* <ArrowLeftCircle size={45} className="text-slate-100" /> */}
+          // </button>
+          // )}
           /* Add custom UI components and styling here */
           // renderHeader={() => <div className="lightbox-header">header</div>}
           // renderFooter={() => <div className="lightbox-footer">footer</div>}
