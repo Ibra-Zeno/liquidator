@@ -107,6 +107,7 @@ const AlbumPage = () => {
       </div>
       {lightboxOpen && (
         <Lightbox
+          renderHeader={() => <div className="lightbox-header">header</div>}
           className="absolute z-10 h-full w-full bg-gradient-to-br from-stone-950/95 to-slate-900/95"
           onPrev={gotoPrevious}
           onNext={gotoNext}
