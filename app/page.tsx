@@ -16,7 +16,7 @@ const Index: React.FC = () => {
         <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
         <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
       </div>
-      <div className="overflow-hidden py-20">
+      <div className="my-10 overflow-hidden py-20">
         <div className="mx-auto max-w-[90rem] px-6">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="isolate z-30 lg:pr-8 lg:pt-4">
@@ -82,6 +82,14 @@ const Index: React.FC = () => {
               </div>
             </div>
             <div className="inset-y-0 right-0 top-0 z-0 mx-auto max-w-xl overflow-hidden px-4 md:px-0 lg:absolute lg:mx-0 lg:mb-0 lg:w-7/12 lg:max-w-full lg:pr-0 xl:px-0">
+              <svg
+                className="absolute left-0 hidden h-full -translate-x-1/2 transform text-white/30 lg:block"
+                viewBox="0 0 100 100"
+                fill="currentColor"
+                preserveAspectRatio="none slice"
+              >
+                <path d="M50 0H100L90 100H10L100 0Z" />
+              </svg>
               <Image
                 className="isolate z-40 h-56 w-full rounded border-y-4 border-sky-800/60 object-cover shadow-lg md:h-96 lg:h-full lg:rounded-none lg:shadow-none"
                 style={{
