@@ -18,7 +18,7 @@ const About: FC<pageProps> = ({}) => {
             transparent manner.
           </p>
         </div>
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
       </section>
 
       {/* Content (sticky) */}
