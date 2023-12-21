@@ -90,6 +90,9 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
           </div>
         </div>
       </div>
+      {
+        // Address error in Hydration due to list elements below.
+      }
       <ul className="grid justify-between gap-x-4">
         {teamMembers.map((member) => (
           <li key={member._id} className="mb-6 inline-flex w-full flex-wrap">
