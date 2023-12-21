@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Chip } from "@nextui-org/react";
 const teamLinks = [
