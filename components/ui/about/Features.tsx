@@ -6,37 +6,20 @@ const values = [
   {
     icon: <Shield />,
     title: "Integrity",
-    content: () => (
-      <p className="">
-        We uphold stringent ethical standards to address our clients&apos; needs
-        with integrity and dedication. Our firm commitment to responsible
-        business practices ensures that we deliver conscientious and
-        professional services consistently.
-      </p>
-    ),
+    content:
+      "We uphold stringent ethical standards to address our clients&apos; needs with integrity and dedication. Our firm commitment to responsible business practices ensures that we deliver conscientious and professional services consistently.",
   },
   {
     icon: <Key />,
     title: "Responsibility",
-    content: () => (
-      <p>
-        We shoulder the responsibility of addressing the challenges presented by
-        the demanding nature of our clients&apos; businesses. Our approach is
-        proactive and dedicated, ensuring we navigate through complexities with
-        expertise and resilience.
-      </p>
-    ),
+    content:
+      "We shoulder the responsibility of addressing the challenges presented by the demanding nature of our clients&apos; businesses. Our approach is proactive and dedicated, ensuring we navigate through complexities with expertise and resilience.",
   },
   {
     icon: <AreaChart />,
     title: "Technical Excellence",
-    content: () => (
-      <p>
-        This core principle, ingrained across our firm, drives us towards the
-        pinnacle of quality. It bolsters client satisfaction, employee growth,
-        and underpins our independence.
-      </p>
-    ),
+    content:
+      "This core principle, ingrained across our firm, drives us towards the pinnacle of quality. It bolsters client satisfaction, employee growth, and underpins our independence.",
   },
 ];
 
@@ -81,7 +64,7 @@ const Features: FC = ({}) => {
                   </h5>
 
                   <p className="mt-3 leading-7 text-gray-500">
-                    {value.content()}
+                    {value.content}
                   </p>
                 </div>
               </div>
