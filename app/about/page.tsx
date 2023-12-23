@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
+// import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { Sparkles, CheckSquare, PackageCheck } from "lucide-react";
 import Features from "@/components/ui/about/Features";
 import Strategies from "@/components/ui/about/Strategies";
@@ -116,7 +116,7 @@ const About: FC<pageProps> = ({}) => {
             </div>
           </div>
         </div>
-        <Features />
+        {/* <Features /> */}
       </section>
       <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
         <div className="lg:pr-4">
