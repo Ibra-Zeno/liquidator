@@ -21,10 +21,10 @@ const Index: React.FC = () => {
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="isolate z-30 lg:pr-8 lg:pt-4">
               <div className="relative isolate mx-auto -mt-20 flex h-[40rem] flex-col justify-center ">
-                <h1 className="text-4xl font-bold leading-10 tracking-tighter sm:text-6xl">
+                <h1 className="text-4xl font-bold leading-10 tracking-tighter sm:text-7xl">
                   Liquidation Wonders
                 </h1>
-                <p className="mb-12 mt-8 text-base text-gray-900/75 sm:text-lg sm:leading-8">
+                <p className="mb-20 mt-10 text-base text-gray-900/75 sm:text-lg sm:leading-8">
                   Propelling Business Innovations Forward and Cultivating
                   Financial Empowerment for Sustainable Growth in a Dynamic and
                   Ever-Evolving Global Landscape, Driving Positive Change and
@@ -37,7 +37,7 @@ const Index: React.FC = () => {
                       <ChevronRight className="ml-2" />
                     </Link>
                   </Button>
-                  <Button variant="ghost" className="">
+                  <Button variant="ghost" className="text-base">
                     <Link
                       href="#"
                       className="flex items-center justify-center "
