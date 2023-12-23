@@ -8,21 +8,41 @@ interface pageProps {}
 const About: FC<pageProps> = ({}) => {
   return (
     <main>
-      <section id="banner">
-        <div className="mx-auto grid max-w-2xl gap-y-8 py-12 text-center text-lg tracking-wide">
-          <span className=" font-semibold">Improve you asset management</span>
-          <h2 className="-mt-2 text-6xl font-bold">About Us</h2>
-          <p>
-            Our mission is to provide a platform for all stakeholders in the
-            property industry to collaborate and share information in a
-            transparent manner.
-          </p>
+      <div
+        aria-hidden="true"
+        className="absolute -top-96 start-1/2 flex -translate-x-1/2 transform"
+      >
+        <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
+        <div className="h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 rounded-full bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
+      </div>
+      <div className="relative overflow-hidden">
+        <div className="relative">
+          <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="inline-block bg-gradient-to-l from-blue-600 to-violet-500 bg-clip-text text-sm font-medium text-transparent">
+                Improve Your Asset Management
+              </p>
+
+              <div className="mt-5 max-w-2xl">
+                <h1 className="block text-3xl font-semibold tracking-tight text-gray-800 md:text-5xl lg:text-6xl">
+                  About Us
+                </h1>
+              </div>
+
+              <div className="mt-5 max-w-3xl">
+                <p className="text-lg text-gray-600 ">
+                  Our mission is to provide a platform for all stakeholders in
+                  the property industry to collaborate and share information in
+                  a transparent manner./*-
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        {/* <Breadcrumbs /> */}
-      </section>
+      </div>
 
       {/* Content (sticky) */}
-      <section className="relative isolate overflow-hidden bg-white px-6 pt-12 lg:px-0">
+      <section className="relative isolate overflow-hidden px-6 pt-12 lg:px-0">
         <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-40 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
@@ -42,12 +62,13 @@ const About: FC<pageProps> = ({}) => {
             </div>
           </div>
           {/* Aside */}
-          <div className="mx-auto block w-full max-w-7xl justify-center py-12 lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 xl:-ml-[15%]">
+          <div className="relative block w-full max-w-lg justify-center py-12 lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1">
             <section className="">
-              <div className="relative mx-auto h-[28rem] w-[90%] max-w-[25rem] rounded-md bg-slate-200 shadow-lg lg:w-full">
+              <div className="relative mx-auto h-[28rem] w-[90%] max-w-[25rem] rounded-md bg-slate-200 shadow-lg lg:w-full ">
+                <div className="absolute inset-0 -z-10 h-[30rem] w-[20rem] translate-x-[3rem] rotate-45 bg-emerald-700/25 blur-3xl "></div>
                 {/* Bookmark thingy */}
                 <div className="flex">
-                  <div className="absolute -left-2 top-6 h-16 w-20 rounded-r-md bg-sky-950">
+                  <div className="absolute -left-2 top-6 z-10 h-16 w-20 rounded-r-md bg-sky-950">
                     <div className="absolute inset-0 flex items-center justify-items-center">
                       <Sparkles
                         className="mx-auto my-auto flex justify-center rounded-full border p-1 text-white"
