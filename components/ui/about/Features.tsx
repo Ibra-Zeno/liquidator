@@ -25,7 +25,7 @@ const values = [
 
 const Features: FC = ({}) => {
   return (
-    <section className="mx-auto my-12 bg-[#9cadbc]/60 px-3">
+    <section className="mx-auto my-12 bg-[#9cadbc]/30 px-3">
       <div className="container mx-auto pt-12">
         <div className="lg:flex lg:items-center">
           <div className="-ml-12 hidden lg:flex lg:w-1/2 lg:items-center lg:justify-center">
