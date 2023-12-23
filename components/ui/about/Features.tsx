@@ -7,7 +7,7 @@ const values = [
     icon: <Shield />,
     title: "Integrity",
     content: () => (
-      <p>
+      <p className="">
         We uphold stringent ethical standards to address our clients&apos; needs
         with integrity and dedication. Our firm commitment to responsible
         business practices ensures that we deliver conscientious and
@@ -42,10 +42,19 @@ const values = [
 
 const Features: FC = ({}) => {
   return (
-    <section className="mx-auto max-w-7xl">
-      <div className="container mx-auto px-6 pt-20">
+    <section className="mx-auto my-12 bg-[#9cadbc]/60 px-3">
+      <div className="container mx-auto pt-12">
         <div className="lg:flex lg:items-center">
-          <div className="w-full space-y-12 lg:w-1/2">
+          <div className="-ml-12 hidden lg:flex lg:w-1/2 lg:items-center lg:justify-center">
+            <Image
+              className="h-[28rem] w-[28rem] rounded object-cover shadow-2xl xl:h-[36rem] xl:w-[25rem]"
+              src="/images/index/index-bg.jpg"
+              height={544}
+              width={544}
+              alt="random image"
+            />
+          </div>
+          <div className="w-full max-w-2xl space-y-12 lg:w-1/2">
             <div>
               <h3 className="text-2xl font-semibold capitalize  lg:text-3xl">
                 A Company <br /> Defined By Values
@@ -77,16 +86,6 @@ const Features: FC = ({}) => {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="hidden lg:flex lg:w-1/2 lg:items-center lg:justify-center">
-            <Image
-              className="h-[28rem] w-[28rem] rounded-full object-cover shadow-2xl xl:h-[30rem] xl:w-[30rem]"
-              src="/images/index/index-bg.jpg"
-              height={544}
-              width={544}
-              alt="random image"
-            />
           </div>
         </div>
 
