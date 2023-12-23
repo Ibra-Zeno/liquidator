@@ -202,13 +202,13 @@ const About: FC<pageProps> = ({}) => {
           outcomes of our engagements.
         </p>
       </div>
-      <section className="bg-[#98afba] py-14">
+      <section className="mt-12 border-y-4 border-[#80b2c9]  bg-[#98afba] py-12">
         <div className="mx-auto max-w-screen-xl px-4 md:px-8 md:text-center">
           <div className="max-w-xl md:mx-auto">
-            <h3 className="text-3xl font-semibold text-gray-800 sm:text-4xl">
+            <h3 className="text-3xl font-semibold text-gray-100 sm:text-4xl">
               Build the future with us
             </h3>
-            <p className="mt-4 leading-7 text-gray-600">
+            <p className="mt-4 leading-7 text-gray-200">
               Duis aute irure dolor in reprehenderit in voluptate velit esse
               cillum dolore eu fugiat nulla pariatur excepteur sint occaecat
               cupidatat non proident.
@@ -223,7 +223,7 @@ const About: FC<pageProps> = ({}) => {
             </Link>
             <Link
               href="/team/senior-management"
-              className="inline-block rounded-[2px] border px-4 py-2 font-medium tracking-wide text-gray-800 duration-150 hover:bg-gray-50 active:bg-gray-100"
+              className="inline-block rounded-[2px] border px-4 py-2 font-medium tracking-wide text-gray-100 duration-150 hover:bg-gray-50 hover:text-gray-800 active:bg-gray-100 active:text-gray-900"
             >
               Meet Our Team
             </Link>
