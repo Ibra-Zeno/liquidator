@@ -2,6 +2,7 @@ import { FC } from "react";
 // import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { Sparkles, CheckSquare, PackageCheck } from "lucide-react";
 import Features from "@/components/ui/about/Features";
+import Link from "next/link";
 import Strategies from "@/components/ui/about/Strategies";
 interface pageProps {}
 
@@ -30,15 +31,16 @@ const About: FC<pageProps> = ({}) => {
               </div>
 
               <div className="mt-5 max-w-3xl">
-                <p className="text-lg text-gray-600 ">
+                <p className="text-lg leading-8 text-gray-600 ">
                   Our mission is to provide a platform for all stakeholders in
                   the property industry to collaborate and share information in
-                  a transparent manner./*-
+                  a transparent manner.
                 </p>
               </div>
             </div>
           </div>
         </div>
+        <hr className="my-8 hidden border-gray-200 md:block" />
       </div>
 
       {/* Content (sticky) */}
@@ -151,7 +153,7 @@ const About: FC<pageProps> = ({}) => {
               suite of services tailored to the needs of distressed entities,
               which includes:
             </p>
-            <ol className="grid gap-y-1 py-5 font-bold leading-8 tracking-wide">
+            <ol className="grid list-disc gap-y-1 py-5 font-bold leading-8 tracking-wide">
               <li>Court Liquidation</li>
               <li>Provisional Liquidation</li>
               <li>Pre-liquidation advice</li>
@@ -200,6 +202,34 @@ const About: FC<pageProps> = ({}) => {
           outcomes of our engagements.
         </p>
       </div>
+      <section className="bg-[#98afba] py-14">
+        <div className="mx-auto max-w-screen-xl px-4 md:px-8 md:text-center">
+          <div className="max-w-xl md:mx-auto">
+            <h3 className="text-3xl font-semibold text-gray-800 sm:text-4xl">
+              Build the future with us
+            </h3>
+            <p className="mt-4 leading-7 text-gray-600">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur excepteur sint occaecat
+              cupidatat non proident.
+            </p>
+          </div>
+          <div className="mt-6 flex items-center gap-3 md:justify-center">
+            <Link
+              href="/services"
+              className="inline-block rounded-[2px] bg-gray-800 px-4 py-2 font-medium tracking-wide text-white shadow-md duration-150 hover:bg-gray-700 hover:shadow-none active:bg-gray-900"
+            >
+              Explore Services
+            </Link>
+            <Link
+              href="/team/senior-management"
+              className="inline-block rounded-[2px] border px-4 py-2 font-medium tracking-wide text-gray-800 duration-150 hover:bg-gray-50 active:bg-gray-100"
+            >
+              Meet Our Team
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
