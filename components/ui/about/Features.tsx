@@ -7,13 +7,13 @@ const values = [
     icon: <Shield />,
     title: "Integrity",
     content:
-      "We uphold stringent ethical standards to address our clients&apos; needs with integrity and dedication. Our firm commitment to responsible business practices ensures that we deliver conscientious and professional services consistently.",
+      "We uphold stringent ethical standards to address our clients' needs with integrity and dedication. Our firm commitment to responsible business practices ensures that we deliver conscientious and professional services consistently.",
   },
   {
     icon: <Key />,
     title: "Responsibility",
     content:
-      "We shoulder the responsibility of addressing the challenges presented by the demanding nature of our clients&apos; businesses. Our approach is proactive and dedicated, ensuring we navigate through complexities with expertise and resilience.",
+      "We shoulder the responsibility of addressing the challenges presented by the demanding nature of our clients' businesses. Our approach is proactive and dedicated, ensuring we navigate through complexities with expertise and resilience.",
   },
   {
     icon: <AreaChart />,
@@ -44,9 +44,9 @@ const Features: FC = ({}) => {
               </h3>
 
               <div className="mt-2">
-                <span className="inline-block h-1 w-40 rounded-full bg-blue-500"></span>
-                <span className="ml-1 inline-block h-1 w-3 rounded-full bg-blue-500"></span>
-                <span className="ml-1 inline-block h-1 w-1 rounded-full bg-blue-500"></span>
+                <span className="inline-block h-1 w-40 rounded-full bg-[#80b2c9]"></span>
+                <span className="ml-1 inline-block h-1 w-3 rounded-full bg-[#80b2c9]"></span>
+                <span className="ml-1 inline-block h-1 w-1 rounded-full bg-[#80b2c9]"></span>
               </div>
             </div>
             {values.map((value) => (
