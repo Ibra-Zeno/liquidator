@@ -109,6 +109,9 @@ const services = [
 const Services: React.FC = () => {
   return (
     <main className="mx-auto max-w-7xl">
+      {
+        // TODO: Add Image to banner for services
+      }
       <section id="banner" className="border-b border-gray-700/25 pb-3">
         <div
           aria-hidden="true"
@@ -167,12 +170,12 @@ const Services: React.FC = () => {
           </div>
         </div>
       </div>
-      <p className="mx-auto mb-6 mt-12 max-w-prose text-center">
+      {/* <p className="mx-auto mb-6 mt-12 max-w-prose text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolore
         officia ex sint cupiditate maiores, quisquam numquam commodi iure, rem
         rerum quod omnis qui perferendis velit neque placeat, voluptatibus et?
-      </p>
-      <section className="p-4 lg:p-8">
+      </p> */}
+      {/* <section className="p-4 lg:p-8">
         <div className="container mx-auto space-y-12">
           <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
             <Image
@@ -247,7 +250,7 @@ const Services: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };
