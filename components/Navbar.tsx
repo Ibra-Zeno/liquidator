@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 const aboutLinks: { title: string; href: string; description: string }[] = [
   {
-    title: "About",
+    title: "Our Values",
     href: "/about",
     description: "Learn more about our mission and values.",
   },
