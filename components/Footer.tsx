@@ -64,39 +64,111 @@ const contactInfo = [
   },
 ];
 
+const footerLinks = [
+  {
+    title: "About Us",
+    links: [
+      {
+        name: "Our Values",
+        href: "/about",
+      },
+      {
+        name: "Services",
+        href: "/services",
+      },
+      {
+        name: "FAQs",
+        href: "/FAQ",
+      },
+    ],
+  },
+  {
+    title: "Our Team",
+    links: [
+      {
+        name: "Liquidators",
+        href: "/team/liquidators",
+      },
+      {
+        name: "Senior Management",
+        href: "/team/senior-management",
+      },
+      {
+        name: "Liquidation",
+        href: "/team/liquidation",
+      },
+      {
+        name: "Conveyancing & Subsale",
+        href: "/team/conveyancing-subsale",
+      },
+      {
+        name: "Accounts",
+        href: "/team/accounts",
+      },
+      {
+        name: "Admin",
+        href: "/team/admin",
+      },
+      {
+        name: "Consultants",
+        href: "/team/consultants",
+      },
+    ],
+  },
+];
+
 const Footer: FC<FooterProps> = ({}) => {
   return (
     <div>
       <footer className="my-10 border-t border-gray-700/40 lg:mt-20">
         <div className="mx-auto max-w-[85rem] px-4 py-6  sm:px-6 lg:px-8 ">
-          <div className="flex justify-between">
+          <div className="flex flex-col justify-between lg:flex-row">
             <div className="col-span-full mb-8 lg:col-span-1">
-              <Logo />
-              <h4 className="mt-10 max-w-md text-lg font-medium leading-8 text-gray-500">
+              <div className="mx-auto w-fit scale-110 lg:ml-0">
+                <Logo />
+              </div>
+              <h4 className="mx-auto mt-6 max-w-sm text-center text-sm font-medium leading-6 text-gray-500">
                 Propelling Business Innovations Forward and Cultivating
                 Financial Empowerment for Sustainable Growth
               </h4>
             </div>
 
-            <section className="flex flex-row gap-x-24">
-              <div className="col-span-1">
+            <section className="flex gap-x-8">
+              {footerLinks.map((link) => (
+                <div key={link.title} className="col-span-1">
+                  <h4 className="font-semibold ">{link.title}</h4>
+                  <div className="mt-3 grid space-y-3">
+                    {link.links.map((link) => (
+                      <p key={link.name}>
+                        <Link
+                          className="inline-flex gap-x-2 hover:text-gray-200"
+                          href={link.href}
+                        >
+                          {link.name}
+                        </Link>
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              {/* <div className="col-span-1">
                 <h4 className="font-semibold ">Product</h4>
                 <div className="mt-3 grid space-y-3">
                   <p>
-                    <a
+                    <Link
                       className="inline-flex gap-x-2 hover:text-gray-200"
                       href="#"
                     >
                       Pricing
-                    </a>
+                    </Link>
                   </p>
                   <p>
-                    <a
+                    <Link
                       className="inline-flex gap-x-2 hover:text-gray-200"
                       href="#"
                     >
                       Changelog
-                    </a>
+                    </Link>
                   </p>
                   <p>
                     <a
@@ -112,20 +184,20 @@ const Footer: FC<FooterProps> = ({}) => {
                 <h4 className="font-semibold ">Company</h4>
                 <div className="mt-3 grid space-y-3">
                   <p>
-                    <a
+                    <Link
                       className="inline-flex gap-x-2 hover:text-gray-200"
                       href="#"
                     >
                       About us
-                    </a>
+                    </Link>
                   </p>
                   <p>
-                    <a
+                    <Link
                       className="inline-flex gap-x-2 hover:text-gray-200"
                       href="#"
                     >
                       Blog
-                    </a>
+                    </Link>
                   </p>
                   <p>
                     <a
@@ -136,15 +208,52 @@ const Footer: FC<FooterProps> = ({}) => {
                     </a>
                   </p>
                   <p>
-                    <a
+                    <Link
                       className="inline-flex gap-x-2 hover:text-gray-200"
                       href="#"
                     >
                       Customers
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
+              <div className="col-span-1">
+                <h4 className="font-semibold ">Company</h4>
+                <div className="mt-3 grid space-y-3">
+                  <p>
+                    <Link
+                      className="inline-flex gap-x-2 hover:text-gray-200"
+                      href="#"
+                    >
+                      About us
+                    </Link>
+                  </p>
+                  <p>
+                    <Link
+                      className="inline-flex gap-x-2 hover:text-gray-200"
+                      href="#"
+                    >
+                      Blog
+                    </Link>
+                  </p>
+                  <p>
+                    <Link
+                      className="inline-flex gap-x-2 hover:text-gray-200"
+                      href="#"
+                    >
+                      Careers
+                    </Link>
+                  </p>
+                  <p>
+                    <Link
+                      className="inline-flex gap-x-2 hover:text-gray-200"
+                      href="#"
+                    >
+                      Customers
+                    </Link>
+                  </p>
+                </div>
+              </div> */}
             </section>
           </div>
           <div className="mt-5 grid grid-cols-3 items-center justify-between">
