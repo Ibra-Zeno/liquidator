@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import Logo from "./ui/Logo";
 import Link from "next/link";
-import { Button } from "@nextui-org/react";
+import { Button } from "./shadcn/ui/button";
 
 interface FooterProps {}
 const companyLocations = [
@@ -133,7 +133,7 @@ const Footer: FC<FooterProps> = ({}) => {
     <div>
       <footer className="align-center flex flex-col justify-center bg-sky-950 px-4 py-12 text-white">
         <section className="container mx-auto flex w-full flex-col justify-between md:flex-row ">
-          <div className=" mt-12 flex w-fit flex-grow scale-125 px-12">
+          <div className="mt-12 flex w-fit flex-grow scale-125 px-12">
             <Logo />
           </div>
           <section className="flex w-[75%] flex-col justify-end gap-x-32 md:flex-row ">
@@ -173,27 +173,30 @@ const Footer: FC<FooterProps> = ({}) => {
               ))}
               <Button
                 color="default"
-                className="mt-6 text-sm"
-                radius="sm"
-                endContent={<SendHorizontal strokeWidth={1.65} size={16} />}
+                className="ml-2 mt-6 flex flex-row gap-x-2 text-sm"
+                // endContent={<SendHorizontal strokeWidth={1.65} size={16} />}
               >
                 Contact Us
+                <SendHorizontal strokeWidth={1.7} size={14} />
               </Button>
             </div>
           </section>
         </section>
         <section className="container mt-10 flex flex-wrap border-y border-opacity-25 py-2 ">
           {companyLocations.map((location) => (
-            <div key={location.name} className="col-span-1 mx-auto my-2 w-fit">
+            <div key={location.name} className="mx-auto my-1.5">
               <div className="flex items-center gap-x-2">
                 {location.icons}
                 <h4 className="text-sm font-medium">{location.name}</h4>
               </div>
-              <p className="ml-auto mt-1.5 text-xs text-gray-500">
-                {location.id}
-              </p>
+              <p className="ml-8 mt-1 text-xs text-gray-200">{location.id}</p>
             </div>
           ))}
+        </section>
+        <section className="-mb-6 mt-5 flex justify-center">
+          <p className="text-xs text-gray-300/40">
+            © 2021 theliquidator.net All rights reserved.
+          </p>
         </section>
       </footer>
     </div>
