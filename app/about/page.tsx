@@ -11,7 +11,7 @@ const About: FC<pageProps> = ({}) => {
     <main>
       <div
         aria-hidden="true"
-        className="absolute -top-96 start-1/2 flex -translate-x-1/2 transform"
+        className="absolute -top-96 start-1/2 flex max-w-[100vw] -translate-x-1/2 transform"
       >
         <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
         <div className="h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 rounded-full bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
