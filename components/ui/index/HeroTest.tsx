@@ -10,7 +10,7 @@ import LogoCarousel from "./LogoCarousel";
 const HeroTest: React.FC = () => {
   return (
     <main className="relative ">
-      <div className="my-10  py-12">
+      <div className="my-10">
         <div className=" px-6">
           <div className="grid  grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20  lg:grid-cols-3 ">
             <div className="col-span-2 mx-auto max-w-2xl lg:max-w-none">
