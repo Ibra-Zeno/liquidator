@@ -18,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      maxWidth: {
+        "8xl": "90rem",
+      },
       fontFamily: {
         logo: ["SatisfactionPro", "serif"],
       },
