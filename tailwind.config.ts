@@ -70,12 +70,36 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        carousel: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        "carousel-reverse": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        fadeIn: "fadeIn 1s ease-in-out",
+      },
+      animationDelay: {
+        "100": "100ms",
+        "200": "200ms",
+        "300": "300ms",
+        "400": "400ms",
+        "500": "500ms",
       },
     },
+  },
+  variants: {
+    animation: ["responsive", "hover", "focus"],
+    animationDelay: ["responsive", "hover", "focus"], // Ensure delay is available in different states
   },
   plugins: [require("tailwindcss-animate"), nextui()],
 };
