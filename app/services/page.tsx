@@ -108,7 +108,7 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <main className="mx-auto max-w-7xl">
+    <main className="max-w-8xl mx-auto">
       {
         // TODO: Add Image to banner for services
       }
@@ -148,7 +148,7 @@ const Services: React.FC = () => {
         </div>
       </section>
       <div className="bg-white sm:py-12">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="max-w-8xl mx-auto px-6 lg:px-8">
           <div className="mx-auto mt-12">
             <dl className="grid grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {services.map((feature) => (

@@ -24,7 +24,7 @@ const FAQAccordion = () => {
   const data = isEnglish ? English : Malay;
   return (
     <>
-      <section className="mx-auto my-12 max-w-7xl">
+      <section className="max-w-8xl mx-auto my-12">
         <Switch
           onValueChange={toggleLanguage}
           size={"md"}

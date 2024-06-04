@@ -26,7 +26,7 @@ const Breadcrumbs = () => {
   return (
     <section
       aria-label="breadcrumbs"
-      className="mx-auto max-w-7xl bg-[#f7f7f7] px-4 py-2.5 text-sm opacity-90"
+      className="max-w-8xl mx-auto bg-[#f7f7f7] px-4 py-2.5 text-sm opacity-90"
     >
       <ol className="flex">
         <li>

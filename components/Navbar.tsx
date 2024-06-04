@@ -83,7 +83,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
   return (
     <nav className="nav relative hidden w-full lg:block">
       <section
-        className="mx-auto flex max-w-[85%] items-center justify-between p-3"
+        className="max-w-8xl mx-auto flex items-center justify-between p-3"
         id="container"
       >
         <div className="z-30">

@@ -87,7 +87,7 @@ const AlbumPage = () => {
     setCurrentImageIndex(currentImageIndex + 1);
 
   return (
-    <main className="mx-auto max-w-7xl px-4 lg:px-8">
+    <main className="max-w-8xl mx-auto px-4 lg:px-8">
       <h2 className="pt-6 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
         {album.title}
       </h2>

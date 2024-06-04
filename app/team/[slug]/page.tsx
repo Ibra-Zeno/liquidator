@@ -53,7 +53,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
 }) => {
   const teamMembers: PersonProps[] = await fetchMembers(params.slug as string);
   return (
-    <main className="mx-auto flex max-w-7xl flex-col justify-between gap-x-6 px-6 pt-6">
+    <main className="max-w-8xl mx-auto flex flex-col justify-between gap-x-6 px-6 pt-6">
       <div
         aria-hidden="true"
         className="absolute -top-96 start-1/2 flex max-w-[100vw] max-w-[100vw] -translate-x-1/2 transform"
