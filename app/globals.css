@@ -17,6 +17,11 @@
   font-style: normal;
   font-display: swap;
 }
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
 
 @layer base {
   :root {
