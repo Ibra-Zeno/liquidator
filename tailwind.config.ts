@@ -23,6 +23,8 @@ module.exports = {
       },
       fontFamily: {
         logo: ["SatisfactionPro", "serif"],
+        sans: ["var(--font-inter)"],
+        serif: ["var(--font-source-serif-4)"],
       },
       colors: {
         border: "hsl(var(--border))",
