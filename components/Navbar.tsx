@@ -104,10 +104,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
                   <DropdownMenu aria-label="About Us" className="w-[340px]">
                     {aboutLinks.map((link) => (
                       <DropdownItem
+                        href={link.href}
                         key={link.title}
                         description={link.description}
                       >
-                        <Link href={link.href}>{link.title}</Link>
+                        {link.title}
                       </DropdownItem>
                     ))}
                   </DropdownMenu>
@@ -125,9 +126,10 @@ const Navbar: FC<NavbarProps> = ({}) => {
                     {teamLinks.map((link) => (
                       <DropdownItem
                         key={link.title}
+                        href={link.href}
                         description={link.description}
                       >
-                        <Link href={link.href}>{link.title}</Link>
+                        {link.title}
                       </DropdownItem>
                     ))}
                   </DropdownMenu>
