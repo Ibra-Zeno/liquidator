@@ -6,8 +6,11 @@ import {
   Landmark,
   MapPinned,
   Phone,
+  Linkedin,
   Printer,
   AtSign,
+  Mail,
+  Facebook,
   SendHorizontal,
 } from "lucide-react";
 import Logo from "./ui/Logo";
@@ -29,6 +32,18 @@ const companyLocations = [
     margin: "mx-auto",
   },
   {
+    name: "MJ Insolvency",
+    icons: <Landmark />,
+    id: "(LLP0037224-LAL) (NF 2776)",
+    margin: "ml-auto",
+  },
+  {
+    name: "TS Insolvency",
+    icons: <Landmark />,
+    id: "(NF 2776)",
+    margin: "ml-auto",
+  },
+  {
     name: "Radiant Corporate Solutions Sdn Bhd",
     icons: <Landmark />,
     id: "(1005821-D)",
@@ -40,12 +55,12 @@ const contactInfo = [
   {
     icon: <Phone size={16} />,
     title: "Tel",
-    content: () => <Link href="tel:60322824558">603 2282 4558</Link>,
+    content: () => <Link href="tel:60322824558">+6 03 2282 4558</Link>,
   },
   {
     icon: <Printer size={16} />,
     title: "Fax",
-    content: () => <p>603 2282 1558</p>,
+    content: () => <p>+6 03 2282 1558</p>,
   },
   {
     icon: <AtSign size={16} />,
@@ -63,6 +78,24 @@ const contactInfo = [
         Kuala Lumpur, Malaysia
       </p>
     ),
+  },
+];
+
+const SocialMediaLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/theliquidator.net/",
+    logo: <Facebook strokeWidth={1.25} />,
+  },
+  {
+    name: "Linkedin",
+    href: "https://www.theliquidator.net/",
+    logo: <Linkedin strokeWidth={1.25} />,
+  },
+  {
+    name: "Email",
+    href: "mailto:info@theliquidator.net",
+    logo: <Mail strokeWidth={1.25} />,
   },
 ];
 
@@ -131,56 +164,64 @@ const footerLinks = [
 const Footer: FC<FooterProps> = ({}) => {
   return (
     <div>
-      <footer className="align-center flex flex-col justify-center bg-sky-950 px-4 py-12 text-white">
-        <section className="container mx-auto flex w-full flex-col justify-between md:flex-row ">
-          <div className="mt-12 flex w-fit flex-grow scale-125 px-12">
-            <Logo />
-          </div>
-          <section className="flex w-[75%] flex-col justify-end gap-x-32 md:flex-row ">
-            {footerLinks.map((link) => (
-              <div key={link.title} className="">
-                <h4 className="text-sm font-semibold sm:text-base ">
-                  {link.title}
-                </h4>
-                <div className="mt-3 grid space-y-3">
-                  {link.links.map((link) => (
-                    <p key={link.name}>
-                      <Link
-                        className="inline-flex gap-x-2 text-xs transition duration-150 ease-in-out hover:text-gray-600 focus:text-gray-600 focus:outline-none"
-                        href={link.href}
-                      >
-                        {link.name}
-                      </Link>
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
-            <div className="">
-              <h4 className="grid text-sm font-semibold sm:text-base">
-                Head Office
-              </h4>
-              {contactInfo.map((contact) => (
-                <div
-                  key={contact.title}
-                  className="mt-6 flex flex-row items-start gap-x-3 px-2 text-xs"
-                >
-                  <div className="flex">
-                    <div className="flex">{contact.icon}</div>
-                  </div>
-                  <div className="">{contact.content()}</div>
-                </div>
-              ))}
-              <Button
-                color="default"
-                className="ml-2 mt-6 flex flex-row gap-x-2 text-sm"
-                // endContent={<SendHorizontal strokeWidth={1.65} size={16} />}
+      <footer className="align-center flex flex-col justify-center border-t-2 border-t-black px-4 pt-12">
+        <section className="container mx-auto flex flex-col justify-center gap-x-32 md:flex-row ">
+          {footerLinks.map((link) => (
+            <div key={link.title} className="">
+              <h4 className=" font-semibold">{link.title}</h4>
+              <div className="mb-5 mt-0.5 h-0.5 w-24 rounded-md bg-black"></div>
+              <div
+                className={`mt-3 grid ${
+                  link.title === "Our Team" ? "grid-cols-2 gap-4" : "space-y-3"
+                }`}
               >
-                Contact Us
-                <SendHorizontal strokeWidth={1.7} size={14} />
-              </Button>
+                {link.links.map((link) => (
+                  <p key={link.name}>
+                    <Link
+                      className="inline-flex gap-x-2 text-sm transition duration-150 ease-in-out hover:text-gray-600 focus:text-gray-600 focus:outline-none"
+                      href={link.href}
+                    >
+                      {link.name}
+                    </Link>
+                  </p>
+                ))}
+              </div>
             </div>
-          </section>
+          ))}
+          <div id="contact-section">
+            <h4 className="grid text-sm font-semibold sm:text-base">
+              Head Office
+            </h4>
+            <div className="my-1 h-0.5 w-24 rounded-md bg-black"></div>
+            <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6">
+              <div className="flex w-auto flex-col space-y-6">
+                {contactInfo
+                  .filter((contact) => contact.title !== "Address")
+                  .map((contact) => (
+                    <div
+                      key={contact.title}
+                      className="flex flex-row items-start gap-x-3 px-2 text-sm"
+                    >
+                      <div className="flex">{contact.icon}</div>
+                      <div>{contact.content()}</div>
+                    </div>
+                  ))}
+              </div>
+              <div className="mt-6 px-2">
+                {contactInfo
+                  .filter((contact) => contact.title === "Address")
+                  .map((contact) => (
+                    <div
+                      key={contact.title}
+                      className="flex flex-row items-start gap-x-3 px-2 text-sm"
+                    >
+                      <div className="flex">{contact.icon}</div>
+                      {contact.content()}
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
         </section>
         <section className="container mt-10 flex flex-wrap border-y border-opacity-25 py-2 ">
           {companyLocations.map((location) => (
@@ -189,14 +230,31 @@ const Footer: FC<FooterProps> = ({}) => {
                 {location.icons}
                 <h4 className="text-sm font-medium">{location.name}</h4>
               </div>
-              <p className="ml-8 mt-1 text-xs text-gray-200">{location.id}</p>
+              <p className="ml-8 mt-1 text-xs ">{location.id}</p>
             </div>
           ))}
         </section>
-        <section className="-mb-6 mt-5 flex justify-center">
-          <p className="text-xs text-gray-300/40">
+        <section className="container mt-8 flex max-w-6xl justify-between pb-6 ">
+          <p className="text-xs">
             © 2021 theliquidator.net All rights reserved.
           </p>
+          <div>
+            <div className="flex flex-row gap-x-10">
+              {SocialMediaLinks.map((media) => (
+                <div
+                  key={media.name}
+                  className="flex items-center justify-center rounded-full "
+                >
+                  <Link
+                    href={media.href}
+                    className="rounded-full p-1.5 transition-all duration-150 ease-in-out hover:bg-gray-400"
+                  >
+                    {media.logo}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       </footer>
     </div>
