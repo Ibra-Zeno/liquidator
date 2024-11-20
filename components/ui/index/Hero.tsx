@@ -9,22 +9,25 @@ import LogoCloud from "@/components/ui/index/LogoCloud";
 const Hero: React.FC = () => {
   return (
     <main className="relative ">
-      <div
+      {/* <div
         aria-hidden="true"
         className="absolute -top-96 start-1/2 z-0 flex max-w-[100vw] -translate-x-1/2 transform"
       >
         <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
         <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
-      </div>
-      <div className="my-10 overflow-hidden py-20">
+      </div> */}
+      <div className="overflow-hidden py-20">
         <div className="mx-auto max-w-[90rem] px-6">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="isolate z-30 lg:pr-8 lg:pt-4">
-              <div className="relative isolate mx-auto -mt-20 flex h-[40rem] flex-col justify-center ">
-                <h1 className="text-4xl font-bold leading-10 tracking-tighter sm:text-7xl">
-                  Liquidation Wonders
+              <div className="relative isolate mx-auto block h-[40rem] justify-center ">
+                <h1 className="pb-3 pt-8 text-4xl font-bold leading-10 tracking-tighter sm:text-7xl">
+                  Liquidation.
                 </h1>
-                <p className="mb-20 mt-10 text-base text-gray-900/75 sm:text-lg sm:leading-8">
+                <h1 className="text-4xl font-bold leading-10 tracking-tighter sm:text-7xl">
+                  Expertise.
+                </h1>
+                <p className="mb-20 mt-14 text-base text-gray-900/75 sm:text-lg sm:leading-8">
                   Propelling Business Innovations Forward and Cultivating
                   Financial Empowerment for Sustainable Growth in a Dynamic and
                   Ever-Evolving Global Landscape, Driving Positive Change and
@@ -81,25 +84,16 @@ const Hero: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="inset-y-0 right-0 top-0 z-0 mx-auto max-w-xl overflow-hidden px-4 md:px-0 lg:absolute lg:mx-0 lg:mb-0 lg:w-7/12 lg:max-w-full lg:pr-0 xl:px-0">
-              <svg
-                className="absolute left-0 hidden h-full -translate-x-1/2 transform text-white/30 lg:block"
-                viewBox="0 0 100 100"
-                fill="currentColor"
-                preserveAspectRatio="none slice"
-              >
-                <path d="M50 0H100L90 100H10L100 0Z" />
-              </svg>
-              <Image
-                className="isolate z-40 h-56 w-full rounded border-y-4 border-sky-800/60 object-cover shadow-lg md:h-96 lg:h-full lg:rounded-none lg:shadow-none"
-                style={{
-                  clipPath: "polygon(33% 0, 100% 0%, 100% 100%, 4% 100%)",
-                }}
-                src="/images/Hero/index-bg.jpg"
-                alt="Homepage backlground image"
-                width={2432}
-                height={1442}
-              />
+            <div>
+              <div className="flex content-center items-center justify-center py-12">
+                <Image
+                  src="/images/index/malaysia-bg-index.jpg"
+                  alt="Professional Illustration"
+                  width={700}
+                  height={700}
+                  className="my-auto h-auto max-w-full rounded-lg object-cover shadow-lg grayscale filter"
+                />
+              </div>
             </div>
           </div>
         </div>
