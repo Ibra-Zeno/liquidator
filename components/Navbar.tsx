@@ -2,26 +2,25 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { FC, useState } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/shadcn/ui/navigation-menu";
-import Logo from "./ui/Logo";
-import { ChevronDown } from "lucide-react";
-import { FC } from "react";
-import { cn } from "@/lib/utils";
-import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  Button,
   Dropdown,
+  DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  DropdownTrigger,
-  Button,
 } from "@nextui-org/react";
+import Logo from "./ui/Logo";
+import { cn } from "@/lib/utils";
 
 const aboutLinks = [
   {
@@ -79,84 +78,166 @@ const teamLinks = [
   },
 ];
 
-interface NavbarProps {}
+const menuItems = [
+  {
+    name: "About Us",
+    href: "/about",
+  },
+  {
+    name: "Services",
+    href: "/services",
+  },
+  {
+    name: "FAQs",
+    href: "/FAQ",
+  },
+  {
+    name: "Meet the Team",
+    href: "/team/liquidators",
+  },
+  {
+    name: "Gallery",
+    href: "/gallery",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
 
-const Navbar: FC<NavbarProps> = ({}) => {
+const Nav: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false); // Close the menu when an item is clicked
+  };
+
   return (
-    <nav className="nav relative w-full md:absolute md:top-0 md:w-full lg:block">
-      <section
-        className="mx-auto flex max-w-8xl items-center justify-between p-3"
-        id="container"
-      >
-        <div className="z-30">
+    <Navbar
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={(open) => setIsMenuOpen(open)} // Tie to menu open state
+      className=""
+    >
+      {/* Left Section: Logo and Menu Toggle */}
+      <NavbarContent>
+        <NavbarBrand>
           <Logo />
-        </div>
-        <div>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <Dropdown>
-                  <DropdownTrigger className="bg-transparent">
-                    <Button className={navigationMenuTriggerStyle()}>
-                      About Us <ChevronDown className="h-4 w-4" />
-                    </Button>
-                  </DropdownTrigger>
-                  <DropdownMenu aria-label="About Us" className="w-[340px]">
-                    {aboutLinks.map((link) => (
-                      <DropdownItem
-                        href={link.href}
-                        key={link.title}
-                        description={link.description}
-                      >
-                        {link.title}
-                      </DropdownItem>
-                    ))}
-                  </DropdownMenu>
-                </Dropdown>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Dropdown>
-                  <DropdownTrigger className="bg-transparent">
-                    <Button className={navigationMenuTriggerStyle()}>
-                      Our Team
-                      <ChevronDown className="h-4 w-4" />
-                    </Button>
-                  </DropdownTrigger>
-                  <DropdownMenu aria-label="Our Team" className="w-[340px]">
-                    {teamLinks.map((link) => (
-                      <DropdownItem
-                        key={link.title}
-                        href={link.href}
-                        description={link.description}
-                      >
-                        {link.title}
-                      </DropdownItem>
-                    ))}
-                  </DropdownMenu>
-                </Dropdown>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/gallery"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  Gallery
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/contact"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  Contact Us
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-      </section>
-    </nav>
+        </NavbarBrand>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+      </NavbarContent>
+
+      {/* Center Section: Links and Dropdowns (Visible on Desktop) */}
+      <NavbarContent className="hidden gap-4 sm:flex" justify="end">
+        {/* About Us Dropdown */}
+        <Dropdown>
+          <NavbarItem>
+            <DropdownTrigger>
+              <Button
+                className="bg-transparent p-0 data-[hover=true]:bg-transparent"
+                radius="sm"
+                variant="light"
+              >
+                About Us
+              </Button>
+            </DropdownTrigger>
+          </NavbarItem>
+          <DropdownMenu aria-label="About Us" className="w-[340px]">
+            {aboutLinks.map((link, index) => (
+              <DropdownItem
+                key={index}
+                href={link.href}
+                description={link.description}
+              >
+                {link.title}
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </Dropdown>
+
+        {/* Our Team Dropdown */}
+        <Dropdown>
+          <NavbarItem>
+            <DropdownTrigger>
+              <Button
+                className="bg-transparent p-0 data-[hover=true]:bg-transparent"
+                radius="sm"
+                variant="light"
+              >
+                Our Team
+              </Button>
+            </DropdownTrigger>
+          </NavbarItem>
+          <DropdownMenu aria-label="Our Team" className="w-[340px]">
+            {teamLinks.map((link, index) => (
+              <DropdownItem
+                key={index}
+                href={link.href}
+                description={link.description}
+              >
+                {link.title}
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </Dropdown>
+
+        {/* Gallery Link */}
+        <NavbarItem>
+          <Link href="/gallery">
+            <Button
+              className="bg-transparent p-0 data-[hover=true]:bg-transparent"
+              radius="sm"
+              variant="light"
+            >
+              Gallery
+            </Button>
+          </Link>
+        </NavbarItem>
+
+        {/* Contact Us Link */}
+        <NavbarItem>
+          <Link href="/contact">
+            <Button
+              className="bg-transparent p-0 data-[hover=true]:bg-transparent"
+              radius="sm"
+              variant="light"
+            >
+              Contact Us
+            </Button>
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+
+      {/* Mobile Menu: Visible on Small Screens */}
+      <NavbarMenu>
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={index}>
+            <div
+              onClick={() => {
+                handleMenuItemClick(); // Close the menu
+              }}
+              className="w-full"
+            >
+              <Link
+                href={item.href}
+                color={
+                  index === 2
+                    ? "primary"
+                    : index === menuItems.length - 1
+                    ? "danger"
+                    : "foreground"
+                }
+                className="block w-full"
+              >
+                {item.name}
+              </Link>
+            </div>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default Nav;
