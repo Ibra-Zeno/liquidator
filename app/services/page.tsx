@@ -1,6 +1,6 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Image from "next/image";
-import { PackageCheck } from "lucide-react";
+import { PackageCheck, Speech, BookText, BadgeCheck } from "lucide-react";
 
 const services = [
   {
@@ -106,7 +106,44 @@ const services = [
   },
 ];
 
-const features = [
+const choiceFeatures = [
+  {
+    name: "Tailored Solutions",
+    description:
+      "No two businesses are alike, and neither are our strategies. We tailor every solution to fit the unique needs of your business.",
+  },
+  {
+    name: "Cost-Effective Services",
+    description:
+      "We believe in delivering value. Our fees are transparent, competitive, and aligned with the complexity of each case.",
+  },
+  {
+    name: "Proven Track Record",
+    description:
+      "With successful engagements across industries, we are a trusted partner in corporate recovery.",
+  },
+];
+
+const partners = [
+  {
+    name: "Small and Medium-Sized Enterprises",
+    desc: "facing financial difficulties or restructuring requirements.",
+  },
+  {
+    name: "Large Corporations",
+    desc: "requiring advanced insolvency, restructuring, or legal support.",
+  },
+  {
+    name: "Developers",
+    desc: "seeking to revive stalled residential or commercial projects.",
+  },
+  {
+    name: "Financial Institutions",
+    desc: "managing distressed assets and insolvency portfolios.",
+  },
+];
+
+const expertFeatures = [
   {
     name: "Comprehensive Conveyancing Matters",
     description:
@@ -114,9 +151,15 @@ const features = [
     icon: PackageCheck,
   },
   {
+    name: "Corporate Recovery Receivership",
+    description:
+      "We offer expert strategies for asset management and financial restructuring, helping businesses remain operational while resolving insolvency challenges.",
+    icon: PackageCheck,
+  },
+  {
     name: "Insolvency Administration with MDI",
     description:
-      "As an agent for the Malaysia Department of Insolvency (MDI), we manage insolvency cases diligently, ensuring compliance with legal and regulatory requirements.",
+      "As a trusted agent for the Malaysia Department of Insolvency (MDI), we manage assigned insolvency companies with precision and ensure compliance with regulatory requirements.",
     icon: PackageCheck,
   },
   {
@@ -142,9 +185,9 @@ const Services: React.FC = () => {
   return (
     <>
       <div>
-        <div className="">
+        <div className="bg-slate-200 md:pb-48">
           <div className="mx-auto max-w-5xl px-4 pb-24 pt-24 lg:pt-32 xl:px-0">
-            <h1 className="text-5xl font-semibold md:text-6xl">
+            <h1 className="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
               Explore What We Offer
             </h1>
             <div className="max-w-4xl">
@@ -159,7 +202,8 @@ const Services: React.FC = () => {
           </div>
         </div>
       </div>
-      <section id="pricing" className="pb-12 pt-2">
+      {/* Pricing */}
+      <section id="pricing" className="pb-12 pt-2 md:-mt-52">
         <div className="relative mx-auto w-full items-center px-6 md:max-w-7xl md:px-10 lg:px-12">
           <div className="mx-auto max-w-sm space-y-12 rounded md:grid md:w-full md:max-w-none md:grid-cols-3 md:gap-x-4 md:space-y-0  md:px-8 md:py-12 lg:px-0 lg:py-0">
             {[
@@ -169,7 +213,7 @@ const Services: React.FC = () => {
                 features: [
                   "Members Voluntary Winding-Up – For solvent companies seeking an efficient closure.",
                   "Creditors Voluntary Winding-Up – Helping businesses address creditor claims strategically",
-                  "Receivership – Ensuring professional oversight of assets and obligations",
+                  "Compulsory Winding-Up – Providing court-supervised processes for insolvent companies.",
                 ],
                 link: "./project-management.html",
               },
@@ -196,10 +240,10 @@ const Services: React.FC = () => {
             ].map((course, index) => (
               <div
                 key={index}
-                className="relative flex flex-col rounded-xl p-4 pt-12 text-center transition-all duration-150 ease-in-out hover:bg-gray-400 hover:shadow-2xl md:border md:border-gray-400"
+                className="relative flex flex-col rounded-xl bg-white p-4 pt-12 text-center shadow-sm transition-all duration-150 ease-in-out hover:-translate-y-2 hover:shadow-2xl md:border md:border-gray-400"
               >
                 <div className="flex h-full flex-col justify-start sm:px-0">
-                  <div className="px-4 pb-3 pt-5">
+                  <div className="px-4 pb-8 pt-5">
                     <div className="-mt-2 flex flex-col items-baseline">
                       <h3 className="w-full pl-2 text-left text-2xl font-medium">
                         {course.title}
@@ -208,12 +252,12 @@ const Services: React.FC = () => {
                     </div>
                     <div className="ml-2 mt-1 h-[1px] w-8 bg-slate-400 md:w-16"></div>
                   </div>
-                  <p className="mt-8 w-full pl-6 text-left text-sm">
+                  {/* <p className="mt-8 w-full pl-6 text-left text-sm">
                     {course.description}
-                  </p>
+                  </p> */}
                   <ul
                     role="list"
-                    className="mt-3 flex flex-col gap-y-3 px-8 pb-5 text-left text-xs sm:px-20 sm:text-center md:px-0 md:text-sm lg:gap-y-5 lg:px-4 lg:pb-8"
+                    className="mt-3 flex flex-col gap-y-3 px-8 pb-5 text-left text-xs !leading-7 tracking-wide text-gray-800 sm:px-20 sm:text-center md:px-0 md:text-base lg:gap-y-5 lg:px-4 lg:pb-8"
                   >
                     {course.features.map((feature, i) => (
                       <li
@@ -233,37 +277,196 @@ const Services: React.FC = () => {
           </div>
         </div>
       </section>
-      <div className="bg-white py-24 sm:py-32">
+
+      <div className="bg-gradient-to-br from-white to-slate-100">
+        {/* Our Expertise (6 blocks) */}
+        <section className="py-32">
+          <div className="container mx-auto max-w-screen-xl">
+            <p className="mb-4 text-sm text-muted-foreground md:pl-5">
+              Specialised Solutions
+            </p>
+            <h2 className="mt-2 pl-5 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+              Our Expertise
+            </h2>
+            <div className="ml-6 mt-1 h-[1px] w-8 bg-slate-400 md:w-44"></div>
+            <div className="mx-auto mt-10 grid gap-x-20 gap-y-8 md:grid-cols-2 md:gap-y-6 lg:mt-14">
+              {expertFeatures.map((feature, idx) => (
+                <div
+                  className="group flex gap-6 rounded-lg md:block md:p-5"
+                  key={idx}
+                >
+                  <span className="mb-8 ml-0 flex w-auto items-center justify-start ">
+                    <feature.icon className="h-10 w-10 rounded-full bg-slate-200 p-2" />
+                  </span>
+                  <div>
+                    <div className="relative mb-2 w-fit text-lg after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-gray-300 after:transition-transform after:duration-300 after:ease-in-out group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
+                      {feature.name}
+                    </div>
+                    <p className="!leading-9 text-muted-foreground md:text-base">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        {/* Why Choose Us? */}
+        <div className="overflow-hidden py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+              <div className="lg:pr-8 lg:pt-4">
+                <div className="lg:max-w-lg">
+                  <h2 className="text-base/7 font-semibold text-indigo-600">
+                    Our Expertise
+                  </h2>
+                  <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                    Why Choose Us?
+                  </p>
+                  <p className="mt-6 text-lg/8 text-gray-600">
+                    Selecting the right partner for corporate recovery is
+                    crucial. At The Liquidator, we combine expertise,
+                    innovation, and empathy to deliver solutions that work. Our
+                    focus is on achieving tangible results while providing
+                    unwavering support.
+                  </p>
+                  <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
+                    {choiceFeatures.map((feature) => (
+                      <div key={feature.name} className="relative pl-9">
+                        <dt className="inline font-semibold text-gray-900">
+                          <PackageCheck
+                            aria-hidden="true"
+                            className="size-5 absolute left-1 top-1 text-indigo-600"
+                          />
+                          {feature.name}
+                        </dt>{" "}
+                        <dd className="inline">{feature.description}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+              <img
+                alt="Product screenshot"
+                src="https://tailwindui.com/plus/img/component-images/dark-project-app-screenshot.png"
+                width={2432}
+                height={1442}
+                className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Timeline */}
+      <div className="border-y-2 border-gray-200 bg-slate-100">
+        <div className="mx-auto max-w-4xl p-6 py-12">
+          {/* Section Header */}
+          <div className="">
+            <h1 className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+              Discover Our Process
+            </h1>
+            <p className="mt-6 !leading-8 tracking-wide text-gray-600 md:text-lg">
+              Navigating insolvency or restructuring can feel overwhelming, but
+              at The Liquidator, we aim to make the journey as seamless and
+              stress-free as possible. Our streamlined process is designed to
+              ensure clarity, precision, and successful outcomes for every
+              client
+            </p>
+          </div>
+          {/* Main Layout */}
+          <div className="flex gap-x-5 py-8 md:py-12 ">
+            {/* Left Image */}
+            <div className="hidden w-1/3 rounded-md bg-gray-400 py-8 opacity-70 md:block"></div>
+            {/* Timeline Content */}
+            <div className="relative md:pb-12 md:pt-8">
+              {/* Continuous Timeline Line */}
+              <div className="absolute bottom-0 left-3 top-0 w-px bg-gray-200"></div>
+              {/* Step: Consultation */}
+              <div className="flex items-start gap-x-4 pb-12">
+                {/* Icon */}
+                <div className="relative z-10  rounded-full bg-gray-300">
+                  <Speech className="h-8 w-8 p-1" />
+                </div>
+                {/* Content */}
+                <div>
+                  <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                    Consultation
+                  </h3>
+                  <p className="mt-1 text-gray-600">
+                    Listening to understand your goals and challenges.
+                  </p>
+                </div>
+              </div>
+              {/* Step: Strategy Development */}
+              <div className="flex items-start gap-x-4 pb-12">
+                {/* Icon */}
+                <div className="relative z-10  rounded-full bg-gray-300">
+                  <BookText className="h-8 w-8 p-1" />
+                </div>
+                {/* Content */}
+                <div>
+                  <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                    Strategy Development
+                  </h3>
+                  <p className="mt-1 text-gray-600">
+                    Crafting personalized solutions for success.
+                  </p>
+                </div>
+              </div>
+              {/* Step: Implementation */}
+              <div className="flex items-start gap-x-4">
+                {/* Icon */}
+                <div className="relative z-10  rounded-full bg-gray-300">
+                  <BadgeCheck className="h-8 w-8 p-1" />
+                </div>
+                {/* Content */}
+                <div>
+                  <h3 className="mb-2 text-lg  font-semibold text-gray-800">
+                    Implementation
+                  </h3>
+                  <p className="mt-1 text-gray-600">
+                    Delivering results with precision and support.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Closing Statement */}
+          <div className="!leading-8 tracking-wide text-gray-600 md:text-lg">
+            With The Liquidator, you’re not just hiring a service
+            provider—you’re gaining a dedicated partner committed to your
+            success. Let us help you navigate the complexities of insolvency and
+            recovery with clarity and expertise.
+          </div>
+        </div>
+      </div>
+      {/* Who we work with */}
+      <div className="bg-white py-8 sm:py-16 sm:pb-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base/7 font-semibold text-indigo-600">
               Deploy faster
             </h2>
             <p className="text-pretty lg:text-balance mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Everything you need to deploy your app
+              Who We Work With
             </p>
             <p className="mt-6 text-lg/8 text-gray-600">
-              Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-              Suspendisse eget egestas a elementum pulvinar et feugiat blandit
-              at. In mi viverra elit nunc.
+              Our services are tailored to meet the needs of:
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-              {features.map((feature) => (
-                <div key={feature.name} className="relative pl-16">
-                  <dt className="text-base/7 font-semibold text-gray-900">
-                    <div className="size-10 absolute left-0 top-0 flex items-center justify-center rounded-lg bg-indigo-600">
-                      <feature.icon
-                        aria-hidden="true"
-                        className="size-6 text-white"
-                      />
-                    </div>
+            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 text-lg tracking-wide text-gray-600 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+              {partners.map((feature) => (
+                <div key={feature.name} className="relative pl-12">
+                  <dt className="inline  text-gray-900">
+                    <PackageCheck
+                      aria-hidden="true"
+                      className=" absolute left-0 top-1 mr-4 inline h-8 w-8 rounded-full bg-amber-500 p-1 font-semibold text-sky-950"
+                    />
                     {feature.name}
-                  </dt>
-                  <dd className="mt-2 text-base/7 text-gray-600">
-                    {feature.description}
-                  </dd>
+                  </dt>{" "}
+                  <dd className="inline">{feature.desc}</dd>
                 </div>
               ))}
             </dl>
@@ -271,165 +474,88 @@ const Services: React.FC = () => {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-            <div className="lg:pr-8 lg:pt-4">
-              <div className="lg:max-w-lg">
-                <h2 className="text-base/7 font-semibold text-indigo-600">
-                  Our Expertise
-                </h2>
-                <p className="text-pretty mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                  Simpler Solutions
-                </p>
-                <p className="mt-6 text-lg/8 text-gray-600">
-                  We provide a comprehensive range of services tailored to
-                  address complex business needs, ensuring efficiency and
-                  effectiveness in every engagement.
-                </p>
-                <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-                  {features.map((feature) => (
-                    <div key={feature.name} className="relative pl-9">
-                      <dt className="inline font-semibold text-gray-900">
-                        <feature.icon
-                          aria-hidden="true"
-                          className="size-5 absolute left-1 top-1 text-indigo-600"
-                        />
-                        {feature.name}
-                      </dt>{" "}
-                      <dd className="inline">{feature.description}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
-            <img
-              alt="Product screenshot"
-              src="https://tailwindui.com/plus/img/component-images/dark-project-app-screenshot.png"
-              width={2432}
-              height={1442}
-              className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-            />
-          </div>
-        </div>
-      </div>
-      <div className="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
-        <div className="max-w-2xl">
-          {/* Avatar Media */}
-          <div className="mb-6 flex items-center justify-between">
-            <div className="flex w-full gap-x-5 sm:items-center sm:gap-x-3">
-              <div className="shrink-0">
-                <div
-                  className="size-12 rounded-full bg-gray-300"
-                  style={{ width: "48px", height: "48px" }}
-                ></div>
-              </div>
-              <div className="grow">
-                <div className="flex items-center justify-between gap-x-2">
-                  <div>
-                    <span className="font-semibold text-gray-800">
-                      Leyla Ludic
-                    </span>
-                    <ul className="text-xs text-gray-500">
-                      <li className="relative inline-block pe-6">Jan 18</li>
-                      <li className="relative inline-block pe-6">8 min read</li>
-                    </ul>
-                  </div>
-                  <button
-                    type="button"
-                    className="rounded-lg border bg-white px-2.5 py-1.5 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50"
-                  >
-                    Tweet
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Content */}
-          <div className="space-y-5 md:space-y-8">
-            <div className="space-y-3">
-              <h2 className="text-2xl font-bold md:text-3xl">
-                Announcing a free plan for small teams
-              </h2>
-              <p className="text-lg text-gray-800">
-                At Preline, our mission has always been focused on bringing
-                openness and transparency to the design process. We have always
-                believed that by providing a space where designers can share
-                ongoing work not only empowers them to make better products, it
-                also helps them grow.
-              </p>
-            </div>
-            <p className="text-lg text-gray-800">
-              We are proud to be a part of creating a more open culture and to
-              continue building a product that supports this vision.
-            </p>
-            <figure>
-              <div
-                className="w-full rounded-xl bg-gray-300 object-cover"
-                style={{ height: "320px" }}
-              ></div>
-              <figcaption className="mt-3 text-center text-sm text-gray-500">
-                A woman sitting at a table.
-              </figcaption>
-            </figure>
-            <p className="text-lg text-gray-800">
-              As we have grown, we have seen how Preline has helped companies
-              such as Spotify, Microsoft, Airbnb, Facebook, and Intercom bring
-              their designers closer together to create amazing things. We have
-              also learned that when the culture of sharing is brought in
-              earlier, the better teams adapt and communicate with one another.
-            </p>
-            <blockquote className="p-4 text-center sm:px-7">
-              <p className="text-xl font-medium text-gray-800 md:text-2xl md:leading-normal">
-                To say that switching to Preline has been life-changing is an
-                understatement. My business has tripled and I got my life back.
-              </p>
-              <p className="mt-5 text-gray-800">Nicole Grazioso</p>
-            </blockquote>
-            <figure>
-              <div
-                className="w-full rounded-xl bg-gray-300 object-cover"
-                style={{ height: "320px" }}
-              ></div>
-              <figcaption className="mt-3 text-center text-sm text-gray-500">
-                A man and a woman looking at a cell phone.
-              </figcaption>
-            </figure>
-            <div className="space-y-3">
-              <h3 className="text-2xl font-semibold">
-                Bringing the culture of sharing to everyone
-              </h3>
-              <p className="text-lg text-gray-800">
-                We know the power of sharing is real, and we want to create an
-                opportunity for everyone to try Preline and explore how
-                transformative open communication can be.
-              </p>
-            </div>
-            <ul className="list-outside list-disc space-y-5 ps-5 text-lg text-gray-800">
-              <li className="ps-2">
-                Preline allows us to collaborate in real time and is a really
-                great way for leadership on the team to stay up-to-date with
-                what everybody is working on&quot;{" "}
-                <a
-                  className="text-blue-600 decoration-2 hover:underline"
-                  href="#"
-                >
-                  said
-                </a>{" "}
-                Stewart Scott-Curran, Intercom&apos;s Director of Brand Design.
-              </li>
-            </ul>
-            <div>
-              <a
-                className="m-1 inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-2 text-sm text-gray-800 hover:bg-gray-200"
-                href="#"
+      <section className="pb-32 pt-8">
+        <div className="container">
+          <div className="relative rounded-xl border border-border bg-zinc-100 px-6 py-8 2xl:grid 2xl:grid-cols-2 2xl:px-14 2xl:py-10">
+            {/* Background SVG */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 overflow-hidden"
+            >
+              <svg
+                fill="none"
+                width="404"
+                height="384"
+                viewBox="0 0 404 384"
+                aria-hidden="true"
+                className="absolute left-full top-full -translate-x-2/3 -translate-y-1/2 rotate-[60deg]"
               >
-                Plan
-              </a>
+                <defs>
+                  <pattern
+                    id="dots"
+                    x="0"
+                    y="0"
+                    width="16"
+                    height="16"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <circle
+                      cx="2"
+                      cy="2"
+                      r="2"
+                      fill="currentColor"
+                      className="text-border"
+                    />
+                  </pattern>
+                </defs>
+                <rect fill="url(#dots)" width="400" height="400" />
+              </svg>
+            </div>
+            {/* Content Section */}
+            <div className="relative mb-12 2xl:mb-0">
+              <h3 className="mb-6 text-2xl font-semibold md:mb-8 md:text-4xl lg:mb-12">
+                Need Help?
+              </h3>
+              <p className="mb-6 text-sm tracking-widest text-zinc-600">
+                We provide expert solutions for corporate recovery,
+                conveyancing, litigation, and more.
+              </p>
+              <ul className="grid gap-x-8 gap-y-4 text-zinc-600 md:grid-cols-2">
+                {[
+                  "Tailored strategies for your unique challenges.",
+                  "Proven success in insolvency and recovery.",
+                  "Transparent, competitive fees for all engagements.",
+                  "Specialists in reviving stalled projects.",
+                ].map((item, idx) => (
+                  <li className="flex items-center gap-2" key={idx}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-check size-5"
+                    >
+                      <path d="M20 6 9 17l-5-5"></path>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Call to Action Button */}
+            <div className="relative flex items-end 2xl:justify-end">
+              <button className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white ring-offset-background transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                Call to Action
+              </button>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
