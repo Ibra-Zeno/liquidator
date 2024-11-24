@@ -1,21 +1,23 @@
 import { FC } from "react";
+import Image from "next/image";
 // import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { Sparkles, CheckSquare, PackageCheck } from "lucide-react";
 import Features from "@/components/ui/about/Features";
 import Link from "next/link";
 import Strategies from "@/components/ui/about/Strategies";
+import CTA from "@/components/ui/CTA";
 interface pageProps {}
 
 const About: FC<pageProps> = ({}) => {
   return (
     <main>
-      <div
+      {/* <div
         aria-hidden="true"
         className="absolute -top-96 start-1/2 flex max-w-[100vw] -translate-x-1/2 transform"
       >
         <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
         <div className="h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 rounded-full bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
-      </div>
+      </div> */}
       <div className="relative overflow-hidden">
         <div className="relative">
           <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
@@ -44,16 +46,16 @@ const About: FC<pageProps> = ({}) => {
       </div>
 
       {/* Content (sticky) */}
-      <section className="relative isolate overflow-hidden px-6 pt-12 lg:px-0">
-        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-40 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-          <div className="lg:max-w-8xl lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+      <section className="container relative isolate overflow-hidden px-6 lg:px-0">
+        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-40 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2  lg:gap-y-0">
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:mt-12  lg:w-full lg:max-w-8xl lg:grid-cols-2 lg:justify-end lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
               <div className="lg:max-w-[34rem]">
                 <p className="text-sm font-semibold leading-7 text-emerald-700">
-                  Expert Corporate Recovery and Insolvency Services
+                  Guiding Businesses Through Financial Challenges
                 </p>
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  Navigating Business Challenges
+                  Who We Are
                 </h2>
                 <p className="mt-6 text-xl font-medium leading-8 text-gray-700">
                   Liquidator.net specialises in expert corporate recovery and
@@ -66,8 +68,8 @@ const About: FC<pageProps> = ({}) => {
           {/* Aside */}
           <div className="relative block w-full max-w-lg justify-center py-12 lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1">
             <section className="">
-              <div className="relative mx-auto h-[28rem] w-[90%] max-w-[25rem] rounded-md bg-slate-200 shadow-lg lg:w-full ">
-                <div className="absolute inset-0 -z-10 h-[30rem] w-[20rem] translate-x-[3rem] rotate-45 bg-emerald-700/25 blur-3xl "></div>
+              <div className="relative mx-auto h-[28rem] w-[90%] max-w-[23rem] rounded-md bg-slate-200 shadow-lg sm:h-[25.5rem] lg:w-full ">
+                {/* <div className="absolute inset-0 -z-10 h-[30rem] w-[20rem] translate-x-[3rem] rotate-45 bg-emerald-700/25 blur-3xl "></div> */}
                 {/* Bookmark thingy */}
                 <div className="flex">
                   <div className="absolute -left-2 top-6 z-10 h-16 w-20 rounded-r-md bg-sky-950">
@@ -80,50 +82,54 @@ const About: FC<pageProps> = ({}) => {
                     </div>
                   </div>
                   <h2 className="ml-24 mt-10 text-xl font-bold tracking-tight">
-                    Excellence in Recovery
+                    What Sets Us Apart
                   </h2>
                 </div>
                 <div className="triangle absolute -left-2 top-[88px]"></div>
                 <ul className="mt-12">
-                  <li className="ml-8 mt-6 flex items-start justify-start pr-4">
+                  <li className="ml-8 mt-6 flex items-start justify-start pr-6">
                     <PackageCheck size={50} strokeWidth={1.2} />
                     <p className="ml-3 max-w-sm text-sm font-medium leading-6 text-gray-600">
-                      Expertise in navigating complex financial challenges with
-                      a focus on corporate recovery and insolvency.
+                      <span className="font-bold text-gray-900">Integrity</span>
+                      : Ethical and transparent practices guide every
+                      engagement.
                     </p>
                   </li>
-                  <li className="ml-8 mt-6 flex items-start justify-start pr-4">
+                  <li className="ml-8 mt-6 flex items-start justify-start pr-6">
                     <PackageCheck size={50} strokeWidth={1.2} />
                     <p className="ml-3 max-w-sm text-sm font-medium leading-6 text-gray-600">
-                      A team committed to the highest ethical standards and
-                      technical proficiency in every engagement.
+                      <span className="font-bold text-gray-900">
+                        Responsibility
+                      </span>
+                      : A proactive approach to solving complex financial
+                      challenges.
                     </p>
                   </li>
-                  <li className="ml-8 mt-6 flex items-start justify-start pr-4">
+                  <li className="ml-8 mt-6 flex items-start justify-start pr-6">
                     <PackageCheck size={50} strokeWidth={1.2} />
                     <p className="ml-3 max-w-sm text-sm font-medium leading-6 text-gray-600">
-                      Collaborating with financial and legal experts to deliver
-                      strategic solutions and successful outcomes.
+                      <span className="font-bold text-gray-900">
+                        Technical Excellence
+                      </span>
+                      : Superior expertise ensures high-quality, actionable
+                      results.
                     </p>
                   </li>
                 </ul>
               </div>
             </section>
           </div>
-          <div className="lg:max-w-8xl lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:mb-4 lg:grid lg:w-full lg:max-w-8xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
               <div className="max-w-3xl text-base leading-8 text-gray-700 lg:max-w-[34rem]">
                 <p>
-                  Liquidator.net stands as a paramount provider in the domain of
-                  corporate advisory services, meticulously formed to address
-                  the ever-evolving demands of corporate recovery and insolvency
-                  engagements in a plethora of industries. We are unwavering in
-                  our commitment to delivering exemplary advisory services that
-                  not only align with our clients&apos; business objectives but
-                  also equip them to conquer the challenges brought forth by the
-                  constantly shifting business and economic terrains.
+                  At Liquidator.net, we guide businesses through financial
+                  challenges with precision and care. Founded with a commitment
+                  to integrity, responsibility, and technical excellence, we
+                  deliver tailored solutions that empower our clients to
+                  navigate complexity and achieve sustainable outcomes.
                 </p>
-                <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
+                {/* <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
                   Our Excellence in Advisory Services
                 </h2>
                 <p>
@@ -134,75 +140,92 @@ const About: FC<pageProps> = ({}) => {
                   recovery and insolvency engagements among other services. Our
                   singular focus remains steadfast—to guide our clients in
                   achieving their business goals.
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
         </div>
-        <Features />
+        {/* <Features /> */}
       </section>
-      <div className="lg:max-w-8xl lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-        <div className="lg:pr-4">
-          <div className="max-w-3xl text-base leading-7 text-gray-700 lg:max-w-[34rem]">
-            <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
-              Specialised Insolvency Services
-            </h2>
-            <p className="mt-8">
-              Our Insolvency division is adept at guiding companies through the
-              intricacies of the liquidation process. We offer a comprehensive
-              suite of services tailored to the needs of distressed entities,
-              which includes:
-            </p>
-            <ol className="grid list-disc gap-y-1 py-5 font-bold leading-8 tracking-wide">
-              <li>Court Liquidation</li>
-              <li>Provisional Liquidation</li>
-              <li>Pre-liquidation advice</li>
-            </ol>
-            <p className="">
-              For entities facing receivership, we provide indispensable support
-              to financial institutions, aiding in the exercise of their rights
-              under debenture arrangements for the appointment of Receivers
-              and/or Receiver and Manager. Our goal is to ensure the optimal
-              realisation of assets and business components to maximise returns
-              for financial institutions.
-            </p>
+      <Strategies />
+      {/* Meet the Team */}
+      <section className="pb-36 pt-32">
+        <div className="container">
+          <div className="grid items-center gap-8 lg:grid-cols-2">
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+              <div className="inline-flex items-center rounded-full py-0.5 text-xs font-semibold italic text-foreground text-gray-600 transition-colors ">
+                Experienced Leadership You Can Trust
+              </div>
+              <h1 className="text-pretty mb-6 mt-4 text-3xl font-semibold lg:text-5xl">
+                Meet Our Team
+              </h1>
+              <p className="mb-8 max-w-xl text-zinc-600 lg:text-lg">
+                Our senior management team, made up of experienced licensed
+                liquidators, brings extensive expertise in corporate recovery.
+                Their collective knowledge ensures every engagement is handled
+                with professionalism and precision.
+              </p>
+              <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
+                <Link href="/team/liquidators">
+                  <button className="inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white ring-offset-background transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:w-auto">
+                    Our Team
+                  </button>
+                </Link>
+                {/* <button className="inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md border border-input bg-zinc-200 px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:w-auto">
+                  Read The Docs
+                </button> */}
+              </div>
+            </div>
+            <Image
+              src="/images/about/meeting-room1.jpg"
+              alt="placeholder hero"
+              height="700"
+              width="700"
+              className="max-h-96 w-full rounded-md object-cover object-bottom"
+            />
           </div>
         </div>
-      </div>
-      <Strategies />
-      <div className="lg:max-w-8xl max-w-3xl text-base leading-7 text-gray-700 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:w-full lg:gap-x-8 lg:px-8">
-        <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
-          Our Distinguished Team
-        </h2>
-        <p className="mt-6">
-          Pride in our organisation is deeply rooted in the collective expertise
-          of our senior management team. This team, comprised of numerous
-          seasoned licensed liquidators, is the driving force behind our
-          distinguished insolvency engagements. Our expertise is channelled
-          through our affiliate companies:{" "}
-          <strong className="tracking-wide">
-            Radiant Consulting Asia Sdn Bhd
-          </strong>
-          ,{" "}
-          <strong className="tracking-wide">
-            Chilterns Insolvency Sdn Bhd
-          </strong>
-          , and{" "}
-          <strong className="tracking-wide">
-            Radiant Corporate Solutions Sdn Bhd
-          </strong>
-          , ensuring comprehensive and professional management across all facets
-          of our services.
-        </p>
-        <p className="mt-8">
-          Liquidator.net is your trusted ally, equipped with the necessary
-          expertise and personalised approach to navigate the complexities of
-          corporate recovery and insolvency. Our relentless pursuit of
-          excellence is reflected in our client satisfaction and the successful
-          outcomes of our engagements.
-        </p>
-      </div>
-      <section className="mt-12 border-y-4 border-[#80b2c9]  bg-[#98afba] py-12">
+      </section>
+      {/* Services */}
+      <section className="pb-32">
+        <div className="container">
+          <div className="grid items-center gap-8 lg:grid-cols-2">
+            {/* Image on the left */}
+            <Image
+              src="/images/about/services.jpg"
+              height={700}
+              width={700}
+              alt="placeholder hero"
+              className="max-h-96 w-full rounded-md object-cover"
+            />
+            {/* Text content on the right */}
+            <div className="flex flex-col items-center text-center lg:items-start lg:pl-8 lg:text-left">
+              <div className="inline-flex items-center rounded-full py-0.5 text-xs font-semibold italic text-foreground text-gray-600 transition-colors">
+                Comprehensive solutions
+              </div>
+              <h1 className="text-pretty mb-6 mt-4 text-3xl font-semibold lg:text-5xl">
+                Our Services
+              </h1>
+              <p className="mb-8 max-w-xl text-zinc-600 lg:text-lg">
+                We offer tailored solutions in corporate recovery and
+                insolvency, guiding businesses through challenges with expertise
+                and care. From liquidation to asset management, our services are
+                designed to deliver results and drive growth.
+              </p>
+              <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
+                <Link href="/services">
+                  <button className="inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white ring-offset-background transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:w-auto">
+                    Explore Services
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BS CTA
+       <section className="mt-12 border-y-4 border-[#80b2c9]  bg-[#98afba] py-12">
         <div className="mx-auto max-w-screen-xl px-4 md:px-8 md:text-center">
           <div className="max-w-xl md:mx-auto">
             <h3 className="text-3xl font-semibold text-gray-100 sm:text-4xl">
@@ -229,7 +252,8 @@ const About: FC<pageProps> = ({}) => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
+      <CTA />
     </main>
   );
 };
