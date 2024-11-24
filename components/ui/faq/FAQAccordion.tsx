@@ -24,11 +24,11 @@ const FAQAccordion = () => {
   const data = isEnglish ? English : Malay;
   return (
     <>
-      <section className="max-w-8xl mx-auto my-12">
+      <section className="mx-auto my-12 max-w-8xl">
         <Switch
           onValueChange={toggleLanguage}
           size={"md"}
-          className="flex justify-self-end px-4"
+          className="flex justify-self-start px-4"
         >
           Switch to {isEnglish ? "Bahasar Malaysia" : "English"}
         </Switch>
