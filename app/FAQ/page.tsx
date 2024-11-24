@@ -1,6 +1,6 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import FAQAccordion from "@/components/ui/faq/FAQAccordion";
-
+import CTA from "@/components/ui/CTA";
 const FAQ: React.FC = () => {
   return (
     <>
@@ -41,6 +41,7 @@ const FAQ: React.FC = () => {
         {/* <Breadcrumbs /> */}
       </section>
       <FAQAccordion />
+      <CTA />
     </>
   );
 };
