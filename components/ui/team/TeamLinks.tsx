@@ -1,6 +1,5 @@
 // "use client";
 import Link from "next/link";
-import { Chip } from "@nextui-org/react";
 const teamLinks = [
   {
     link: "/team/liquidators",
@@ -35,23 +34,19 @@ const teamLinks = [
 const TeamLinks: React.FC<{ currentLink: string }> = ({ currentLink }) => {
   const currentPath = "/team/" + currentLink;
   return (
-    <section className="my-6 flex justify-center gap-x-3 border-y border-y-gray-500/30 py-2.5">
+    <section className="my-6 flex justify-center gap-x-8 border-y border-y-gray-300/30 py-5">
       {teamLinks.map((link, i) => (
-        <Chip
-          key={i}
-          className={
+        <Link
+          href={link.link}
+          className={` rounded-sm border-1 border-gray-300/75 bg-slate-100 px-2.5 py-1 text-sm font-semibold tracking-wide transition-colors  duration-300 ease-in-out hover:text-primary-500 ${
             currentPath === link.link
-              ? "text-primary-500 shadow-lg"
-              : "text-black"
-          }
+              ? "text-sky-800 shadow-xl"
+              : "text-slate-700"
+          }`}
+          key={i}
         >
-          <Link
-            href={link.link}
-            className="font-semibold transition-colors duration-300 ease-in-out hover:text-primary-500"
-          >
-            {link.title}
-          </Link>
-        </Chip>
+          {link.title}
+        </Link>
       ))}
     </section>
   );
