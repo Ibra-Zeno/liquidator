@@ -96,6 +96,10 @@ const menuItems = [
     href: "/team/liquidators",
   },
   {
+    name: "Useful Links",
+    href: "/useful",
+  },
+  {
     name: "Gallery",
     href: "/gallery",
   },
@@ -183,6 +187,17 @@ const Nav: React.FC = () => {
         </Dropdown>
 
         {/* Gallery Link */}
+        <NavbarItem>
+          <Link href="/useful">
+            <Button
+              className="bg-transparent p-0 data-[hover=true]:bg-transparent"
+              radius="sm"
+              variant="light"
+            >
+              Useful Links
+            </Button>
+          </Link>
+        </NavbarItem>
         <NavbarItem>
           <Link href="/gallery">
             <Button
