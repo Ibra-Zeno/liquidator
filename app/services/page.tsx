@@ -2,6 +2,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Image from "next/image";
 import { PackageCheck, Speech, BookText, BadgeCheck } from "lucide-react";
 import CTA from "@/components/ui/CTA";
+import ServicesComp from "@/components/ui/services/Expertise";
 
 const services = [
   {
@@ -129,18 +130,22 @@ const partners = [
   {
     name: "Small and Medium-Sized Enterprises",
     desc: "facing financial difficulties or restructuring requirements.",
+    icon: null,
   },
   {
     name: "Large Corporations",
     desc: "requiring advanced insolvency, restructuring, or legal support.",
+    icon: null,
   },
   {
     name: "Developers",
     desc: "seeking to revive stalled residential or commercial projects.",
+    icon: null,
   },
   {
     name: "Financial Institutions",
     desc: "managing distressed assets and insolvency portfolios.",
+    icon: null,
   },
 ];
 
@@ -186,12 +191,12 @@ const Services: React.FC = () => {
   return (
     <>
       <div>
-        <div className="bg-slate-200 md:pb-48">
+        <div className="bg-slate-200 md:pb-36">
           <div className="mx-auto max-w-5xl px-4 pb-24 pt-24 lg:pt-32 xl:px-0">
             <h1 className="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
               Explore What We Offer
             </h1>
-            <div className="max-w-4xl">
+            <div className="max-w-5xl">
               <p className="mt-5 text-lg">
                 At The Liquidator, we are dedicated to helping businesses
                 navigate the complexities of insolvency, corporate recovery, and
@@ -241,17 +246,17 @@ const Services: React.FC = () => {
             ].map((course, index) => (
               <div
                 key={index}
-                className="relative flex flex-col rounded-xl bg-white p-4 pt-12 text-center shadow-sm transition-all duration-150 ease-in-out hover:-translate-y-2 hover:shadow-2xl md:border md:border-gray-400"
+                className="relative flex flex-col rounded-xl bg-gradient-to-tl from-neutral-50 to-neutral-100 p-4 pt-12 text-center shadow-sm transition-all duration-150 ease-in-out hover:-translate-y-2 hover:shadow-2xl md:border md:border-gray-400"
               >
                 <div className="flex h-full flex-col justify-start sm:px-0">
-                  <div className="px-4 pb-8 pt-5">
+                  <div className="px-4  pb-8 pt-5">
                     <div className="-mt-2 flex flex-col items-baseline">
-                      <h3 className="w-full pl-2 text-left text-2xl font-medium">
+                      <h3 className="w-full text-left text-lg font-semibold">
                         {course.title}
                       </h3>
                       <div className="h-0.5 w-10 rounded "></div>
                     </div>
-                    <div className="ml-2 mt-1 h-[1px] w-8 bg-slate-400 md:w-16"></div>
+                    <div className="mt-1 h-[1px] w-8 bg-slate-400 md:w-16"></div>
                   </div>
                   {/* <p className="mt-8 w-full pl-6 text-left text-sm">
                     {course.description}
@@ -260,12 +265,15 @@ const Services: React.FC = () => {
                     role="list"
                     className="mt-3 flex flex-col gap-y-3 px-8 pb-5 text-left text-xs !leading-7 tracking-wide text-gray-800 sm:px-20 sm:text-center md:px-0 md:text-base lg:gap-y-5 lg:px-4 lg:pb-8"
                   >
+                    <span className="text-left text-sm font-semibold text-gray-900">
+                      We offer:
+                    </span>
                     {course.features.map((feature, i) => (
                       <li
                         key={i}
-                        className="flex w-full items-start justify-start"
+                        className="flex w-full items-start justify-start text-sm leading-7"
                       >
-                        <span className="mr-3">&#10004;</span>
+                        <span className="mr-3">&#43;</span>
                         <span className="mx-auto text-center md:mx-0 md:text-left">
                           {feature}
                         </span>
@@ -286,30 +294,10 @@ const Services: React.FC = () => {
             <p className="mb-4 text-sm text-muted-foreground md:pl-5">
               Specialised Solutions
             </p>
-            <h2 className="mt-2 pl-5 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+            <h2 className="mb-12 mt-2 pl-5 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
               Our Expertise
             </h2>
-            <div className="ml-6 mt-1 h-[1px] w-8 bg-slate-400 md:w-44"></div>
-            <div className="mx-auto mt-10 grid gap-x-20 gap-y-8 md:grid-cols-2 md:gap-y-6 lg:mt-14">
-              {expertFeatures.map((feature, idx) => (
-                <div
-                  className="group flex gap-6 rounded-lg md:block md:p-5"
-                  key={idx}
-                >
-                  <span className="mb-8 ml-0 flex w-auto items-center justify-start ">
-                    <feature.icon className="h-10 w-10 rounded-full bg-slate-200 p-2" />
-                  </span>
-                  <div>
-                    <div className="relative mb-2 w-fit text-lg after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-gray-300 after:transition-transform after:duration-300 after:ease-in-out group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
-                      {feature.name}
-                    </div>
-                    <p className="!leading-9 text-muted-foreground md:text-base">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ServicesComp />
           </div>
         </section>
         {/* Why Choose Us? */}
@@ -359,8 +347,51 @@ const Services: React.FC = () => {
         </div>
       </div>
 
+      {/* Who we work with */}
+      <div className="border-y-8">
+        <div className="mx-auto max-w-[85rem]  px-4 py-10 sm:px-6 lg:px-8 lg:pb-24 lg:pt-12">
+          {/* Grid */}
+          <div className="mt-5 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-12">
+            <div className="lg:col-span-1">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200 md:text-3xl">
+                Who We Work With
+              </h2>
+              <p className="mt-2 text-lg text-gray-500 dark:text-neutral-500 md:mt-4">
+                Our services are tailored to meet the needs of:
+              </p>
+            </div>
+            {/* End Col */}
+            <div className="lg:col-span-2">
+              <div className="grid gap-8 sm:grid-cols-2 md:gap-12">
+                {partners.map((item, index) => (
+                  <div className="flex gap-x-5" key={index}>
+                    <div className="mt-1 shrink-0">
+                      {item.icon && item.icon ? (
+                        <PackageCheck className="size-6 text-blue-600 dark:text-blue-500" />
+                      ) : (
+                        <div className="size-6 placeholder-icon text-blue-600 dark:text-blue-500"></div>
+                      )}
+                    </div>
+                    <div className="grow">
+                      <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+                        {item.name}
+                      </h3>
+                      <p className="mt-1 text-gray-600 dark:text-neutral-400">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* End Col */}
+          </div>
+          {/* End Grid */}
+        </div>
+      </div>
+
       {/* Timeline */}
-      <div className="border-y-2 border-gray-200 bg-slate-100">
+      <div className="border-y-2 border-gray-200 bg-slate-100 py-12">
         <div className="mx-auto max-w-4xl p-6 py-12">
           {/* Section Header */}
           <div className="">
@@ -376,9 +407,7 @@ const Services: React.FC = () => {
             </p>
           </div>
           {/* Main Layout */}
-          <div className="flex gap-x-5 py-8 md:py-12 ">
-            {/* Left Image */}
-            <div className="hidden w-1/3 rounded-md bg-gray-400 py-8 opacity-70 md:block"></div>
+          <div className="flex max-w-3xl gap-x-5 py-8 md:py-12 ">
             {/* Timeline Content */}
             <div className="relative md:pb-12 md:pt-8">
               {/* Continuous Timeline Line */}
@@ -394,8 +423,11 @@ const Services: React.FC = () => {
                   <h3 className="mb-2 text-lg font-semibold text-gray-800">
                     Consultation
                   </h3>
-                  <p className="mt-1 text-gray-600">
-                    Listening to understand your goals and challenges.
+                  <p className="mt-1 leading-7 text-gray-600">
+                    We begin with an in-depth consultation to understand your
+                    unique challenges and goals. By carefully assessing your
+                    financial situation, we align our approach with your
+                    objectives, ensuring a clear path forward.{" "}
                   </p>
                 </div>
               </div>
@@ -410,8 +442,11 @@ const Services: React.FC = () => {
                   <h3 className="mb-2 text-lg font-semibold text-gray-800">
                     Strategy Development
                   </h3>
-                  <p className="mt-1 text-gray-600">
-                    Crafting personalized solutions for success.
+                  <p className="mt-1 leading-7 text-gray-600">
+                    Based on your needs, we craft a tailored strategy that
+                    outlines the best course of action. Our solutions are
+                    designed to be compliant, practical, and focused on
+                    delivering the results you need.{" "}
                   </p>
                 </div>
               </div>
@@ -426,15 +461,18 @@ const Services: React.FC = () => {
                   <h3 className="mb-2 text-lg  font-semibold text-gray-800">
                     Implementation
                   </h3>
-                  <p className="mt-1 text-gray-600">
-                    Delivering results with precision and support.
+                  <p className="mt-1 leading-7 text-gray-600">
+                    With a clear plan in place, we handle every aspect of
+                    execution, from managing paperwork to coordinating with
+                    creditors and overseeing asset management. We keep you
+                    informed and supported at every step.{" "}
                   </p>
                 </div>
               </div>
             </div>
           </div>
           {/* Closing Statement */}
-          <div className="!leading-8 tracking-wide text-gray-600 md:text-lg">
+          <div className="-mt-6 !leading-8 tracking-wide text-gray-600 md:text-lg">
             With The Liquidator, you’re not just hiring a service
             provider—you’re gaining a dedicated partner committed to your
             success. Let us help you navigate the complexities of insolvency and
@@ -442,39 +480,6 @@ const Services: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Who we work with */}
-      <div className="bg-white py-8 sm:py-16 sm:pb-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base/7 font-semibold text-indigo-600">
-              Deploy faster
-            </h2>
-            <p className="text-pretty lg:text-balance mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Who We Work With
-            </p>
-            <p className="mt-6 text-lg/8 text-gray-600">
-              Our services are tailored to meet the needs of:
-            </p>
-          </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 text-lg tracking-wide text-gray-600 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-              {partners.map((feature) => (
-                <div key={feature.name} className="relative pl-12">
-                  <dt className="inline  text-gray-900">
-                    <PackageCheck
-                      aria-hidden="true"
-                      className=" absolute left-0 top-1 mr-4 inline h-8 w-8 rounded-full bg-amber-500 p-1 font-semibold text-sky-950"
-                    />
-                    {feature.name}
-                  </dt>{" "}
-                  <dd className="inline">{feature.desc}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </div>
-
       <CTA />
     </>
   );
