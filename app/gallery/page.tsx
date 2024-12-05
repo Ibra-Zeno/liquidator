@@ -2,11 +2,12 @@
 import React, { Suspense } from "react";
 import Albums from "@/components/ui/gallery/Albums";
 import { Skeleton } from "@/components/shadcn/ui/skeleton";
+import CTA from "@/components/ui/CTA";
 
 const GalleryPage = () => {
   return (
     <main className="">
-      <section className="max-w-8xl mx-auto py-4">
+      <section className="mx-auto max-w-8xl py-4">
         <section id="banner" className="border-b border-gray-700/25 pb-3">
           <div
             aria-hidden="true"
@@ -45,6 +46,7 @@ const GalleryPage = () => {
         <Suspense fallback={<Skeleton className="h-44 w-44" />}>
           <Albums />
         </Suspense>
+        <CTA />
       </section>
     </main>
   );
