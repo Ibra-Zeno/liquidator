@@ -87,22 +87,44 @@ const AlbumPage = () => {
     setCurrentImageIndex(currentImageIndex + 1);
 
   return (
-    <main className="max-w-8xl mx-auto px-4 lg:px-8">
+    <main className="mx-auto max-w-8xl px-4 pb-24 pt-12 lg:px-8">
       <h2 className="pt-6 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
         {album.title}
       </h2>
       <p className="mb-6 mt-3 text-sm italic text-gray-700">{album.date}</p>
-      <div className="mx-auto flex flex-wrap justify-center gap-x-6 rounded-sm lg:justify-start">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {images.map((image, index) => (
-          <Image
+          <a
             key={index}
-            src={image.src}
-            alt={image.alt}
-            height={150}
-            width={275}
-            className="my-3 border-spacing-10 cursor-pointer rounded border-2 border-gray-800/60 object-cover p-1.5 shadow-lg transition-all duration-300 ease-in-out hover:scale-105"
+            className="group relative block cursor-pointer overflow-hidden rounded-lg"
             onClick={() => openLightboxOnIndex(index)}
-          />
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              height={150}
+              width={275}
+              className="h-auto w-full rounded-sm border-2 border-gray-700/25 bg-gray-100 object-cover shadow-lg"
+            />
+            <div className="absolute bottom-1 end-1 opacity-0 transition group-hover:opacity-100">
+              <div className="flex items-center gap-x-1 rounded-sm border border-gray-200 bg-white px-2 py-1 text-gray-800">
+                <svg
+                  className="h-4 w-4 shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.3-4.3" />
+                </svg>
+                <span className="text-xs">View</span>
+              </div>
+            </div>
+          </a>
         ))}
       </div>
       {lightboxOpen && (
@@ -114,16 +136,6 @@ const AlbumPage = () => {
           images={images}
           currentIndex={currentImageIndex}
           onClose={() => setLightboxOpen(false)}
-          // <button
-
-          // className="right-0 top-0 z-20"
-          // >
-          // {/* <ArrowLeftCircle size={45} className="text-slate-100" /> */}
-          // </button>
-          // )}
-          /* Add custom UI components and styling here */
-          // renderHeader={() => <div className="lightbox-header">header</div>}
-          // renderFooter={() => <div className="lightbox-footer">footer</div>}
           renderPrevButton={() => (
             <button onClick={gotoPrevious} className="z-20 p-12">
               <ArrowLeftCircle size={45} className="text-slate-100" />
