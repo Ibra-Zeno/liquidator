@@ -84,7 +84,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
           <li key={member._id} className="pt-10">
             <div className="grid grid-cols-5 gap-x-12">
               <figure
-                className={`col-span-2 mx-auto rounded-sm bg-gradient-to-br  from-slate-50 to-slate-200 shadow-xl ${
+                className={`col-span-2 mx-auto rounded bg-gradient-to-br  from-slate-50 to-slate-200 shadow-xl ${
                   member.image?.asset?.url
                     ? "max-h-[23rem] max-w-[20rem]"
                     : "max-h-[20rem] max-w-[20rem] p-6"
@@ -95,7 +95,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                   alt={member.name}
                   width={1920}
                   height={1400}
-                  className={`mx-auto mb-2 rounded-sm object-cover object-top ${
+                  className={`mx-auto mb-2 rounded object-cover object-top ${
                     member.image?.asset?.url
                       ? "h-full w-full"
                       : "h-auto w-auto opacity-75"
