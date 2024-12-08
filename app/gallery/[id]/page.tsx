@@ -104,10 +104,10 @@ const AlbumPage = () => {
               alt={image.alt}
               height={150}
               width={275}
-              className="h-auto w-full rounded-sm border-2 border-gray-700/25 bg-gray-100 object-cover shadow-lg"
+              className="h-auto w-full rounded border-2 border-gray-700/25 bg-gray-100 object-cover shadow-lg"
             />
             <div className="absolute bottom-1 end-1 opacity-0 transition group-hover:opacity-100">
-              <div className="flex items-center gap-x-1 rounded-sm border border-gray-200 bg-white px-2 py-1 text-gray-800">
+              <div className="flex items-center gap-x-1 rounded border border-gray-200 bg-white px-2 py-1 text-gray-800">
                 <svg
                   className="h-4 w-4 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
