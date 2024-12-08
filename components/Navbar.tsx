@@ -2,9 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { FC, useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   Navbar,
   NavbarBrand,
@@ -20,7 +17,6 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import Logo from "./ui/Logo";
-import { cn } from "@/lib/utils";
 
 const aboutLinks = [
   {
@@ -44,37 +40,37 @@ const teamLinks = [
   {
     title: "Liquidators",
     href: "/team/liquidators",
-    description: "Lorem dolor sit amet consectetur adipisicing elit.",
+    description: "Experts in managing and closing insolvency cases",
   },
   {
     title: "Senior Management",
     href: "/team/senior-management",
-    description: "Lorem dolor sit amet consectetur adipisicing elit.",
+    description: "Leaders overseeing operations and strategy.",
   },
   {
     title: "Liquidation",
     href: "/team/liquidation",
-    description: "Lorem dolor sit amet consectetur adipisicing elit.",
+    description: "Specialists handling business wind-ups.",
   },
   {
     title: "Conveyancing & Subsale",
     href: "/team/conveyancing-subsale",
-    description: "Lorem dolor sit amet consectetur adipisicing elit.",
+    description: "Professionals managing property transfers.",
   },
   {
     title: "Accounts",
     href: "/team/accounts",
-    description: "Lorem dolor sit amet consectetur adipisicing elit.",
+    description: "Team ensuring financial accuracy and compliance",
   },
   {
     title: "Admin",
     href: "/team/admin",
-    description: "Lorem dolor sit amet consectetur adipisicing elit.",
+    description: "Support team managing daily operations.",
   },
   {
     title: "Consultants",
     href: "/team/consultants",
-    description: "Lorem dol.",
+    description: "Advisors providing expert advice.",
   },
 ];
 
@@ -104,7 +100,7 @@ const menuItems = [
     href: "/gallery",
   },
   {
-    name: "Contact",
+    name: "Contact Us",
     href: "/contact",
   },
 ];
@@ -119,7 +115,7 @@ const Nav: React.FC = () => {
     <Navbar
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={(open) => setIsMenuOpen(open)} // Tie to menu open state
-      className=""
+      className="bg-background"
     >
       {/* Left Section: Logo and Menu Toggle */}
       <NavbarContent>
@@ -128,14 +124,14 @@ const Nav: React.FC = () => {
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="md:hidden"
         />
       </NavbarContent>
 
       {/* Center Section: Links and Dropdowns (Visible on Desktop) */}
-      <NavbarContent className="hidden gap-4 sm:flex" justify="end">
+      <NavbarContent className="hidden gap-4 md:flex" justify="end">
         {/* About Us Dropdown */}
-        <Dropdown>
+        <Dropdown className="bg-background">
           <NavbarItem>
             <DropdownTrigger>
               <Button
@@ -161,7 +157,7 @@ const Nav: React.FC = () => {
         </Dropdown>
 
         {/* Our Team Dropdown */}
-        <Dropdown>
+        <Dropdown className="bg-background">
           <NavbarItem>
             <DropdownTrigger>
               <Button
@@ -214,8 +210,7 @@ const Nav: React.FC = () => {
         <NavbarItem>
           <Link href="/contact">
             <Button
-              className="bg-transparent p-0 data-[hover=true]:bg-transparent"
-              radius="sm"
+              className="text-text rounded border border-gray-400/40 bg-transparent px-4 py-0.5 text-sm hover:text-background data-[hover=true]:bg-primary/90"
               variant="light"
             >
               Contact Us
@@ -232,19 +227,11 @@ const Nav: React.FC = () => {
               onClick={() => {
                 handleMenuItemClick(); // Close the menu
               }}
-              className="w-full"
+              className={`mt-4 w-fit rounded  ${
+                index == menuItems.length - 1 ? "text-primary" : ""
+              }`}
             >
-              <Link
-                href={item.href}
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-                }
-                className="block w-full"
-              >
+              <Link href={item.href} className="block w-full">
                 {item.name}
               </Link>
             </div>

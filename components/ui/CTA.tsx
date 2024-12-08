@@ -1,4 +1,7 @@
+import { Link } from "@nextui-org/react";
+import { Button } from "@/components/shadcn/ui/button";
 import { FC } from "react";
+import { BadgeCheck } from "lucide-react";
 
 interface CTAProps {}
 
@@ -6,7 +9,7 @@ const CTA: FC<CTAProps> = ({}) => {
   return (
     <section className="pb-32 pt-8">
       <div className="container">
-        <div className="relative rounded-xl border border-border bg-zinc-100 px-6 py-8 2xl:grid 2xl:grid-cols-2 2xl:px-14 2xl:py-10">
+        <div className="relative rounded-xl border border-border bg-primary/10 px-6 py-8 2xl:grid 2xl:grid-cols-2 2xl:px-14 2xl:py-10">
           {/* Background SVG */}
           <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
             <svg
@@ -40,45 +43,37 @@ const CTA: FC<CTAProps> = ({}) => {
           </div>
           {/* Content Section */}
           <div className="relative mb-12 2xl:mb-0">
-            <h3 className="mb-6 text-2xl font-semibold md:mb-8 md:text-4xl lg:mb-12">
+            <h3 className="mb-6 text-2xl font-semibold md:mb-8 md:text-4xl lg:mb-10">
               Need Help?
             </h3>
-            <p className="mb-6 text-sm tracking-widest text-zinc-600">
+            <p className="mb-8 text-base tracking-wide text-zinc-600">
               We provide expert solutions for corporate recovery, conveyancing,
               litigation, and more.
             </p>
             <ul className="grid gap-x-8 gap-y-4 text-zinc-600 md:grid-cols-2">
               {[
-                "Tailored strategies for your unique challenges.",
-                "Proven success in insolvency and recovery.",
-                "Transparent, competitive fees for all engagements.",
-                "Specialists in reviving stalled projects.",
+                "Tailored Strategies",
+                "Proven Success",
+                "Transparent Pricing",
+                "Comprehensive Expertise",
               ].map((item, idx) => (
-                <li className="flex items-center gap-2" key={idx}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-check size-5"
-                  >
-                    <path d="M20 6 9 17l-5-5"></path>
-                  </svg>
-                  {item}
+                <li className="flex items-center gap-2 text-sm" key={idx}>
+                  <BadgeCheck className="text-accent" /> {item}
                 </li>
               ))}
             </ul>
           </div>
           {/* Call to Action Button */}
           <div className="relative flex items-end 2xl:justify-end">
-            <button className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white ring-offset-background transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-              Call to Action
-            </button>
+            <Link href="/contact">
+              <Button
+                variant={"default"}
+                size="lg"
+                className="pb-5 pt-3 text-sm text-background"
+              >
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
