@@ -287,7 +287,7 @@ const ContactPage = () => {
                         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
                           {feature.map((feature, idx) => (
                             <div
-                              className="flex min-w-[18rem] flex-col justify-around rounded-sm bg-gray-200 p-6 md:min-h-[300px] md:p-8"
+                              className="flex min-w-[18rem] flex-col justify-around rounded bg-gray-200 p-6 md:min-h-[300px] md:p-8"
                               key={idx}
                             >
                               <span className=" mx-auto flex items-center  justify-center rounded-full bg-gray-300 p-2">
