@@ -12,33 +12,6 @@ interface pageProps {}
 const About: FC<pageProps> = ({}) => {
   return (
     <main>
-      {/* <div className="relative overflow-hidden">
-        <div className="relative">
-          <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="inline-block bg-gradient-to-l from-blue-600 to-violet-500 bg-clip-text text-sm font-medium text-transparent">
-                Improve Your Asset Management
-              </p>
-
-              <div className="mt-5 max-w-2xl">
-                <h1 className="block text-3xl font-semibold tracking-tight text-gray-800 md:text-5xl lg:text-6xl">
-                  About Us
-                </h1>
-              </div>
-
-              <div className="mt-5 max-w-3xl">
-                <p className="text-lg leading-8 text-gray-600 ">
-                  Our mission is to provide a platform for all stakeholders in
-                  the property industry to collaborate and share information in
-                  a transparent manner.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr className="my-8 hidden border-gray-200 md:block" />
-      </div> */}
-
       {/* Content (sticky) */}
       <section className="container relative isolate overflow-hidden px-6 pt-12 lg:px-0">
         {/* Who We Are Section */}
@@ -67,7 +40,7 @@ const About: FC<pageProps> = ({}) => {
               <div className="relative mx-auto h-fit w-[90%] max-w-[23rem] rounded-md border-2 border-secondary/10 bg-white/75 pb-16 shadow-lg shadow-accent/40 sm:h-[25.5rem] lg:w-full ">
                 {/* Bookmark thingy */}
                 <div className="flex">
-                  <div className="bg-text absolute -left-2 top-6 z-10 h-16 w-20 rounded-r-md">
+                  <div className="absolute -left-2 top-6 z-10 h-16 w-20 rounded-r-md bg-text">
                     <div className="absolute inset-0 flex items-center justify-items-center">
                       <Sparkles
                         className="mx-auto my-auto flex justify-center rounded-full border border-background p-1 text-background"
@@ -199,36 +172,6 @@ const About: FC<pageProps> = ({}) => {
           </div>
         </div>
       </section>
-
-      {/* BS CTA
-       <section className="mt-12 border-y-4 border-[#80b2c9]  bg-[#98afba] py-12">
-        <div className="mx-auto max-w-screen-xl px-4 md:px-8 md:text-center">
-          <div className="max-w-xl md:mx-auto">
-            <h3 className="text-3xl font-semibold text-gray-100 sm:text-4xl">
-              Build the future with us
-            </h3>
-            <p className="mt-4 leading-7 text-gray-200">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur excepteur sint occaecat
-              cupidatat non proident.
-            </p>
-          </div>
-          <div className="mt-6 flex items-center gap-3 md:justify-center">
-            <Link
-              href="/services"
-              className="inline-block rounded-[2px] bg-gray-800 px-4 py-2 font-medium tracking-wide text-white shadow-md duration-150 hover:bg-gray-700 hover:shadow-none active:bg-gray-900"
-            >
-              Explore Services
-            </Link>
-            <Link
-              href="/team/senior-management"
-              className="inline-block rounded-[2px] border px-4 py-2 font-medium tracking-wide text-gray-100 duration-150 hover:bg-gray-50 hover:text-gray-800 active:bg-gray-100 active:text-gray-900"
-            >
-              Meet Our Team
-            </Link>
-          </div>
-        </div>
-      </section> */}
       <CTA />
     </main>
   );
