@@ -61,7 +61,7 @@ const Albums = async () => {
                 <img
                   alt={album.title}
                   src={album.coverImage.asset.url}
-                  className="aspect-square w-full rounded-sm border border-2 border-gray-200/10 bg-gray-200 object-cover shadow-xl transition-all duration-200 ease-in-out group-hover:opacity-75 lg:aspect-auto lg:h-80"
+                  className="aspect-square w-full rounded border-b-5 border-l-5 border-gray-300/60 bg-gray-200 object-cover shadow-xl transition-all duration-200 ease-in-out group-hover:opacity-75 lg:aspect-auto lg:h-80"
                 />
                 <div className="mt-4 flex justify-between">
                   <div>

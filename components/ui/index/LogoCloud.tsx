@@ -17,7 +17,7 @@ const LogoCloud: FC = ({}) => {
             content={`${logo.name}`}
             closeDelay={-100}
             offset={0}
-            className="rounded-sm border-2 border-gray-400/10 text-sm tracking-wide"
+            className="rounded border-2 border-gray-400/10 text-sm tracking-wide"
           >
             <Link href={logo.src} target="_blank" rel="noreferrer">
               <Image
@@ -25,7 +25,7 @@ const LogoCloud: FC = ({}) => {
                 alt={logo.name}
                 width={60}
                 height={60}
-                className="rounded-sm object-contain"
+                className="rounded object-contain"
               />
             </Link>
           </Tooltip>
