@@ -6,19 +6,13 @@ import Features from "@/components/ui/about/Features";
 import Link from "next/link";
 import Strategies from "@/components/ui/about/Strategies";
 import CTA from "@/components/ui/CTA";
+import { Button } from "@/components/shadcn/ui/button";
 interface pageProps {}
 
 const About: FC<pageProps> = ({}) => {
   return (
     <main>
-      {/* <div
-        aria-hidden="true"
-        className="absolute -top-96 start-1/2 flex max-w-[100vw] -translate-x-1/2 transform"
-      >
-        <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
-        <div className="h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 rounded-full bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
-      </div> */}
-      <div className="relative overflow-hidden">
+      {/* <div className="relative overflow-hidden">
         <div className="relative">
           <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
@@ -43,21 +37,23 @@ const About: FC<pageProps> = ({}) => {
           </div>
         </div>
         <hr className="my-8 hidden border-gray-200 md:block" />
-      </div>
+      </div> */}
 
       {/* Content (sticky) */}
-      <section className="container relative isolate overflow-hidden px-6 lg:px-0">
-        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-40 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2  lg:gap-y-0">
+      <section className="container relative isolate overflow-hidden px-6 pt-12 lg:px-0">
+        {/* Who We Are Section */}
+        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-x-40 gap-y-8 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2  lg:gap-y-0">
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:mt-12  lg:w-full lg:max-w-8xl lg:grid-cols-2 lg:justify-end lg:gap-x-8 lg:px-8">
+            {/* Title */}
             <div className="lg:pr-4">
               <div className="lg:max-w-[34rem]">
-                <p className="text-sm font-semibold leading-7 text-emerald-700">
-                  Guiding Businesses Through Financial Challenges
+                <p className="w-fit text-xs font-semibold italic leading-7 text-primary md:text-sm">
+                  Business Support, Redefined
                 </p>
-                <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                <h2 className="mt-1.5 text-3xl font-bold tracking-tight text-gray-900 sm:mt-2 sm:text-4xl">
                   Who We Are
                 </h2>
-                <p className="mt-6 text-xl font-medium leading-8 text-gray-700">
+                <p className="mt-6 font-medium leading-7 text-gray-700 sm:text-base lg:text-lg xl:text-xl xl:leading-8">
                   Liquidator.net specialises in expert corporate recovery and
                   insolvency services, adeptly steering businesses through
                   financial challenges.
@@ -66,22 +62,21 @@ const About: FC<pageProps> = ({}) => {
             </div>
           </div>
           {/* Aside */}
-          <div className="relative block w-full max-w-lg justify-center py-12 lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+          <div className="relative mx-auto block w-full max-w-lg justify-center lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mx-0 lg:py-12">
             <section className="">
-              <div className="relative mx-auto h-[28rem] w-[90%] max-w-[23rem] rounded-md bg-slate-200 shadow-lg sm:h-[25.5rem] lg:w-full ">
-                {/* <div className="absolute inset-0 -z-10 h-[30rem] w-[20rem] translate-x-[3rem] rotate-45 bg-emerald-700/25 blur-3xl "></div> */}
+              <div className="relative mx-auto h-fit w-[90%] max-w-[23rem] rounded-md border-2 border-secondary/10 bg-white/75 pb-16 shadow-lg shadow-accent/40 sm:h-[25.5rem] lg:w-full ">
                 {/* Bookmark thingy */}
                 <div className="flex">
-                  <div className="absolute -left-2 top-6 z-10 h-16 w-20 rounded-r-md bg-sky-950">
+                  <div className="bg-text absolute -left-2 top-6 z-10 h-16 w-20 rounded-r-md">
                     <div className="absolute inset-0 flex items-center justify-items-center">
                       <Sparkles
-                        className="mx-auto my-auto flex justify-center rounded-full border p-1 text-white"
+                        className="mx-auto my-auto flex justify-center rounded-full border border-background p-1 text-background"
                         strokeWidth={1.35}
                         size={30}
                       />
                     </div>
                   </div>
-                  <h2 className="ml-24 mt-10 text-xl font-bold tracking-tight">
+                  <h2 className="ml-[90px] mt-10 text-base font-bold tracking-tight sm:ml-24 md:text-xl">
                     What Sets Us Apart
                   </h2>
                 </div>
@@ -121,7 +116,7 @@ const About: FC<pageProps> = ({}) => {
           </div>
           <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:mb-4 lg:grid lg:w-full lg:max-w-8xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div className="lg:pr-4">
-              <div className="max-w-3xl text-base leading-8 text-gray-700 lg:max-w-[34rem]">
+              <div className="mb-6 max-w-3xl text-sm font-medium leading-7 text-gray-700 sm:text-base md:text-base lg:max-w-[34rem] xl:leading-8">
                 <p>
                   At Liquidator.net, we guide businesses through financial
                   challenges with precision and care. Founded with a commitment
@@ -129,31 +124,18 @@ const About: FC<pageProps> = ({}) => {
                   deliver tailored solutions that empower our clients to
                   navigate complexity and achieve sustainable outcomes.
                 </p>
-                {/* <h2 className="mb-4 mt-10 text-2xl font-bold tracking-tight text-gray-900">
-                  Our Excellence in Advisory Services
-                </h2>
-                <p>
-                  At the heart of our operations, Liquidator.net is celebrated
-                  for its exceptional technical acumen and the personalised
-                  service we offer. As a boutique Distressed Assets Management
-                  (DAM) firm, we are dedicated to specialising in corporate
-                  recovery and insolvency engagements among other services. Our
-                  singular focus remains steadfast—to guide our clients in
-                  achieving their business goals.
-                </p> */}
               </div>
             </div>
           </div>
         </div>
-        {/* <Features /> */}
       </section>
       <Strategies />
       {/* Meet the Team */}
-      <section className="pb-36 pt-32">
+      <section className="py-12 pb-24 xl:pb-36 xl:pt-32">
         <div className="container">
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-              <div className="inline-flex items-center rounded-full py-0.5 text-xs font-semibold italic text-foreground text-gray-600 transition-colors ">
+              <div className="inline-flex items-center rounded-full py-0.5 text-xs font-semibold italic text-primary/90 transition-colors ">
                 Experienced Leadership You Can Trust
               </div>
               <h1 className="text-pretty mb-6 mt-4 text-3xl font-semibold lg:text-5xl">
@@ -167,18 +149,13 @@ const About: FC<pageProps> = ({}) => {
               </p>
               <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
                 <Link href="/team/liquidators">
-                  <button className="inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white ring-offset-background transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:w-auto">
-                    Our Team
-                  </button>
+                  <Button variant={"default"}>Our Team</Button>
                 </Link>
-                {/* <button className="inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md border border-input bg-zinc-200 px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:w-auto">
-                  Read The Docs
-                </button> */}
               </div>
             </div>
             <Image
               src="/images/about/meeting-room1.jpg"
-              alt="placeholder hero"
+              alt="Meeting Room"
               height="700"
               width="700"
               className="max-h-96 w-full rounded-md object-cover object-bottom"
@@ -186,10 +163,11 @@ const About: FC<pageProps> = ({}) => {
           </div>
         </div>
       </section>
+      <div className="mx-auto -mt-12 mb-12 h-0.5 w-24 rounded bg-gray-600/20 lg:hidden"></div>
       {/* Services */}
       <section className="pb-32">
         <div className="container">
-          <div className="grid items-center gap-8 lg:grid-cols-2">
+          <div className="flex flex-col-reverse items-center gap-8 direction-reverse lg:grid lg:grid-cols-2">
             {/* Image on the left */}
             <Image
               src="/images/about/services.jpg"
@@ -200,7 +178,7 @@ const About: FC<pageProps> = ({}) => {
             />
             {/* Text content on the right */}
             <div className="flex flex-col items-center text-center lg:items-start lg:pl-8 lg:text-left">
-              <div className="inline-flex items-center rounded-full py-0.5 text-xs font-semibold italic text-foreground text-gray-600 transition-colors">
+              <div className="inline-flex items-center rounded-full py-0.5 text-xs font-semibold italic text-primary/90 transition-colors">
                 Comprehensive solutions
               </div>
               <h1 className="text-pretty mb-6 mt-4 text-3xl font-semibold lg:text-5xl">
@@ -214,9 +192,7 @@ const About: FC<pageProps> = ({}) => {
               </p>
               <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
                 <Link href="/services">
-                  <button className="inline-flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white ring-offset-background transition-colors hover:bg-zinc-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:w-auto">
-                    Explore Services
-                  </button>
+                  <Button>Explore Services</Button>
                 </Link>
               </div>
             </div>
