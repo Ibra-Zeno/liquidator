@@ -38,7 +38,7 @@ const TeamLinks: React.FC<{ currentLink: string }> = ({ currentLink }) => {
       {teamLinks.map((link, i) => (
         <Link
           href={link.link}
-          className={` rounded-sm border-1 border-gray-300/75 bg-slate-100 px-4 py-1 text-sm font-semibold tracking-wide transition-colors  duration-300 ease-in-out hover:text-primary-500 ${
+          className={` rounded border-1 border-gray-300/75 bg-slate-100 px-4 py-1 text-sm font-semibold tracking-wide transition-colors  duration-300 ease-in-out hover:text-primary-500 ${
             currentPath === link.link
               ? "text-sky-800 shadow-xl"
               : "text-slate-700"
