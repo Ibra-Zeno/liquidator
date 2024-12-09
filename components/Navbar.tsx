@@ -27,7 +27,7 @@ const aboutLinks = [
   {
     title: "Services",
     href: "/services",
-    description: "Explore our areas of expertise and how we can help you.",
+    description: "Explore our areas of expertise and how we can help.",
   },
   {
     title: "FAQs",
@@ -210,7 +210,7 @@ const Nav: React.FC = () => {
         <NavbarItem>
           <Link href="/contact">
             <Button
-              className="text-text rounded border border-gray-400/40 bg-transparent px-4 py-0.5 text-sm hover:text-background data-[hover=true]:bg-primary/90"
+              className="rounded border border-gray-400/40 bg-transparent px-4 py-0.5 text-sm text-text hover:text-background data-[hover=true]:bg-primary/90"
               variant="light"
             >
               Contact Us
