@@ -5,33 +5,28 @@ const FAQ: React.FC = () => {
   return (
     <>
       <section id="banner">
-        <div
-          aria-hidden="true"
-          className="absolute -top-96 start-1/2 flex max-w-[100vw] -translate-x-1/2 transform"
-        >
-          <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl "></div>
-          <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl "></div>
-        </div>
         <div className="relative overflow-hidden">
-          <div className="relative">
-            <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl text-center">
-                <p className="inline-block bg-gradient-to-l from-blue-600 to-violet-500 bg-clip-text text-sm font-medium text-transparent">
+          <div className="relative bg-gradient-to-b from-secondary/30 to-transparent">
+            <div className="mx-auto max-w-[85rem]  px-4 py-2 sm:px-6 md:py-16 lg:px-8">
+              <div className="mx-auto max-w-4xl text-left">
+                <p className="w-fit text-xs font-semibold italic leading-7 text-primary md:text-sm">
                   Find Your Answers
                 </p>
 
-                <div className="mt-5 max-w-2xl">
-                  <h1 className="block text-xl font-semibold tracking-tight text-gray-800 md:text-3xl lg:text-4xl">
+                <div className="mt-2 max-w-2xl">
+                  <h1 className="mt-1.5 text-3xl font-bold tracking-tight text-gray-900 sm:mt-2 sm:text-4xl">
                     Frequently Asked Questions
                   </h1>
                 </div>
 
-                <div className="mt-5 max-w-3xl">
-                  <p className="text-lg text-gray-600 ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsa dolores ipsum aspernatur officia ex, soluta est laborum
-                    ducimus iusto dolorum aut reprehenderit veniam repellendus
-                    possimus vero adipisci ut.
+                <div className="mt-5 max-w-6xl">
+                  <p className="mt-6 text-xs font-medium leading-5 text-gray-700 sm:text-sm sm:leading-7 xl:text-base xl:leading-8">
+                    Here, you&apos;ll find answers to the most common questions
+                    about our liquidation services, from how we source our
+                    inventory to tips on purchasing and delivery details.
+                    Whether you&apos;re new to liquidation or a seasoned buyer,
+                    we aim to provide clear and helpful information to make your
+                    experience seamless and rewarding.
                   </p>
                 </div>
               </div>
