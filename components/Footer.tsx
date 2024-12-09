@@ -165,7 +165,7 @@ const footerLinks = [
 const Footer: FC<FooterProps> = ({}) => {
   return (
     <div>
-      <footer className="align-center border-t-text flex flex-col justify-center border-t-2 bg-[#007044]/20 pt-12  lg:px-4">
+      <footer className="align-center flex flex-col justify-center border-t-2 border-t-text bg-gradient-to-tl from-secondary/10 to-primary/20 pt-12  lg:px-4">
         <section className="container mx-auto grid justify-center gap-x-14 sm:justify-start sm:px-20 md:flex md:flex-row md:justify-center md:px-4 lg:px-20">
           {/* About and Team Links */}
           <div className="grid grid-cols-2 md:pl-8 lg:pl-0">
@@ -181,7 +181,7 @@ const Footer: FC<FooterProps> = ({}) => {
                 <h4 className="text-center font-semibold sm:text-left">
                   {link.title}
                 </h4>
-                <div className="bg-text mx-auto mb-5 mt-0.5 h-0.5 w-24 rounded-md sm:mx-0"></div>
+                <div className="mx-auto mb-5 mt-0.5 h-0.5 w-24 rounded-md bg-text sm:mx-0"></div>
                 <div
                   className={`mt-3 grid text-center sm:text-left ${
                     link.title === "Our Team"
@@ -208,7 +208,7 @@ const Footer: FC<FooterProps> = ({}) => {
             <h4 className="grid text-sm font-semibold sm:text-base">
               Head Office
             </h4>
-            <div className=" bg-text mb-5 mt-0.5 h-0.5 w-24 rounded-md md:mx-0"></div>
+            <div className=" mb-5 mt-0.5 h-0.5 w-24 rounded-md bg-text md:mx-0"></div>
             <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6">
               <div className="flex w-auto flex-col space-y-6">
                 {contactInfo
