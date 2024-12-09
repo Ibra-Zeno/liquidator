@@ -24,11 +24,11 @@ const FAQAccordion = () => {
   const data = isEnglish ? English : Malay;
   return (
     <>
-      <section className="mx-auto my-12 max-w-8xl">
+      <section className="mx-auto my-8 max-w-8xl sm:my-12">
         <Switch
           onValueChange={toggleLanguage}
-          size={"md"}
-          className="flex justify-self-start px-4"
+          size={"sm"}
+          className="flex justify-self-start px-4 text-sm"
         >
           Switch to {isEnglish ? "Bahasar Malaysia" : "English"}
         </Switch>
@@ -38,13 +38,13 @@ const FAQAccordion = () => {
               {Object.entries(section).map(([title, items], sectionIndex) => (
                 <div
                   key={sectionIndex}
-                  className="grid grid-cols-6 gap-x-4 px-6 py-8"
+                  className="grid-cols-6 gap-x-4 px-6 py-0 text-sm sm:grid md:py-8 md:text-base"
                 >
                   <Separator
                     className="col-span-6 mb-7"
                     orientation="horizontal"
                   />
-                  <h2 className="col-span-2 max-w-sm pt-4 text-lg font-bold leading-7 text-gray-800/90">
+                  <h2 className="col-span-2 max-w-sm pt-2 text-lg font-bold leading-7 text-gray-800/90 sm:pt-4">
                     {title}
                   </h2>
                   <div className="col-span-4">
