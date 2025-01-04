@@ -63,9 +63,8 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 Meet our team
               </h2>
               <p className="max-w-4xl text-sm font-medium leading-5 text-gray-700  sm:leading-7 md:text-base xl:leading-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-                doloremque mollitia fugiat omnis! Porro facilis quo animi
-                consequatur. Explicabo.
+                Discover the talented individuals who bring passion, innovation,
+                and dedication to our team.
               </p>
             </div>
             <div className="pb-4">
@@ -117,7 +116,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
               </div>
               {/* Larger screens */}
               <figure
-                className={`mx-auto hidden aspect-square rounded border-2 border-s-secondary/60  bg-gradient-to-br from-slate-50 to-slate-200 shadow-xl  sm:col-span-2 sm:block xl:aspect-auto ${
+                className={`mx-auto hidden aspect-square rounded border-2 border-slate-400/10  bg-gradient-to-br from-accent/5 to-accent/20 shadow-xl  sm:col-span-2 sm:block xl:aspect-auto ${
                   member.image?.asset?.url
                     ? "max-h-[23rem] max-w-[20rem]"
                     : "max-h-[20rem] max-w-[20rem] p-6"
