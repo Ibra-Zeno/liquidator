@@ -167,13 +167,17 @@ const Services: React.FC<ServicesPageProps> = ({ services }) => {
                 ))}
               </dl>
             </div>
-            <Image
-              alt="Corporate recovery documentation"
-              src="/images/service/serviceFeat.jpg"
-              width={800}
-              height={600}
-              className="w-full rounded object-cover shadow-sm"
-            />
+            <div className="relative overflow-hidden rounded shadow-sm">
+              <Image
+                alt="Kuala Lumpur skyline"
+                src="/images/service/serviceFeat.jpg"
+                width={800}
+                height={600}
+                className="w-full object-cover grayscale"
+              />
+              <div className="absolute inset-0 bg-primary mix-blend-color" />
+              <div className="absolute inset-0 bg-primary-deep/20 mix-blend-multiply" />
+            </div>
           </div>
         </div>
       </section>

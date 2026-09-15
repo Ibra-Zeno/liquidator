@@ -1,9 +1,18 @@
 import { GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 import { useToast } from "@/components/hooks/use-toast";
-import { Landmark, Mail, MapPin, Phone, Printer } from "lucide-react";
+import { ExternalLink, Landmark, Mail, MapPin, Phone, Printer } from "lucide-react";
 import Link from "next/link";
 import Seo from "@/components/Seo";
 import { fetchSiteSettings, SiteSettings } from "@/lib/sanityQueries";
+
+const OfficeMap = dynamic(() => import("@/components/ui/contact/OfficeMap"), {
+  ssr: false,
+  loading: () => <div className="h-full w-full animate-pulse bg-secondary/40" />,
+});
+
+const OFFICE_LAT = 3.122438942040024;
+const OFFICE_LNG = 101.67364755297056;
 
 const defaultSettings: Required<SiteSettings> = {
   phone: "+6 03 2282 4558",
@@ -148,16 +157,21 @@ const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
               </div>
             ))}
           </div>
-          <div className="overflow-hidden rounded border border-black/10">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3983.895094635971!2d101.67364755297056!3d3.122438942040024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSUITE%208-11-4%2C%20MENARA%20MUTIARA%20BANGSAR%2C%20JALAN%20LIKU%20OFF%20JALAN%20RIONG%2C%2059100%20KUALA%20LUMPUR!5e0!3m2!1sen!2suk!4v1732475647576!5m2!1sen!2suk"
-              title="map"
-              width="100%"
-              height="100%"
-              className="min-h-[420px] w-full"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+          <div className="relative min-h-[420px] overflow-hidden rounded border border-black/10">
+            <OfficeMap
+              lat={OFFICE_LAT}
+              lng={OFFICE_LNG}
+              label="The Liquidator — Menara Mutiara Bangsar"
+            />
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${OFFICE_LAT},${OFFICE_LNG}`}
+              target="_blank"
+              rel="noreferrer"
+              className="absolute right-3 top-3 z-[1000] flex items-center gap-1.5 rounded border border-black/10 bg-background px-3 py-1.5 text-xs font-semibold text-primary shadow-sm transition-colors hover:bg-secondary"
+            >
+              Get Directions
+              <ExternalLink size={13} />
+            </a>
           </div>
         </div>
       </section>

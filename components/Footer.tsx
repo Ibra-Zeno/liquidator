@@ -11,6 +11,7 @@ import {
   Facebook,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { SiteSettings } from "@/lib/sanityQueries";
 import imageData from "@/public/images/imageData";
@@ -117,8 +118,15 @@ const Footer: FC<FooterProps> = ({}) => {
 
         <div className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="flex items-center gap-2 font-serif text-lg font-medium text-text">
-              <span className="text-accent">✦</span>The Liquidator
+            <p className="flex items-center gap-2.5 font-serif text-lg font-medium text-text">
+              <Image
+                src="/images/index/liquidatorLogo.png"
+                alt=""
+                width={24}
+                height={24}
+                className="h-6 w-6"
+              />
+              The Liquidator
             </p>
             <p className="mt-4 max-w-[16rem] text-sm text-text/70">
               {settings.address}

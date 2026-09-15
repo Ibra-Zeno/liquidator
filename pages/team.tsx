@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { GetStaticProps } from "next";
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import { GraduationCap } from "lucide-react";
 import Seo from "@/components/Seo";
 import CTA from "@/components/ui/CTA";
+import Modal from "@/components/ui/Modal";
+import InitialsAvatar from "@/components/ui/InitialsAvatar";
 
 export interface PersonProps {
   _id: string;
@@ -61,7 +63,25 @@ interface TeamPageProps {
   members: PersonProps[];
 }
 
+const MemberAvatar: React.FC<{ member: PersonProps; className?: string }> = ({
+  member,
+  className,
+}) =>
+  member.image?.asset?.url ? (
+    <Image
+      src={member.image.asset.url}
+      alt={member.name}
+      width={640}
+      height={640}
+      className={`h-full w-full object-cover object-top ${className || ""}`}
+    />
+  ) : (
+    <InitialsAvatar name={member.name} />
+  );
+
 const TeamPage: React.FC<TeamPageProps> = ({ members }) => {
+  const [selected, setSelected] = useState<PersonProps | null>(null);
+
   const sections = new Map<string, PersonProps[]>();
   for (const member of members) {
     const slug = member.categorySlug || "other";
@@ -140,70 +160,75 @@ const TeamPage: React.FC<TeamPageProps> = ({ members }) => {
               <h2 className="mb-8 font-serif text-2xl font-medium text-text">
                 {title}
               </h2>
-              <ul className="divide-y divide-black/10">
+              <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
                 {sectionMembers.map((member) => (
-                  <li key={member._id} className="py-10 first:pt-0">
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-5 sm:gap-x-10">
-                      <figure
-                        className={`mx-auto aspect-square w-full max-w-[18rem] shrink-0 overflow-hidden rounded border border-black/10 bg-secondary/40 sm:col-span-2 ${
-                          member.image?.asset?.url ? "" : "p-8"
-                        }`}
-                      >
-                        <Image
-                          src={
-                            member.image?.asset?.url ||
-                            "/images/team/avatar.png"
-                          }
-                          alt={member.name}
-                          width={640}
-                          height={640}
-                          className={`mx-auto rounded object-cover object-top ${
-                            member.image?.asset?.url
-                              ? "h-full w-full"
-                              : "h-auto w-auto opacity-70"
-                          }`}
-                        />
-                      </figure>
-                      <div className="col-span-3 flex flex-col justify-center text-center sm:text-left">
-                        <h3 className="font-serif text-2xl font-medium text-text">
-                          {member.name}
-                        </h3>
-                        {(member.position || member.categoryTitle) && (
-                          <p className="mt-1 text-sm font-medium text-primary">
-                            {member.position || member.categoryTitle}
-                          </p>
-                        )}
-                        {member.nickname && (
-                          <p className="mt-1 text-sm italic text-text/50">
-                            {member.nickname}
-                          </p>
-                        )}
-                        {member.qualifications &&
-                          member.qualifications.length > 0 && (
-                            <div className="mt-4 flex items-center justify-center gap-2.5 sm:justify-start">
-                              <GraduationCap
-                                size={18}
-                                strokeWidth={1.5}
-                                className="shrink-0 text-accent"
-                              />
-                              <p className="text-xs font-medium text-text/70">
-                                {member.qualifications?.join(", ")}
-                              </p>
-                            </div>
-                          )}
-                        <p className="mt-5 text-sm leading-7 text-text/70">
-                          {member.biography}
-                        </p>
-                      </div>
+                  <button
+                    key={member._id}
+                    onClick={() => setSelected(member)}
+                    className="group text-left"
+                  >
+                    <div className="aspect-square w-full overflow-hidden rounded border border-black/10 bg-secondary/40 transition-shadow group-hover:shadow-md">
+                      <MemberAvatar member={member} />
                     </div>
-                  </li>
+                    <h3 className="mt-3 font-serif text-base font-medium text-text group-hover:text-primary">
+                      {member.name}
+                    </h3>
+                    {(member.position || member.categoryTitle) && (
+                      <p className="mt-0.5 text-xs text-text/60">
+                        {member.position || member.categoryTitle}
+                      </p>
+                    )}
+                  </button>
                 ))}
-              </ul>
+              </div>
             </div>
           </section>
         );
       })}
       <CTA />
+
+      {selected && (
+        <Modal onClose={() => setSelected(null)} labelledBy="member-name">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-5">
+            <div className="mx-auto aspect-square w-full max-w-[10rem] shrink-0 overflow-hidden rounded border border-black/10 bg-secondary/40 sm:col-span-2 sm:max-w-none">
+              <MemberAvatar member={selected} />
+            </div>
+            <div className="col-span-3 text-center sm:text-left">
+              <h2
+                id="member-name"
+                className="font-serif text-2xl font-medium text-text"
+              >
+                {selected.name}
+              </h2>
+              {(selected.position || selected.categoryTitle) && (
+                <p className="mt-1 text-sm font-medium text-primary">
+                  {selected.position || selected.categoryTitle}
+                </p>
+              )}
+              {selected.nickname && (
+                <p className="mt-1 text-sm italic text-text/50">
+                  {selected.nickname}
+                </p>
+              )}
+              {selected.qualifications && selected.qualifications.length > 0 && (
+                <div className="mt-4 flex items-center justify-center gap-2.5 sm:justify-start">
+                  <GraduationCap
+                    size={18}
+                    strokeWidth={1.5}
+                    className="shrink-0 text-accent"
+                  />
+                  <p className="text-xs font-medium text-text/70">
+                    {selected.qualifications?.join(", ")}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+          <p className="mt-6 text-sm leading-7 text-text/70">
+            {selected.biography}
+          </p>
+        </Modal>
+      )}
     </main>
   );
 };
