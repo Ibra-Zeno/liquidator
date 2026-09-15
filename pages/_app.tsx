@@ -49,11 +49,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       ) : (
         <>
-          <div aria-hidden="true" className="flex h-[6px]">
-            <span className="flex-1 bg-primary" />
-            <span className="flex-1 bg-accent" />
-            <span className="flex-1 bg-text" />
-          </div>
+          <div
+            aria-hidden="true"
+            className="h-[5px] bg-gradient-to-r from-primary/50 to-accent/50"
+          />
           <Nav />
           <Component {...pageProps} />
           <Footer />

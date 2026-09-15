@@ -23,22 +23,43 @@ const SkylineIllustration: React.FC<{ className?: string }> = ({
     <rect x="610" y="460" width="60" height="100" className="fill-primary/30" />
     <rect x="680" y="500" width="70" height="60" className="fill-primary/20" />
 
-    {/* Skybridge */}
-    <rect x="330" y="330" width="130" height="26" className="fill-primary-deep" />
+    {/* Left tower — tapering setback tiers, a shaft, then a thin spire,
+        matching the real building's stepped profile */}
+    <rect x="245" y="460" width="110" height="100" className="fill-primary-deep" />
+    <rect x="255" y="380" width="90" height="80" className="fill-primary-deep" />
+    <rect x="264" y="300" width="72" height="80" className="fill-primary-deep" />
+    <rect x="273" y="160" width="54" height="140" className="fill-primary-deep" />
+    <rect x="296" y="100" width="8" height="60" className="fill-primary-deep" />
 
-    {/* Left tower */}
-    <polygon
-      points="230,560 230,400 250,400 250,270 270,270 270,140 320,140 320,270 340,270 340,400 360,400 360,560"
-      className="fill-primary-deep"
-    />
-    <rect x="288" y="90" width="8" height="60" className="fill-primary-deep" />
+    {/* Right tower — mirrored */}
+    <rect x="445" y="460" width="110" height="100" className="fill-primary-deep" />
+    <rect x="455" y="380" width="90" height="80" className="fill-primary-deep" />
+    <rect x="464" y="300" width="72" height="80" className="fill-primary-deep" />
+    <rect x="473" y="160" width="54" height="140" className="fill-primary-deep" />
+    <rect x="496" y="100" width="8" height="60" className="fill-primary-deep" />
 
-    {/* Right tower */}
-    <polygon
-      points="440,560 440,400 460,400 460,270 480,270 480,140 530,140 530,270 550,270 550,400 570,400 570,560"
+    {/* Skybridge, connecting the two shafts */}
+    <rect x="327" y="220" width="146" height="26" className="fill-primary-deep" />
+
+    {/* Support legs rising from each tower to meet at a single point at
+        the bridge's centre — uniform-width struts (rotated rects, not
+        tapering wedges), forming an A-frame */}
+    <rect
+      x="327"
+      y="292"
+      width="91"
+      height="10"
       className="fill-primary-deep"
+      transform="rotate(-37 327 297)"
     />
-    <rect x="498" y="90" width="8" height="60" className="fill-primary-deep" />
+    <rect
+      x="473"
+      y="292"
+      width="91"
+      height="10"
+      className="fill-primary-deep"
+      transform="rotate(-143 473 297)"
+    />
   </svg>
 );
 

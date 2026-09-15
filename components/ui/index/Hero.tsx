@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
               </Link>
             </div>
           </div>
-          <KLSkyline className="hidden h-80 w-auto shrink-0 text-primary/[0.14] lg:block xl:h-96" />
+          <KLSkyline className="hidden h-80 w-auto shrink-0 text-primary opacity-[0.14] lg:block xl:h-96" />
         </div>
       </header>
 
