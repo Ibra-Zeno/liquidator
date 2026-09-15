@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import {
   Accordion,
@@ -6,69 +5,86 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/shadcn/ui/accordion";
-
-import { English } from "@/lib/faqEnglish";
-import { Malay } from "@/lib/faqMalay";
 import { Switch } from "@nextui-org/react";
 import { Separator } from "@/components/shadcn/ui/separator";
+import PortableText from "@/components/ui/PortableText";
 
-const FAQAccordion = () => {
+export interface FaqItem {
+  _id: string;
+  category: string;
+  categoryMs?: string;
+  order: number;
+  question: string;
+  answer: any;
+  questionMs?: string;
+  answerMs?: any;
+}
+
+interface FAQAccordionProps {
+  items: FaqItem[];
+}
+
+const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
   const [isEnglish, setIsEnglish] = useState(true);
 
-  // Function to toggle the language
-  const toggleLanguage = () => {
-    setIsEnglish(!isEnglish);
-  };
+  // Group items by category, preserving the order categories first appear in
+  // (items already arrive sorted by a single global "order" field).
+  const sections = new Map<string, FaqItem[]>();
+  for (const item of items) {
+    const list = sections.get(item.category) ?? [];
+    list.push(item);
+    sections.set(item.category, list);
+  }
 
-  // Selecting the data based on the language
-  const data = isEnglish ? English : Malay;
   return (
-    <>
-      <section className="mx-auto my-8 max-w-8xl sm:my-12">
-        <Switch
-          onValueChange={toggleLanguage}
-          size={"sm"}
-          className="flex justify-self-start px-4 text-sm"
-        >
-          Switch to {isEnglish ? "Bahasar Malaysia" : "English"}
-        </Switch>
-        <Accordion type="single" collapsible className="">
-          {data.map((section, index) => (
-            <div key={index}>
-              {Object.entries(section).map(([title, items], sectionIndex) => (
-                <div
-                  key={sectionIndex}
-                  className="grid-cols-6 gap-x-4 px-6 py-0 text-sm sm:grid md:py-8 md:text-base"
+    <section className="container mx-auto my-8 max-w-[1120px] px-4 sm:my-12 lg:px-8">
+      <Switch
+        onValueChange={() => setIsEnglish(!isEnglish)}
+        size={"sm"}
+        color="success"
+        className="flex justify-self-start text-sm"
+      >
+        Switch to {isEnglish ? "Bahasa Malaysia" : "English"}
+      </Switch>
+      <Accordion type="single" collapsible>
+        {Array.from(sections.entries()).map(([category, sectionItems]) => (
+          <div
+            key={category}
+            className="grid-cols-6 gap-x-4 py-0 text-sm sm:grid md:py-8 md:text-base"
+          >
+            <Separator
+              className="col-span-6 mb-7 bg-black/10"
+              orientation="horizontal"
+            />
+            <h2 className="col-span-2 max-w-sm pt-2 font-serif text-lg font-medium leading-7 text-text sm:pt-4">
+              {isEnglish
+                ? category
+                : sectionItems[0]?.categoryMs || category}
+            </h2>
+            <div className="col-span-4">
+              {sectionItems.map((item) => (
+                <AccordionItem
+                  key={item._id}
+                  value={item._id}
+                  className="border-black/10"
                 >
-                  <Separator
-                    className="col-span-6 mb-7"
-                    orientation="horizontal"
-                  />
-                  <h2 className="col-span-2 max-w-sm pt-2 text-lg font-bold leading-7 text-gray-800/90 sm:pt-4">
-                    {title}
-                  </h2>
-                  <div className="col-span-4">
-                    {items.map((item, itemIndex) => (
-                      <AccordionItem
-                        key={itemIndex}
-                        value={`item-${index}-${sectionIndex}-${itemIndex}`}
-                      >
-                        <AccordionTrigger className="text-left font-medium text-slate-800/95">
-                          {item.q}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-[15px] leading-7">
-                          {item.a()}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </div>
-                </div>
+                  <AccordionTrigger className="text-left font-medium text-text">
+                    {isEnglish ? item.question : item.questionMs || item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[15px] leading-7 text-text/70">
+                    <PortableText
+                      value={
+                        isEnglish ? item.answer : item.answerMs || item.answer
+                      }
+                    />
+                  </AccordionContent>
+                </AccordionItem>
               ))}
             </div>
-          ))}
-        </Accordion>
-      </section>
-    </>
+          </div>
+        ))}
+      </Accordion>
+    </section>
   );
 };
 

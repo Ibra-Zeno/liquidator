@@ -1,281 +1,251 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import {
-  Slack,
   Landmark,
-  MapPinned,
   Phone,
   Linkedin,
   Printer,
   AtSign,
   Mail,
   Facebook,
-  SendHorizontal,
 } from "lucide-react";
-import Logo from "./ui/Logo";
 import Link from "next/link";
-import { Button } from "./shadcn/ui/button";
+import { client } from "@/sanity/lib/client";
+import { SiteSettings } from "@/lib/sanityQueries";
+import imageData from "@/public/images/imageData";
 
 interface FooterProps {}
-const companyLocations = [
-  {
-    name: "MJ Insolvency",
-    icons: <Landmark />,
-    id: "(LLP0037224-LAL) (NF 2776)",
-    margin: "ml-auto",
-  },
-  {
-    name: "Radiant Consulting Asia Sdn Bhd",
-    icons: <Landmark />,
-    id: "(773117-T)",
-    margin: "mr-auto",
-  },
-  {
-    name: "TS Insolvency",
-    icons: <Landmark />,
-    id: "(NF 2776)",
-    margin: "ml-auto",
-  },
-  {
-    name: "Chilterns Insolvency Sdn Bhd",
-    icons: <Landmark />,
-    id: "(822208-U)",
-    margin: "mx-auto",
-  },
-  {
-    name: "Radiant Corporate Solutions Sdn Bhd",
-    icons: <Landmark />,
-    id: "(1005821-D)",
-    margin: "ml-auto",
-  },
-];
 
-const contactInfo = [
-  {
-    icon: <Phone size={16} />,
-    title: "Tel",
-    content: () => <Link href="tel:60322824558">+6 03 2282 4558</Link>,
-  },
-  {
-    icon: <Printer size={16} />,
-    title: "Fax",
-    content: () => <p>+6 03 2282 1558</p>,
-  },
-  {
-    icon: <AtSign size={16} />,
-    title: "Email",
-    content: () => (
-      <Link href="mailto:info@theliquidator.net">info@theliquidator.net</Link>
-    ),
-  },
-  {
-    icon: <MapPinned size={16} />,
-    title: "Address",
-    content: () => (
-      <p className="max-w-[16rem]">
-        Suite 8-11-4, Menara Mutiara Bangsar, Jalan Liku, Off Jalan Riong, 59100
-        Kuala Lumpur, Malaysia
-      </p>
-    ),
-  },
-];
+// Short display labels for the regulatory bodies/associations listed in
+// imageData, keyed by their full name there.
+const shortLabels: Record<string, string> = {
+  "The Malaysian Bar": "Bar Council",
+  "Department of Director General of Land and Mines (Federal)": "JKPTG",
+  "Department of Surveys and Mapping Malaysia": "JUPEM",
+  "Ministry of Housing and Local Government": "KPKT",
+  "Malaysia Department of Insolvency (MDI)": "MDI",
+  "Malaysia Institute of Accountants": "MIA",
+  "Myeg Services Berhad": "MyEG",
+  "Real Estate and Housing Developers Association Malaysia": "REHDA",
+  "Companies Commission of Malaysia": "SSM",
+  "The Board of Valuers, Appraisers and Estate Agents Malaysia": "Valuers",
+};
+
+const defaultSettings: Required<SiteSettings> = {
+  phone: "+6 03 2282 4558",
+  phoneHref: "60322824558",
+  fax: "+6 03 2282 1558",
+  email: "info@theliquidator.net",
+  address:
+    "Suite 8-11-4, Menara Mutiara Bangsar, Jalan Liku, Off Jalan Riong, 59100 Kuala Lumpur, Malaysia",
+  entities: [
+    { name: "MJ Insolvency", regNo: "(LLP0037224-LAL) (NF 2776)" },
+    { name: "Radiant Consulting Asia Sdn Bhd", regNo: "(773117-T)" },
+    { name: "TS Insolvency", regNo: "(NF 2776)" },
+    { name: "Chilterns Insolvency Sdn Bhd", regNo: "(822208-U)" },
+    { name: "Radiant Corporate Solutions Sdn Bhd", regNo: "(1005821-D)" },
+  ],
+};
 
 const SocialMediaLinks = [
   {
     name: "Facebook",
     href: "https://www.facebook.com/theliquidator.net/",
-    logo: <Facebook strokeWidth={1.25} />,
+    logo: <Facebook size={17} strokeWidth={1.5} />,
   },
   {
     name: "Linkedin",
     href: "https://www.theliquidator.net/",
-    logo: <Linkedin strokeWidth={1.25} />,
+    logo: <Linkedin size={17} strokeWidth={1.5} />,
   },
   {
     name: "Email",
     href: "mailto:info@theliquidator.net",
-    logo: <Mail strokeWidth={1.25} />,
+    logo: <Mail size={17} strokeWidth={1.5} />,
   },
 ];
 
-const footerLinks = [
-  {
-    title: "Useful Links",
-    // TODO: Change name of the above to more professional.
-    links: [
-      {
-        name: "Our Values",
-        href: "/about",
-      },
-      {
-        name: "Services",
-        href: "/services",
-      },
-      {
-        name: "FAQs",
-        href: "/FAQ",
-      },
-      {
-        name: "Gallery",
-        href: "/gallery",
-      },
-      {
-        name: "Contact Us",
-        href: "/contact",
-      },
-    ],
-  },
-  {
-    title: "Our Team",
-    links: [
-      {
-        name: "Liquidators",
-        href: "/team/liquidators",
-      },
-
-      {
-        name: "Liquidation",
-        href: "/team/liquidation",
-      },
-
-      {
-        name: "Accounts",
-        href: "/team/accounts",
-      },
-      {
-        name: "Admin",
-        href: "/team/admin",
-      },
-      {
-        name: "Consultants",
-        href: "/team/consultants",
-      },
-      {
-        name: "Senior Management",
-        href: "/team/senior-management",
-      },
-      {
-        name: "Conveyancing & Subsale",
-        href: "/team/conveyancing-subsale",
-      },
-    ],
-  },
+const practiceLinks = [
+  { name: "About Us", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "FAQs", href: "/FAQ" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Contact Us", href: "/contact" },
 ];
+
+const teamLinks = [
+  { name: "Liquidators", href: "/team#liquidators" },
+  { name: "Liquidation", href: "/team#liquidation" },
+  { name: "Senior Management", href: "/team#senior-management" },
+  { name: "Conveyancing & Subsale", href: "/team#conveyancing-subsale" },
+  { name: "Accounts", href: "/team#accounts" },
+  { name: "Admin", href: "/team#admin" },
+  { name: "Consultants", href: "/team#consultants" },
+];
+
 const Footer: FC<FooterProps> = ({}) => {
+  const [settings, setSettings] =
+    useState<Required<SiteSettings>>(defaultSettings);
+
+  useEffect(() => {
+    client
+      .fetch<SiteSettings | null>(`*[_type == "siteSettings"][0]`)
+      .then((data) => {
+        if (!data) return;
+        setSettings({
+          phone: data.phone || defaultSettings.phone,
+          phoneHref: data.phoneHref || defaultSettings.phoneHref,
+          fax: data.fax || defaultSettings.fax,
+          email: data.email || defaultSettings.email,
+          address: data.address || defaultSettings.address,
+          entities: data.entities?.length
+            ? data.entities
+            : defaultSettings.entities,
+        });
+      })
+      .catch(() => {
+        // Keep the hardcoded defaults if Sanity is unreachable.
+      });
+  }, []);
+
   return (
-    <div>
-      <footer className="align-center flex flex-col justify-center border-t-2 border-t-text bg-gradient-to-tl from-secondary/10 to-primary/20 pt-12  lg:px-4">
-        <section className="container mx-auto grid justify-center gap-x-14 sm:justify-start sm:px-20 md:flex md:flex-row md:justify-center md:px-4 lg:px-20">
-          {/* About and Team Links */}
-          <div className="grid grid-cols-2 md:pl-8 lg:pl-0">
-            {footerLinks.map((link, index) => (
-              <div
-                key={link.title}
-                className={`relative ${
-                  index !== footerLinks.length - 1
-                    ? "w-fit text-center sm:pr-10 sm:text-left md:border-r xl:pr-24"
-                    : ""
-                }`}
-              >
-                <h4 className="text-center font-semibold sm:text-left">
-                  {link.title}
-                </h4>
-                <div className="mx-auto mb-5 mt-0.5 h-0.5 w-24 rounded-md bg-text sm:mx-0"></div>
-                <div
-                  className={`mt-3 grid text-center sm:text-left ${
-                    link.title === "Our Team"
-                      ? "gap-4 sm:grid-cols-2"
-                      : "space-y-3"
-                  }`}
-                >
-                  {link.links.map((link) => (
-                    <p key={link.name}>
-                      <Link
-                        className="inline-flex gap-x-2 text-sm transition duration-150 ease-in-out hover:text-gray-600 focus:text-gray-600 focus:outline-none sm:text-left"
-                        href={link.href}
-                      >
-                        {link.name}
-                      </Link>
-                    </p>
-                  ))}
-                </div>
+    <footer className="pt-16">
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Songket motif divider */}
+        <div aria-hidden="true" className="motif" />
+
+        <div className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <p className="flex items-center gap-2 font-serif text-lg font-medium text-text">
+              <span className="text-accent">✦</span>The Liquidator
+            </p>
+            <p className="mt-4 max-w-[16rem] text-sm text-text/70">
+              {settings.address}
+            </p>
+            <div className="mt-4 flex flex-col gap-2 text-sm text-text/70">
+              <div className="flex items-center gap-2">
+                <Phone size={15} />
+                <Link href={`tel:${settings.phoneHref}`}>
+                  {settings.phone}
+                </Link>
               </div>
+              <div className="flex items-center gap-2">
+                <Printer size={15} />
+                <p>{settings.fax}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <AtSign size={15} />
+                <Link href={`mailto:${settings.email}`}>
+                  {settings.email}
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-text/50">
+              Practice
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              {practiceLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-text/80 transition-colors hover:text-primary"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-text/50">
+              Our Team
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              {teamLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-text/80 transition-colors hover:text-primary"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-1 text-xs font-semibold uppercase tracking-wider text-text/50">
+              Registered Entities
+            </h4>
+            <p className="mb-4 text-[11px] italic text-text/40">
+              Entiti Berdaftar
+            </p>
+            <ul className="space-y-2.5 text-xs text-text/70">
+              {settings.entities.map((entity) => (
+                <li key={entity.name} className="flex items-start gap-2">
+                  <Landmark size={14} className="mt-0.5 shrink-0 text-accent" />
+                  <span>
+                    {entity.name}
+                    <span className="block text-text/45">{entity.regNo}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-black/10 py-6">
+          <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-text/50">
+            Useful Links
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            {imageData.map((body) => (
+              <Link
+                key={body.name}
+                href={body.link}
+                target="_blank"
+                rel="noreferrer"
+                title={body.name}
+                className="rounded border border-black/10 px-2.5 py-1 text-xs text-text/60 transition-colors hover:border-primary/30 hover:text-primary"
+              >
+                {shortLabels[body.name] || body.name}
+              </Link>
             ))}
           </div>
-          {/* Contact Links */}
-          <div className="relative justify-center pt-8 text-left sm:pl-8 md:border-l md:pt-0 lg:pl-24">
-            <h4 className="grid text-sm font-semibold sm:text-base">
-              Head Office
-            </h4>
-            <div className=" mb-5 mt-0.5 h-0.5 w-24 rounded-md bg-text md:mx-0"></div>
-            <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6">
-              <div className="flex w-auto flex-col space-y-6">
-                {contactInfo
-                  .filter((contact) => contact.title !== "Address")
-                  .map((contact) => (
-                    <div
-                      key={contact.title}
-                      className="flex flex-row items-center gap-x-3 px-2 text-sm"
-                    >
-                      <div className="mt-0.5 flex">{contact.icon}</div>
-                      <div>{contact.content()}</div>
-                    </div>
-                  ))}
-              </div>
-              <div className="px-2">
-                {contactInfo
-                  .filter((contact) => contact.title === "Address")
-                  .map((contact) => (
-                    <div
-                      key={contact.title}
-                      className="flex flex-row items-center gap-x-3 text-left text-sm"
-                    >
-                      <div className="mt-0.5 flex">{contact.icon}</div>
-                      {contact.content()}
-                    </div>
-                  ))}
-              </div>
-            </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-black/10 py-6 text-xs text-text/60 sm:flex-row">
+          <div className="flex flex-col items-center gap-1 text-center sm:items-start sm:text-left">
+            <span>
+              © 2026 theliquidator.net. All rights reserved. ·{" "}
+              <Link href="/privacy" className="underline hover:text-primary">
+                Privacy Policy
+              </Link>
+            </span>
+            <span className="italic text-text/40">
+              Diperbadankan di Malaysia · Incorporated in Malaysia
+            </span>
           </div>
-        </section>
-        {/* Offices */}
-        <section className="container mx-auto mt-10 grid max-w-[24rem] grid-cols-1 gap-y-4 border-y border-opacity-25 px-20 py-2 sm:grid sm:max-w-none sm:grid-cols-2 sm:items-center lg:grid-cols-3 xl:flex xl:max-w-[100rem] xl:justify-between">
-          {companyLocations.map((location) => (
-            <div key={location.name} className="my-1.5 ">
-              <div className="flex items-center gap-x-2">
-                {location.icons}
-                <h4 className="-mt-2 text-sm font-medium">{location.name}</h4>
-              </div>
-              <p className="-mt-1 ml-8 text-xs">{location.id}</p>
-            </div>
-          ))}
-        </section>
-        {/* Footer Links */}
-        <section className="container mt-6 flex max-w-6xl justify-between pb-6">
-          <p className="my-auto text-left text-xs sm:text-justify">
-            © 2024 theliquidator.net. All rights reserved.
-          </p>
-          <div>
-            <div className="flex flex-row gap-x-3 sm:gap-x-10">
-              {SocialMediaLinks.map((media) => (
-                <div
-                  key={media.name}
-                  className="flex items-center justify-center rounded-full"
-                >
-                  <Link
-                    href={media.href}
-                    className="rounded-full p-1.5 transition-all duration-150 ease-in-out hover:bg-gray-400"
-                  >
-                    {media.logo}
-                  </Link>
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-row gap-x-3">
+            {SocialMediaLinks.map((media) => (
+              <Link
+                key={media.name}
+                href={media.href}
+                className="rounded-full p-1.5 text-text/60 transition-colors hover:bg-secondary hover:text-primary"
+              >
+                {media.logo}
+              </Link>
+            ))}
           </div>
-        </section>
-      </footer>
-    </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 

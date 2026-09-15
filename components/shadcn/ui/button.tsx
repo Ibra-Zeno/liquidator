@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "inline-block rounded bg-primary text-xs font-medium tracking-wide leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary/90 hover:shadow-primary-2 focus:bg-border-accent focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary/75 active:shadow-primary-2 motion-reduce:transition-none",
+          "rounded bg-primary text-xs font-medium tracking-wide leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary/90 hover:shadow-primary-2 focus:bg-border-accent focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary/75 active:shadow-primary-2 motion-reduce:transition-none",
         accent: "bg-accent text-white hover:bg-accent/90 rounded",
         outline:
           "border border-input bg-background rounded hover:bg-secondary hover:text-accent-foreground",
@@ -23,7 +23,7 @@ const buttonVariants = cva(
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded px-3",
-        lg: "h-11 rounded px-6 py-6",
+        lg: "h-12 rounded px-7",
         icon: "h-10 w-10",
       },
     },

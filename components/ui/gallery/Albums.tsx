@@ -1,12 +1,8 @@
-import React, { useState, useEffect, Suspense } from "react";
-import { client } from "../../../sanity/lib/client";
-import { Skeleton } from "@/components/shadcn/ui/skeleton";
-import Image from "next/image";
+import React from "react";
 import Link from "next/link";
-import Loading from "@/components/Loading";
+import { sanityImageUrl } from "@/lib/sanityImage";
 
-// Define the Album type
-type Album = {
+export type Album = {
   _id: string;
   title: string;
   date: string;
@@ -18,61 +14,50 @@ type Album = {
   };
 };
 
-// Fetch albums when component mounts
-const fetchAlbums = async () => {
-  const query = `
-    *[_type == "album"] {
-      _id,
-      title,
-      date,
-      "coverImage": coverImage {
-        asset-> {
-          _id,
-          url
-        }
-      }
-    }
-  `;
+interface AlbumsProps {
+  albums: Album[];
+}
 
-  const results = await client.fetch<Album[]>(query, {
-    next: { revalidate: 3600 },
-  });
-  return results;
-};
-
-const Albums = async () => {
-  const albums = await fetchAlbums();
-
-  if (!albums) {
-    return <Loading />;
-  }
-
+const Albums: React.FC<AlbumsProps> = ({ albums }) => {
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          Gallery Albums
-        </h2>
+    <div>
+      <div className="container mx-auto max-w-[1120px] px-4 py-16 sm:py-20 lg:px-8">
+        <div className="mb-10 flex items-baseline justify-between">
+          <h2 className="font-serif text-2xl font-medium text-text">
+            Albums
+          </h2>
+          <span className="text-xs font-medium uppercase tracking-[0.08em] text-text/40">
+            {albums.length} {albums.length === 1 ? "album" : "albums"}
+          </span>
+        </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+        {albums.length === 0 && (
+          <p className="py-8 text-sm text-text/50">
+            No albums have been added yet.
+          </p>
+        )}
+
+        <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 xl:gap-8">
           {albums.map((album) => (
-            <div key={album._id} className="group relative">
-              <Link href={`/gallery/${album._id}`}>
-                <img
-                  alt={album.title}
-                  src={album.coverImage.asset.url}
-                  className="aspect-square w-full rounded border-b-5 border-l-5 border-gray-300/60 bg-gray-200 object-cover shadow-xl transition-all duration-200 ease-in-out group-hover:opacity-75 lg:aspect-auto lg:h-80"
-                />
-                <div className="mt-4 flex justify-between">
-                  <div>
-                    <h3 className="text-sm font-medium italic tracking-wide text-gray-800">
-                      <span aria-hidden="true" className="absolute inset-0 " />
-                      {album.title}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            <Link
+              key={album._id}
+              href={`/gallery/${album._id}`}
+              className="group relative mb-6 block break-inside-avoid overflow-hidden rounded border border-black/10 bg-secondary/40 xl:mb-8"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                alt={album.title}
+                src={sanityImageUrl(album.coverImage.asset.url, 700)}
+                loading="lazy"
+                className="block h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-text/40 px-4 py-3 backdrop-blur-sm">
+                <h3 className="font-serif text-base font-medium text-white sm:text-lg">
+                  {album.title}
+                </h3>
+                <p className="mt-0.5 text-xs text-white/75">{album.date}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -81,5 +66,3 @@ const Albums = async () => {
 };
 
 export default Albums;
-
-/*  */
