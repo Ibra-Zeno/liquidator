@@ -37,7 +37,6 @@ module.exports = {
         primary: "#2D4A63",
         "primary-deep": "#1E3547",
         secondary: "#E4EBF0",
-        green: "#0C8A67",
         accent: "#C4841B",
         "accent-soft": "#FBEED2",
         text: "#26231B",

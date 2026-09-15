@@ -28,7 +28,7 @@ const schibstedGrotesk = Schibsted_Grotesk({
 });
 
 // Routes that render full-screen, without the site's Navbar/Footer chrome.
-const BARE_ROUTES = ["/studio", "/og-temp"];
+const BARE_ROUTES = ["/studio"];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
