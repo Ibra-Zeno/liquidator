@@ -2,16 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-  Button,
-} from "@nextui-org/react";
+import { Menu, X } from "lucide-react";
 import Logo from "./ui/Logo";
 
 const navLinks = [
@@ -24,78 +15,66 @@ const navLinks = [
 
 const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const handleMenuItemClick = () => {
-    setIsMenuOpen(false); // Close the menu when an item is clicked
-  };
 
   return (
-    <Navbar
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={(open) => setIsMenuOpen(open)} // Tie to menu open state
-      className="border-b border-black/10 bg-background"
-    >
-      {/* Left Section: Logo and Menu Toggle */}
-      <NavbarContent>
-        <NavbarBrand>
-          <Logo />
-        </NavbarBrand>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
-        />
-      </NavbarContent>
+    <header className="border-b border-black/10 bg-background">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
+        <Logo />
 
-      {/* Center Section: Links (Visible on Desktop) */}
-      <NavbarContent className="hidden gap-4 md:flex" justify="end">
-        {navLinks.map((link) => (
-          <NavbarItem key={link.href}>
-            <Link href={link.href}>
-              <Button
-                className="bg-transparent p-0 text-sm text-text/70 data-[hover=true]:bg-transparent data-[hover=true]:text-primary"
-                radius="sm"
-                variant="light"
-              >
-                {link.name}
-              </Button>
-            </Link>
-          </NavbarItem>
-        ))}
-
-        {/* Contact Us Link */}
-        <NavbarItem>
-          <Link href="/contact">
-            <Button
-              className="rounded bg-primary px-4 py-0.5 text-sm font-semibold text-white data-[hover=true]:bg-primary/90"
-              variant="light"
+        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded px-3 py-2 text-sm text-text/70 transition-colors hover:text-primary"
             >
-              Contact Us
-            </Button>
+              {link.name}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            className="ml-2 rounded bg-primary px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+          >
+            Contact Us
           </Link>
-        </NavbarItem>
-      </NavbarContent>
+        </nav>
 
-      {/* Mobile Menu: Visible on Small Screens */}
-      <NavbarMenu>
-        {[...navLinks, { name: "Contact Us", href: "/contact" }].map(
-          (item, index, all) => (
-            <NavbarMenuItem key={index}>
-              <div
-                onClick={() => {
-                  handleMenuItemClick(); // Close the menu
-                }}
-                className={`mt-4 w-fit rounded  ${
-                  index == all.length - 1 ? "text-primary" : ""
-                }`}
-              >
-                <Link href={item.href} className="block w-full">
-                  {item.name}
-                </Link>
-              </div>
-            </NavbarMenuItem>
-          ),
-        )}
-      </NavbarMenu>
-    </Navbar>
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          className="p-1 text-text md:hidden"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {isMenuOpen && (
+        <nav
+          aria-label="Mobile"
+          className="border-t border-black/10 px-4 py-4 md:hidden"
+        >
+          <ul className="flex flex-col gap-1">
+            {[...navLinks, { name: "Contact Us", href: "/contact" }].map(
+              (item, index, all) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block rounded px-2 py-2.5 text-sm font-medium ${
+                      index === all.length - 1 ? "text-primary" : "text-text/80"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ),
+            )}
+          </ul>
+        </nav>
+      )}
+    </header>
   );
 };
 

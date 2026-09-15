@@ -1,4 +1,3 @@
-const { nextui } = require("@nextui-org/react");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -7,7 +6,6 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     container: {
@@ -22,9 +20,14 @@ module.exports = {
         "8xl": "90rem",
       },
       fontFamily: {
-        logo: ["Newsreader", "Georgia", "serif"],
-        sans: ["Schibsted Grotesk", "-apple-system", "Segoe UI", "sans-serif"],
-        serif: ["Newsreader", "Georgia", "serif"],
+        logo: ["var(--font-newsreader)", "Georgia", "serif"],
+        sans: [
+          "var(--font-schibsted)",
+          "-apple-system",
+          "Segoe UI",
+          "sans-serif",
+        ],
+        serif: ["var(--font-newsreader)", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -100,5 +103,5 @@ module.exports = {
     animation: ["responsive", "hover", "focus"],
     animationDelay: ["responsive", "hover", "focus"], // Ensure delay is available in different states
   },
-  plugins: [require("tailwindcss-animate"), nextui()],
+  plugins: [require("tailwindcss-animate")],
 };

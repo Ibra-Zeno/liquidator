@@ -1,5 +1,4 @@
 import { FC } from "react";
-import Image from "next/image";
 import { GetStaticProps } from "next";
 import { PackageCheck } from "lucide-react";
 import Link from "next/link";
@@ -7,6 +6,8 @@ import Seo from "@/components/Seo";
 import CTA from "@/components/ui/CTA";
 import Strategies from "@/components/ui/about/Strategies";
 import { Button } from "@/components/shadcn/ui/button";
+import TeamIllustration from "@/components/ui/illustrations/TeamIllustration";
+import GrowthIllustration from "@/components/ui/illustrations/GrowthIllustration";
 import { fetchAboutPage, AboutPageContent } from "@/lib/sanityQueries";
 
 const fallback: Required<AboutPageContent> = {
@@ -147,13 +148,9 @@ const About: FC<AboutPageProps> = ({ content }) => {
                 </Link>
               </div>
             </div>
-            <Image
-              src="/images/about/meeting-room1.jpg"
-              alt="Meeting Room"
-              height="700"
-              width="700"
-              className="max-h-96 w-full rounded object-cover object-bottom"
-            />
+            <div className="aspect-[4/3] max-h-96 w-full overflow-hidden rounded bg-gradient-to-br from-secondary to-accent-soft">
+              <TeamIllustration className="h-full w-full" />
+            </div>
           </div>
         </div>
       </section>
@@ -161,13 +158,9 @@ const About: FC<AboutPageProps> = ({ content }) => {
       <section className="border-t border-black/10 py-20 sm:py-24">
         <div className="container mx-auto max-w-[1120px] px-4 lg:px-8">
           <div className="grid items-center gap-10 lg:grid-cols-2">
-            <Image
-              src="/images/about/services.jpg"
-              height={700}
-              width={700}
-              alt="Our services"
-              className="order-2 max-h-96 w-full rounded object-cover lg:order-1"
-            />
+            <div className="order-2 aspect-[4/3] max-h-96 w-full overflow-hidden rounded bg-gradient-to-br from-secondary to-accent-soft lg:order-1">
+              <GrowthIllustration className="h-full w-full" />
+            </div>
             <div className="order-1 lg:order-2">
               <span className="mb-2.5 block text-xs font-semibold uppercase tracking-[0.1em] text-primary/70">
                 Comprehensive Solutions

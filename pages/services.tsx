@@ -6,13 +6,13 @@ import {
   DollarSign,
   CheckCircle,
 } from "lucide-react";
-import Image from "next/image";
 import { GetStaticProps } from "next";
 import Seo from "@/components/Seo";
 import CTA from "@/components/ui/CTA";
 import ServicesComp from "@/components/ui/services/Expertise";
 import WhoWeWorkFor from "@/components/ui/index/WhoWeWorkFor";
 import Process from "@/components/ui/index/Process";
+import SkylineIllustration from "@/components/ui/illustrations/SkylineIllustration";
 import { fetchServices, Service } from "@/lib/sanityQueries";
 
 const heroFeat = [
@@ -167,16 +167,8 @@ const Services: React.FC<ServicesPageProps> = ({ services }) => {
                 ))}
               </dl>
             </div>
-            <div className="relative overflow-hidden rounded shadow-sm">
-              <Image
-                alt="Kuala Lumpur skyline"
-                src="/images/service/serviceFeat.jpg"
-                width={800}
-                height={600}
-                className="w-full object-cover grayscale"
-              />
-              <div className="absolute inset-0 bg-primary mix-blend-color" />
-              <div className="absolute inset-0 bg-primary-deep/20 mix-blend-multiply" />
+            <div className="aspect-[4/3] w-full overflow-hidden rounded bg-gradient-to-b from-accent-soft to-secondary shadow-sm">
+              <SkylineIllustration className="h-full w-full" />
             </div>
           </div>
         </div>

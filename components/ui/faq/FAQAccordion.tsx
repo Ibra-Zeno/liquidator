@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/shadcn/ui/accordion";
-import { Switch } from "@nextui-org/react";
+import { Switch } from "@/components/shadcn/ui/switch";
 import { Separator } from "@/components/shadcn/ui/separator";
 import PortableText from "@/components/ui/PortableText";
 
@@ -38,14 +38,13 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
 
   return (
     <section className="container mx-auto my-8 max-w-[1120px] px-4 sm:my-12 lg:px-8">
-      <Switch
-        onValueChange={() => setIsEnglish(!isEnglish)}
-        size={"sm"}
-        color="success"
-        className="flex justify-self-start text-sm"
-      >
+      <label className="flex w-fit items-center gap-2.5 justify-self-start text-sm text-text/80">
+        <Switch
+          checked={!isEnglish}
+          onCheckedChange={(checked) => setIsEnglish(!checked)}
+        />
         Switch to {isEnglish ? "Bahasa Malaysia" : "English"}
-      </Switch>
+      </label>
       <Accordion type="single" collapsible>
         {Array.from(sections.entries()).map(([category, sectionItems]) => (
           <div
