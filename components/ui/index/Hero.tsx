@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
         <div className="container relative mx-auto flex max-w-[1120px] items-end gap-6 px-4 sm:px-6 lg:px-8">
           <div className="max-w-[640px]">
             <p className="text-xs font-semibold uppercase tracking-[0.1em] text-primary/80">
-              Corporate Recovery &amp; Insolvency — Kuala Lumpur
+              Corporate Recovery &amp; Insolvency · Kuala Lumpur
             </p>
             <h1 className="mt-4 font-serif text-4xl font-medium leading-[1.12] text-text sm:text-5xl lg:text-6xl">
               Insolvency, handled with{" "}

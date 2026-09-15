@@ -24,7 +24,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "1. Information We Collect",
     body: [
-      "We collect personal data you provide directly to us — such as your name, contact details, and the details of your enquiry — when you contact us by phone, email, or through this website.",
+      "We collect personal data you provide directly to us (such as your name, contact details, and the details of your enquiry) when you contact us by phone, email, or through this website.",
       "In the course of engagements (liquidation, receivership, corporate recovery and related matters), we may also collect financial and corporate information as required to carry out our statutory duties as licensed insolvency practitioners.",
     ],
   },

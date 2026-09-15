@@ -23,7 +23,7 @@ const FAQ: React.FC<FAQPageProps> = ({ items }) => {
     <>
       <Seo
         title="Frequently Asked Questions"
-        description="Answers to common questions about liquidation, corporate recovery and our process — from how a case begins to what to expect along the way."
+        description="Answers to common questions about liquidation, corporate recovery and our process, from how a case begins to what to expect along the way."
         path="/FAQ"
       />
       <header className="hero-wash py-20 sm:py-24">
@@ -36,7 +36,7 @@ const FAQ: React.FC<FAQPageProps> = ({ items }) => {
           </h1>
           <p className="mt-5 max-w-[62ch] text-base text-text/70">
             Answers to the most common questions about liquidation,
-            corporate recovery and our process — from how a case begins to
+            corporate recovery and our process, from how a case begins to
             what to expect along the way.
           </p>
         </div>

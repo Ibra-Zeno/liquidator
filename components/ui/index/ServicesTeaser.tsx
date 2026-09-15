@@ -16,7 +16,7 @@ const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ services }) => {
             Our services
           </h2>
           <p className="mt-3.5 text-base text-text/70">
-            Six areas of practice, each led by licensed specialists — from
+            Six areas of practice, each led by licensed specialists, from
             first filing to final discharge.
           </p>
         </div>

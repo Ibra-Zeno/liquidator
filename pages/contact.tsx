@@ -161,7 +161,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
             <OfficeMap
               lat={OFFICE_LAT}
               lng={OFFICE_LNG}
-              label="The Liquidator — Menara Mutiara Bangsar"
+              label="The Liquidator · Menara Mutiara Bangsar"
             />
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${OFFICE_LAT},${OFFICE_LNG}`}

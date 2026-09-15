@@ -73,7 +73,7 @@ const Services: React.FC<ServicesPageProps> = ({ services }) => {
     <main>
       <Seo
         title="Our Services"
-        description="Liquidation, corporate rescue, conveyancing, insolvency administration and more — explore The Liquidator's full range of corporate recovery services."
+        description="Liquidation, corporate rescue, conveyancing, insolvency administration and more. Explore The Liquidator's full range of corporate recovery services."
         path="/services"
       />
       <header

@@ -76,7 +76,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album, albumId }) => {
     <main>
       <Seo
         title={album.title}
-        description={`Photos from ${album.title}${album.date ? ` (${album.date})` : ""} — part of The Liquidator's gallery.`}
+        description={`Photos from ${album.title}${album.date ? ` (${album.date})` : ""}, part of The Liquidator's gallery.`}
         path={`/gallery/${albumId}`}
       />
       <header className="hero-wash py-16 sm:py-20">
